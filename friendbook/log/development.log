@@ -1,0 +1,66 @@
+Started GET "/" for ::1 at 2021-02-08 16:17:33 -0600
+
+ActiveRecord::NoDatabaseError - FATAL:  database "friendbook_development" does not exist:
+
+Started POST "/__better_errors/3821c93f1bc0851c/variables" for ::1 at 2021-02-08 16:17:34 -0600
+  [1m[35m (243.5ms)[0m  [1m[35mCREATE DATABASE "friendbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (149.1ms)[0m  [1m[35mCREATE DATABASE "friendbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "friendbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE "friendbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-02-08 16:19:44 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3131ms (Views: 3118.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (71.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2969231131467707400)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210208222448)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2969231131467707400)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2969231131467707400)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210208222448)
+  [1m[35m (12.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (47.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "birthday" date NOT NULL, "gender" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "bio" text, "work" character varying, "education" character varying, "current_city" character varying, "hometown" character varying, "relationship" character varying, "name_pronunciation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210208222448_create_users.rb:3
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_first_name" ON "users"  ("first_name")[0m
+  ↳ db/migrate/20210208222448_create_users.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_last_name" ON "users"  ("last_name")[0m
+  ↳ db/migrate/20210208222448_create_users.rb:23
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20210208222448_create_users.rb:24
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20210208222448_create_users.rb:25
+  [1m[36mActiveRecord::SchemaMigration Create (12.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210208222448"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (15.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-08 22:40:58.254789"], ["updated_at", "2021-02-08 22:40:58.254789"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2969231131467707400)[0m
+  ↳ bin/rails:9
+  [1m[35m (44.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brynnjohnson/.rbenv/versions/2.5.1/bin/annotate:23
