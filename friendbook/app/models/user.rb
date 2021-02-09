@@ -24,6 +24,7 @@ class User < ApplicationRecord
     validates :first_name, :last_name, :birthday, :gender, :email, :password_digest, :session_token, presence: true
     validates :email, uniqueness: true
     validates :gender, inclusion: {in: %w(Female Male Custom)}
+    # validates :bio, :work, :education, :current_city, :hometown, :relationship, :name_pronunciation, allow_blank: true
     validates :password, length: { minimum: 6}, allow_nil: true
 
     attr_reader :password 

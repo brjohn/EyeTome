@@ -84,3 +84,85 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 516ms (Views: 500.2ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/api/users?email=abc&password=[FILTERED]" for ::1 at 2021-02-08 18:38:10 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"abc", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 9ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users?email=abc&password=[FILTERED]" for ::1 at 2021-02-08 18:41:34 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"abc", "password"=>"[FILTERED]"}
+Unpermitted parameter: :name
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Exists (29.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 422 Unprocessable Entity in 275ms (Views: 4.6ms | ActiveRecord: 107.7ms)
+
+
+Started POST "/api/users?email=anna&password=[FILTERED]" for ::1 at 2021-02-08 18:45:47 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"anna", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - You need to supply at least one validation:
+  app/models/user.rb:27:in `<class:User>'
+  app/models/user.rb:23:in `<top (required)>'
+  app/controllers/api/users_controller.rb:3:in `create'
+
+Started GET "/" for ::1 at 2021-02-08 18:47:14 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 135ms (Views: 126.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users?email=anna&password=[FILTERED]" for ::1 at 2021-02-08 18:48:06 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"anna", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - You need to supply at least one validation:
+  app/models/user.rb:27:in `<class:User>'
+  app/models/user.rb:23:in `<top (required)>'
+  app/controllers/api/users_controller.rb:3:in `create'
+
+Started POST "/api/users?email=anna&password=[FILTERED]" for ::1 at 2021-02-08 18:48:28 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"anna", "password"=>"[FILTERED]"}
+Unpermitted parameter: :name
+  [1m[35m (9.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 422 Unprocessable Entity in 161ms (Views: 0.4ms | ActiveRecord: 41.8ms)
+
+
+Started POST "/api/session?email=anna&password=[FILTERED]" for ::1 at 2021-02-08 18:51:13 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"anna", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+Completed 401 Unauthorized in 46ms (Views: 2.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-08 19:02:31 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 623ms (Views: 611.1ms | ActiveRecord: 0.0ms)
+
+
