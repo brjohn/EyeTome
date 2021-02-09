@@ -166,3 +166,114 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 623ms (Views: 611.1ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/api/users?email=brynn&password=[FILTERED]" for ::1 at 2021-02-08 19:14:22 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"bill", "email"=>"tom@gmail.com"}, "email"=>"brynn", "password"=>"[FILTERED]"}
+Unpermitted parameter: :name
+  [1m[35m (10.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Exists (37.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 422 Unprocessable Entity in 391ms (Views: 6.9ms | ActiveRecord: 48.5ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-08 19:21:56 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"bill", "email"=>"tom@gmail.com", "last_name"=>"nye", "birthday"=>"12/25/1991", "gender"=>"male", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Exists (18.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 422 Unprocessable Entity in 1464ms (Views: 1.3ms | ActiveRecord: 208.5ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-08 19:22:16 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"bill", "email"=>"tom@gmail.com", "last_name"=>"nye", "birthday"=>"12/25/1991", "gender"=>"Male", "password"=>"[FILTERED]"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (2.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 422 Unprocessable Entity in 1325ms (Views: 3.0ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-08 19:24:47 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"bill", "email"=>"tom@gmail.com", "last_name"=>"nye", "birthday"=>"12-12-1990", "gender"=>"Male", "password"=>"[FILTERED]"}}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Exists (24.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[36mUser Create (82.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "bill"], ["last_name", "nye"], ["birthday", "1990-12-12"], ["gender", "Male"], ["email", "tom@gmail.com"], ["password_digest", "$2a$12$K.CbzMhbY8cSTgDUSoDxLu8VK2/bRnkd.J3/1oiDoZlJSfM0zLpUy"], ["session_token", "m-IDOwx5CuywSVl2Jg-pOA"], ["created_at", "2021-02-09 01:24:48.801286"], ["updated_at", "2021-02-09 01:24:48.801286"]]
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54
+  [1m[36mUser Exists (14.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tom@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54
+  [1m[36mUser Update (24.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "mgsoaNb04MThRjdp9uKraw"], ["updated_at", "2021-02-09 01:24:49.002836"], ["id", 1]]
+  ↳ app/models/user.rb:54
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (5.7ms)
+  Rendered api/users/show.json.jbuilder (36.1ms)
+Completed 200 OK in 1616ms (Views: 121.9ms | ActiveRecord: 165.3ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-08 19:26:00 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"tom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tom@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54
+  [1m[36mUser Update (16.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "QvuNkpnQXBdBpH-dFV6P4g"], ["updated_at", "2021-02-09 01:26:02.515272"], ["id", 1]]
+  ↳ app/models/user.rb:54
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered api/users/show.json.jbuilder (18.4ms)
+Completed 200 OK in 1417ms (Views: 136.0ms | ActiveRecord: 28.2ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-08 19:26:19 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QvuNkpnQXBdBpH-dFV6P4g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (12.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54
+  [1m[36mUser Exists (57.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tom@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54
+  [1m[36mUser Update (52.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "SrA39BQBm4uLYF2eq0i4rw"], ["updated_at", "2021-02-09 01:26:19.419493"], ["id", 1]]
+  ↳ app/models/user.rb:54
+  [1m[35m (28.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered api/users/show.json.jbuilder (8.1ms)
+Completed 200 OK in 228ms (Views: 44.8ms | ActiveRecord: 153.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-08 19:27:25 -0600
+Processing by Api::SessionsController#destroy as JSON
+Completed 404 Not Found in 10ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-08 19:30:49 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 231ms (Views: 208.3ms | ActiveRecord: 0.0ms)
+
+
