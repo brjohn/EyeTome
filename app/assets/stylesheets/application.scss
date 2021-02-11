@@ -15,11 +15,13 @@
  */
 // CSS Reset
 @import "base/reset.scss";
+@import "base/fonts.scss";
 
 
 //  Components
 @import "components/login_form.scss";
 @import "components/modal.scss";
+@import "components/nav_bar.scss";
 // @import "test.scss";
 @import "components/modal.scss";
 

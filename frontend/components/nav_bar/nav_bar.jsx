@@ -5,18 +5,33 @@ const NavBar = ({ currentUser, logout}) => {
     
 
     return (
-        <div className="nav-bar">
-            <ul>
-                <li className="FB-icon">F</li>
-                <li>
-                    <h2>{currentUser.first_name}</h2>
-                </li>
-                <li>
-                    <button onClick={logout}>Log Out</button>
-                </li>
-            </ul>
+        <header className="main-nav">
+            <nav className="left-nav">
+                <ul>
+                    <li id="fb-icon-button">FB icon
+                        {/* <i class="""></i> */}
+                        
+                    </li>
+                    <li id="search-bar">Search bar
+                        {/* search icon, rounded button */}
+                    </li>
 
-        </div>
+                </ul>
+            </nav>
+            <nav className="right-nav">
+                <ul>
+                    <li id="user-profile-button">
+                        <button>{currentUser.first_name}</button>
+                    </li>
+                    <li id="account-dropdown-btn">Account Dropdown
+                        {/* <i class=""></i> */}
+                        {/* render account dropdown component */}
+
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
     )
     
 }
