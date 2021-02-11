@@ -26,17 +26,34 @@ class LoginForm extends React.Component{
     render(){
 
         return (
+            <div className="login-grid">
+                <div className="col-1">
+                    <div className="fb-greeting">
+                        <h1>friendbook</h1>
+                        <br />
+                        <p>Connect with friends and the world around you on Friendbook</p>
+                    </div>
+                </div>
+                <div className="col-2">
+                    <div className="login-form-container">
+                        <form onSubmit={this.handleSubmit} className="login-form-box">
+                            <input onChange={this.update('email')} type="text" value={this.state.email} className="login-input" />
+                            <br />
+                            <input onChange={this.update('password')} type="password" value={this.state.password} className="login-input" />
+                            <br />
+                            <button type="submit" className="login-button" >Log In</button>
+                            {/* <input type="submit" className="login-button" value="Log In" /> */}
+                        </form>
+                        <div className="line"></div>
+                        <button onClick={() => this.props.openModal('signup')} className="signup-button">Create New Account</button>
+                    </div>
+                </div>
+                
+                
 
-            <div className="login-form-container">
-                <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <input onChange={this.update('email')} type="text" value={this.state.email} className="login-input"/>
-                    <br/>
-                    <input onChange={this.update('password')} type="password" value={this.state.password} className="login-input" />
-                    <br/>
-                    <input type="submit" className="login-button" value="Log In"/>
-                </form>
-                <button onClick={() => this.props.openModal('signup')}>Create New Account</button>
             </div>
+
+            
 
         )
     }

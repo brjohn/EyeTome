@@ -7,7 +7,7 @@ const App = () => (
     <div>
         <Modal />
         <header>   
-            <h1>Friendbook Header</h1>
+            {/* <h1>Friendbook Header</h1> */}
             <HomeContainer/>
 
         </header>
