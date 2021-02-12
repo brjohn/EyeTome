@@ -58,3 +58,26 @@
   border: solid 1px #ccd0d5; 
   margin-top: 2px;
 }
+
+.full-name {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  .signup-input {
+    width: 90px;
+  }
+}
+
+.radio {
+  font-size: 10px;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.radio > label {
+  border-radius: 3px;
+  border: solid 1px #ccd0d5; 
+  margin: 4px;
+
+
+}

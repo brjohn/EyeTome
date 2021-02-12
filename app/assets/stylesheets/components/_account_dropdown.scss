@@ -1,0 +1,102 @@
+#account-dropdown-btn {
+    position: relative;
+	padding: 7px 9px;
+}
+
+#dd-icon {
+    color: #ECF3FF;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#dd-icon:hover {
+    color: #AAC9FF;
+}
+
+#user-profile-button >i {
+    color: #ccd0d5;;
+}
+
+// #user-profile-button >p {
+//     font-size: 8px;
+//     color:#ccd0d5;;
+// }
+
+#account-dropdown-btn:hover .account-dropdown {
+    display: block;
+}
+
+.account-dropdown {
+    position: absolute;
+	display: none;
+	top: 30px;
+	right: 0;
+	background-color: #fff;
+	border: 1px solid #ccd0d5;
+	border-radius: 3px;
+	padding: 10px;
+	width: 200px;
+    height: max-content;
+	z-index: 1;
+	color: #050505;
+	font-family: arial;
+	text-align: left;
+	// box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+    cursor: pointer;
+}
+
+.profile-link,
+.feedback {
+    border-bottom: 1px solid #f0f2f5;
+	border-radius: 3px;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+    div {
+        h3 {
+            font-size: 11px;
+            margin-bottom: 2px;
+            font-weight: normal;
+        }
+        p {
+            font-size: 8px;
+            color: #65676b;
+            margin-bottom: 6px;
+        }
+    }
+	
+    
+}
+
+
+.profile-link:hover,
+.feedback:hover {
+    background-color:  #f0f2f5;
+}
+
+.account-dd-choices {
+    display: block;
+}
+
+.account-dd-item {
+    display: grid;
+        border-radius: 3px;
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        font-size: 8px;
+
+}
+
+.account-dd-item:hover {
+    background-color:  #f0f2f5;
+}
+
+.fas fa-chevron-right {
+    color: #65676b
+}

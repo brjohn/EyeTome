@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
                 </div>
 
                 <form onSubmit={this.handleSubmit} className="signup-form-box">
-                    <div>
+                    <div className="full-name"> 
                         <input onChange={this.update('first_name')} placeholder="First name" type="text" value={this.state.first_name} className="signup-input" />
                         <input onChange={this.update('last_name')} placeholder="Last name" type="text" value={this.state.last_name} className="signup-input" />
                     </div>

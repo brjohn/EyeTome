@@ -4,11 +4,44 @@
 	justify-content: space-between;
 	padding: 5px 0;
 	border-bottom: 1px solid #f0f2f5;
-    font-family: sans-serif;
+    font-family: arial;
+	
 }
 
 .left-nav > ul,
 .right-nav > ul {
 	display: flex;
 	align-items: center;
+	// justify-content: space-between;
+
+}
+
+#fb-icon-button {
+	color: #1c8ef1;
+}
+
+#search-bar {
+	border-radius: 10px;
+	border-color: none;
+	background-color: #f0f2f5;
+	color: #ccd0d5;
+	width: max-content;
+	margin-left: 10px;
+}
+
+#search-bar > input {
+	border: none;
+	font-size: 8px;
+	font-stretch: semi-expanded;
+	background-color: #f0f2f5;
+	display: inline-block;
+}
+
+#search-bar > i {
+	margin-left: 4px;
+	font-size: 8px;
+}
+
+#fb-icon-button {
+	margin-left: 10px;
 }
