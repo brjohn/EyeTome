@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
-import Home from './home';
+import NewsFeed from './news_feed';
 
 const mapStateToProps = ({ session }) => ({
     currentUser: session.currentUser
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Home);
+)(NewsFeed);
