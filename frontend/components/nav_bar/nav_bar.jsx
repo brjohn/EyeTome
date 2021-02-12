@@ -8,8 +8,8 @@ const NavBar = ({ currentUser, logout}) => {
         <header className="main-nav">
             <nav className="left-nav">
                 <ul>
-                    <li id="fb-icon-button">FB icon
-                        {/* <i class="""></i> */}
+                    <li id="fb-icon-button">
+                        <i class="fab fa-facebook"></i>
                         
                     </li>
                     <li id="search-bar">Search bar
@@ -23,8 +23,8 @@ const NavBar = ({ currentUser, logout}) => {
                     <li id="user-profile-button">
                         <button>{currentUser.first_name}</button>
                     </li>
-                    <li id="account-dropdown-btn">Account Dropdown
-                        {/* <i class=""></i> */}
+                    <li id="account-dropdown-btn">
+                        <i class="fas fa-chevron-circle-down"></i>
                         {/* render account dropdown component */}
 
                     </li>

@@ -3964,3 +3964,111 @@ Unpermitted parameters: :Birthday, :Gender
 Completed 200 OK in 385ms (Views: 25.4ms | ActiveRecord: 10.3ms)
 
 
+Started GET "/" for ::1 at 2021-02-11 19:42:00 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 2943ms (Views: 2921.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-11 19:42:17 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Amy", "last_name"=>"Adams", "birthday"=>"01-01-2001", "gender"=>"Female", "email"=>"mmm", "password"=>"[FILTERED]"}}
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (29.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mmm"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (31.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Amy"], ["last_name", "Adams"], ["birthday", "2001-01-01"], ["gender", "Female"], ["email", "mmm"], ["password_digest", "$2a$12$5FYVn875dsxmKsfxO2XptOivWetnIvP9XeA020sJts0fgdECUtGiW"], ["session_token", "ZhsCg60PQc30mkqGIs5pag"], ["created_at", "2021-02-12 01:42:17.726801"], ["updated_at", "2021-02-12 01:42:17.726801"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mmm"], ["id", 31], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "qxDQwqtRCfKkWOJ-8jusHQ"], ["updated_at", "2021-02-12 01:42:17.768148"], ["id", 31]]
+  ↳ app/models/user.rb:54
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/users/show.json.jbuilder (3.8ms)
+Completed 200 OK in 408ms (Views: 17.9ms | ActiveRecord: 68.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 19:45:39 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 676ms (Views: 665.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-11 19:45:56 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Amy", "last_name"=>"Adams", "birthday"=>"01-01-2001", "gender"=>"Female", "email"=>"mmm", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mmm"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (7.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 328ms (Views: 0.3ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-11 19:46:17 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Amy", "last_name"=>"Adams", "birthday"=>"01-01-2001", "gender"=>"Female", "email"=>"mml", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mml"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Amy"], ["last_name", "Adams"], ["birthday", "2001-01-01"], ["gender", "Female"], ["email", "mml"], ["password_digest", "$2a$12$O7g0pD34unNTJU5iBD9meOFz2/F5mXrht3Z8NRU1g41qDuQES9MBq"], ["session_token", "kG7GfmUTM1ppdyExZpgmqg"], ["created_at", "2021-02-12 01:46:18.332764"], ["updated_at", "2021-02-12 01:46:18.332764"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mml"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "V20L532Rc_5UY5l7PguePQ"], ["updated_at", "2021-02-12 01:46:18.343180"], ["id", 32]]
+  ↳ app/models/user.rb:54
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered api/users/show.json.jbuilder (4.2ms)
+Completed 200 OK in 372ms (Views: 16.6ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 19:47:27 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 213ms (Views: 204.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-11 19:47:42 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Amy", "last_name"=>"Adams", "birthday"=>"01-01-2001", "gender"=>"Female", "email"=>"mll", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mll"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Create (6.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Amy"], ["last_name", "Adams"], ["birthday", "2001-01-01"], ["gender", "Female"], ["email", "mll"], ["password_digest", "$2a$12$jSnU/26vrSdIrKzSI5F5RO/ejLPtKCz8Fx.gu8I.OCh1jh9IQUKfu"], ["session_token", "14W5-FHkejkIY5AXdTQHcQ"], ["created_at", "2021-02-12 01:47:42.307669"], ["updated_at", "2021-02-12 01:47:42.307669"]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mll"], ["id", 33], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ul6ujqmy-jroO8j4pJP-jA"], ["updated_at", "2021-02-12 01:47:42.327417"], ["id", 33]]
+  ↳ app/models/user.rb:54
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered api/users/show.json.jbuilder (4.4ms)
+Completed 200 OK in 352ms (Views: 20.5ms | ActiveRecord: 22.4ms)
+
+
