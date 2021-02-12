@@ -6,6 +6,7 @@
     width: 100%;
     position: absolute;
     top: 30%;
+    font-family: arial;
 }
 
 .col-1,
@@ -18,12 +19,12 @@
     // align-content: center;
     display: flex;
 }
-.col-1 {
-    background-color: khaki;
-}
-.col-2 {
-    background-color: lightseagreen;
-}
+// .col-1 {
+//     background-color: khaki;
+// }
+// // .col-2 {
+//     background-color: lightseagreen;
+// }
 
 
 .fb-greeting {
@@ -33,18 +34,18 @@
     width: 200 px;
     height: min-content;
     display: block;
-    background-color: hotpink;
+    // background-color: hotpink;
 }
 
 .fb-greeting h1 {
-    font-size: x-large;
+    font-size: 32px;
     color: #1c8ef1;
     display: block;
     width: 200px;
 }
 
 .fb-greeting p {
-    font-size: small;
+    font-size: 12px;
     display: block;
     width: 200px;
 
@@ -55,15 +56,12 @@
     // margin: 0 auto;
     width: 200px;
     height: min-content;
-    background-color: hotpink;
-    // top: 30%;
+    background-color: white;
     display: block;
     position: relative;
     border: 2px, solid, #65676b;
     // box-shadow:  #65676b;
     padding: 10px;
-    // margin: 10px;
-    // position: absolue;
     justify-content: center;
 }
 
@@ -77,7 +75,6 @@
 .signup-button {
     color: white; 
     border-radius: 6px;
-    // box-sizing: content-box;
     font-size: 11px;
     justify-content: center;
     padding: 6px;
@@ -106,16 +103,14 @@
 }
 
 .login-input {
-    // margin: 2px;
-    // border: #f0f2f5, solid, 1px; 
-    // border-radius: 6px;
     font-weight: lighter;
     font-size: 10px;
-    color: #65676b;
+    color: #ccd0d5;
     display: inline-block;
     width: 190px;
     border-radius: 3px;
-    border-style: unset;  
+    border-style: unset; 
+    border: solid 1px #ccd0d5; 
 }
 
 
