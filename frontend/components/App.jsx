@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
-import HomeContainer from './home/home_container';
+import NewsFeedContainer from './news_feed/news_feed_container';
 import Modal from './session_form/modal';
 
 const App = () => (
@@ -8,10 +8,10 @@ const App = () => (
         <Modal />
         <header>   
             {/* <h1>Friendbook Header</h1> */}
-            <HomeContainer/>
+            <NewsFeedContainer/>
 
         </header>
-        <Route path="/" component={HomeContainer} /> 
+        <Route path="/" component={NewsFeedContainer} /> 
     </div>
 );
 
