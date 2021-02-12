@@ -11,7 +11,7 @@ const App = () => (
             <HomeContainer/>
 
         </header>
-        {/* <Route path="/login" component={LoginFormContainer} /> */}
+        <Route path="/" component={HomeContainer} /> 
     </div>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import AccountDropdown from './account-dropdown';
 
 const NavBar = ({ currentUser, logout}) => {
 
@@ -12,8 +13,9 @@ const NavBar = ({ currentUser, logout}) => {
                         <i class="fab fa-facebook"></i>
                         
                     </li>
-                    <li id="search-bar">Search bar
-                        {/* search icon, rounded button */}
+                    <li id="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search Friendbook"/>
                     </li>
 
                 </ul>
@@ -21,11 +23,13 @@ const NavBar = ({ currentUser, logout}) => {
             <nav className="right-nav">
                 <ul>
                     <li id="user-profile-button">
-                        <button>{currentUser.first_name}</button>
+                        <i class="fas fa-user-circle"></i>
+                        {/* <button>{currentUser.first_name}</button> */}
+                        {/* <p>Username</p> */}
                     </li>
                     <li id="account-dropdown-btn">
-                        <i class="fas fa-chevron-circle-down"></i>
-                        {/* render account dropdown component */}
+                        <i id="dd-icon" class="fas fa-chevron-circle-down"></i>
+                        <AccountDropdown currentUser={currentUser} logout={logout}/>
 
                     </li>
                 </ul>
