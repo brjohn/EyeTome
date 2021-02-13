@@ -65,6 +65,9 @@
   margin-top: 12px;
   text-indent: 4px;
 }
+#error-input {
+  border-color: #be4b49;
+}
 
 .full-name {
   display: grid;
@@ -82,7 +85,7 @@
 
 .radio {
   font-size: 16px;
-  width: 400px;
+  width: 406px;
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
   margin-top: 4px;
@@ -95,10 +98,12 @@
   text-indent: 4px;
   display: grid;
   grid-template-columns: 70% 30%;
+  color: #65676b;
   // margin: 4px;
 }
 
-#male {
+#male,
+#day {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -119,3 +124,27 @@
   font-size: 12px;
   margin-top: 10px;
 }
+
+.date-wrapper {
+  width: 406px;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+
+}
+
+.date {
+  font-weight: lighter;
+  font-size: 16px;
+  background-color: white;
+  color: #65676b;
+  display: inline-block;
+  height: 36px;
+  border-radius: 3px;
+  border-style: unset; 
+  border: solid 1px #ccd0d5; 
+  margin-top: 8px;
+  text-indent: 4px;
+}
+
+
+ 
