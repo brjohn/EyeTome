@@ -37,10 +37,11 @@ class LoginForm extends React.Component{
                 <div className="col-2">
                     <div className="login-form-container">
                         <form onSubmit={this.handleSubmit} className="login-form-box">
-                            <input onChange={this.update('email')} placeholder="Email or Phone Number" type="text" value={this.state.email} className="login-input" />
+                            <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} className="login-input" />
                             <br />
                             <input onChange={this.update('password')} placeholder="Password" type="password" value={this.state.password} className="login-input" />
                             <br />
+                            <div className="errors">{this.props.errors}</div>
                             <button type="submit" className="login-button" >Log In</button>
                             {/* <input type="submit" className="login-button" value="Log In" /> */}
                         </form>

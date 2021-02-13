@@ -14,3 +14,15 @@ users = User.create([
 ])
 
 ginger = User.create({first_name: "Ginger", last_name: "Spice", birthday: "01-04-1980", gender: "Female", email: "spiceworld@gmail.com", password: "123456"})
+
+short = User.create({first_name: "Al", last_name: "J", birthday: "01-04-1980", gender: "Female", email: "gmail", password: "123456"})
+
+long = User.create({
+    first_name: "Daisy", 
+    last_name: "Dandilion", 
+    birthday: "01-04-1980", 
+    gender: "Female", email: "daisy@gmail.com", 
+    password: "123456",
+    bio: "I love gardening and landscaping!",
+    current_city: "Daffodil City",
+})

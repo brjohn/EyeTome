@@ -5,7 +5,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 30%;
+    top: 25%;
     font-family: arial;
 }
 
@@ -15,67 +15,61 @@
     width: 100%;
     background-color: #f0f2f5;
     justify-content: center;
-    // align-items: center;
-    // align-content: center;
     display: flex;
 }
-// .col-1 {
-//     background-color: khaki;
-// }
-// // .col-2 {
-//     background-color: lightseagreen;
-// }
+
 
 
 .fb-greeting {
-    // margin-left: 10px; 
-    // margin: 0 auto;
     justify-content: center;   
-    width: 200 px;
+    width: 396 px;
     height: min-content;
     display: block;
-    // background-color: hotpink;
+    margin-top: 40px;
+  
 }
 
 .fb-greeting h1 {
-    font-size: 32px;
+    font-size: 60px;
+    font-stretch: ultra-condensed;
     color: #1c8ef1;
     display: block;
-    width: 200px;
+    width: 396px;
 }
 
 .fb-greeting p {
-    font-size: 12px;
+    font-size: 24px;
     display: block;
-    width: 200px;
+    width: 396px;
 
 }
 
 .login-form-container {
     border-radius: 6px;
-    // margin: 0 auto;
-    width: 200px;
+    width: 396px;
     height: min-content;
     background-color: white;
     display: block;
     position: relative;
     border: 2px, solid, #65676b;
-    // box-shadow:  #65676b;
+    box-shadow: 3px 3px 10px 1px #ccd0d5;
     padding: 10px;
     justify-content: center;
 }
 
 .login-form-box {
     display: block;
-    border-width: 200px;
+    border-width: 396px;
     justify-content: center;
+    margin-left: 12px;
+    margin-top: 12px;
 }
 
 .login-button,
 .signup-button {
     color: white; 
     border-radius: 6px;
-    font-size: 11px;
+    font-size: 16px;
     justify-content: center;
     padding: 6px;
     position: relative;
@@ -83,15 +77,22 @@
     vertical-align: middle;
     border: none;
     line-height: 48 px;
+    cursor: pointer;
     
 }
 
 .login-button {
     background-color:  #1c8ef1;
-    width: 190px;
+    width: 364px;
     display: block;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: 8px;
+    margin-bottom: 32px;
+    height: 48px;
+    font-size: 20px;
+}
+
+.login-button:hover {
+    background-color:  #0d7cdd;
 }
 
 .signup-button {
@@ -99,25 +100,36 @@
     display: block;
     margin-top: 12px;
     margin-bottom: 12px;
-    
+    height: 48px;
+    width: 200px;
+    margin-left: 100px;
+    font-size: 18px;   
+}
+
+.signup-button:hover {
+    background-color: #1ea702;
 }
 
 .login-input {
     font-weight: lighter;
-    font-size: 10px;
+    height: 52px;
+    font-size: 16px;
     color: #ccd0d5;
     display: inline-block;
-    width: 190px;
-    border-radius: 3px;
+    width: 364px;
+    border-radius: 6px;
     border-style: unset; 
     border: solid 1px #ccd0d5; 
+    margin-bottom: 20px;
+    text-indent: 6px;
+    cursor: pointer;
 }
 
 
 
 .line {
-    background-color: #f0f2f5e2;
-    width: 190px;
-    height: 1px;
+    background-color:#ccd0d5;
+    width: 380px;
+    height: 1.34px;
     padding: 4px, white;
 }

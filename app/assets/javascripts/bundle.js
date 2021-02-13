@@ -159,18 +159,18 @@ var signup = function signup(user) {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signup"](user).then(function (user) {
       dispatch(receiveCurrentUser(user));
-    }), function (err) {
+    }, function (err) {
       return dispatch(receiveErrors(err.responseJSON));
-    };
+    });
   };
 };
 var login = function login(user) {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
-    }), function (err) {
+    }, function (err) {
       return dispatch(receiveErrors(err.responseJSON));
-    };
+    });
   };
 };
 var logout = function logout() {
@@ -195,7 +195,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _home_home_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home_container */ "./frontend/components/home/home_container.jsx");
+/* harmony import */ var _news_feed_news_feed_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./news_feed/news_feed_container */ "./frontend/components/news_feed/news_feed_container.jsx");
 /* harmony import */ var _session_form_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/modal */ "./frontend/components/session_form/modal.jsx");
 
 
@@ -203,88 +203,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_home_home_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: "/",
-    component: _home_home_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_news_feed_news_feed_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
-
-/***/ }),
-
-/***/ "./frontend/components/home/home.jsx":
-/*!*******************************************!*\
-  !*** ./frontend/components/home/home.jsx ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_bar/nav_bar_container */ "./frontend/components/nav_bar/nav_bar_container.jsx");
-/* harmony import */ var _nav_bar_nav_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../nav_bar/nav_bar */ "./frontend/components/nav_bar/nav_bar.jsx");
-
-
-
-
-
-var Home = function Home(_ref) {
-  var currentUser = _ref.currentUser,
-      closeModal = _ref.closeModal;
-
-  if (currentUser) {
-    closeModal();
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null);
-  } else {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_login_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null);
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Home);
-
-/***/ }),
-
-/***/ "./frontend/components/home/home_container.jsx":
-/*!*****************************************************!*\
-  !*** ./frontend/components/home/home_container.jsx ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home */ "./frontend/components/home/home.jsx");
-
-
-
-
-
-var mapStateToProps = function mapStateToProps(_ref) {
-  var session = _ref.session;
-  return {
-    currentUser: session.currentUser
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    logout: function logout() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
-    },
-    closeModal: function closeModal(modal) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_home__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -433,6 +355,81 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/news_feed/news_feed.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/news_feed/news_feed.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
+/* harmony import */ var _nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_bar/nav_bar_container */ "./frontend/components/nav_bar/nav_bar_container.jsx");
+/* harmony import */ var _nav_bar_nav_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../nav_bar/nav_bar */ "./frontend/components/nav_bar/nav_bar.jsx");
+
+
+
+
+
+var NewsFeed = function NewsFeed(_ref) {
+  var currentUser = _ref.currentUser,
+      closeModal = _ref.closeModal;
+
+  if (currentUser) {
+    closeModal();
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_login_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NewsFeed);
+
+/***/ }),
+
+/***/ "./frontend/components/news_feed/news_feed_container.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/news_feed/news_feed_container.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _news_feed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./news_feed */ "./frontend/components/news_feed/news_feed.jsx");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session;
+  return {
+    currentUser: session.currentUser
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
+    },
+    closeModal: function closeModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_news_feed__WEBPACK_IMPORTED_MODULE_3__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -555,7 +552,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "login-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('email'),
-        placeholder: "Email or Phone Number",
+        placeholder: "Email",
         type: "text",
         value: this.state.email,
         className: "login-input"
@@ -565,7 +562,9 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: this.state.password,
         className: "login-input"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "errors"
+      }, this.props.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "login-button"
       }, "Log In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -769,6 +768,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "makeDate",
+    value: function makeDate() {}
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -778,6 +780,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // console.log(this.props.errors)
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -798,7 +801,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Last name",
         type: "text",
         value: this.state.last_name,
-        className: "signup-input"
+        className: "signup-input",
+        id: "lastname"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('email'),
         placeholder: "Mobile number or email",
@@ -811,30 +815,38 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: this.state.password,
         className: "signup-input"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "birthday"
+      }, "Birthday"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('birthday'),
         type: "date",
         value: this.state.birthday,
         className: "signup-input"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "gender"
+      }, "Gender", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "radio"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Female", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Female"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onClick: this.update('gender'),
         value: "Female"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Male", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        id: "male"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Male"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onClick: this.update('gender'),
         value: "Male"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Custom", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Custom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onClick: this.update('gender'),
         value: "Custom"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "signup-button",
         value: "Sign Up"
-      })));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "errors"
+      }, this.props.errors)));
     }
   }]);
 
@@ -870,7 +882,12 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'Sign Up'
+    formType: 'Sign Up',
+    date: {
+      month: "",
+      day: "",
+      year: ""
+    }
   };
 };
 
