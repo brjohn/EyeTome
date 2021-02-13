@@ -11,7 +11,7 @@ const App = () => (
             <NewsFeedContainer/>
 
         </header>
-        <Route path="/" component={NewsFeedContainer} /> 
+        {/* <Route path="/" component={NewsFeedContainer} />  */}
     </div>
 );
 
