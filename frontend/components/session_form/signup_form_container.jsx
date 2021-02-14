@@ -8,11 +8,10 @@ const mapStateToProps = ({errors}) => {
     return {
         errors: errors.session,
         formType: 'Sign Up',
-        date: {
-            month: "",
-            day: "",
-            year: ""
-        }
+        month: "",
+        day: "",
+        year: ""
+        
     };
 };
 

@@ -16,25 +16,43 @@ class SignupForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+        this.finalSubmit = this.finalSubmit.bind(this);
+    };
 
     update(field) {
+
         return e => this.setState({
             [field]: e.currentTarget.value
         });
-    }
+    };
+
+
+    // handleInput(field) {
+    //     return e => this.
+    // }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
-        this.setState({ birthday: `${this.state.month}-${this.state.day}-${this.state.year}`})
+        this.setState({ 
+            [birthday]: this.state.month + "-" + this.state.day + "-" +this.state.year
+        })
+        this.finalSubmit(e);
+    }
+
+    finalSubmit(e) {
+        debugger
+        e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.signup(user);
     }
 
+
+
     render() {
         // console.log(this.props.errors)
         const year = new Date().getFullYear();
-
+        
         return (
 
             <div className="signup-form-container">
@@ -58,7 +76,7 @@ class SignupForm extends React.Component {
                     <div className="birthday">Birthday</div>
                     {/* <input onChange={this.update('birthday')} type="date" value={this.state.birthday} className="signup-input" /> */}
                     <div className="date-wrapper">
-                        <select onSelect={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className="date">
+                        <select onChange={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className="date">
                             <option value="1">Jan</option>
                             <option value="2">Feb</option>
                             <option value="3">Mar</option>
@@ -72,13 +90,13 @@ class SignupForm extends React.Component {
                             <option value="9">Nov</option>
                             <option value="10">Dec</option>
                         </select>
-                        <select onSelect={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className="date">
+                        <select onChange={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className="date">
                             {Array.from(new Array(31), (v, i) =>
                                 <option key={i} value={`${1 + i}`}>{1 + i}</option>
                             )}
 
                         </select>
-                        <select onSelect={this.update('year')} aria-label="Year" name="year" id="year" title="Year" className="date">
+                        <select onChange={this.update('year')} aria-label="Year" name="year" id="year" title="Year" className="date">
                             {Array.from(new Array(116), (v, i) =>
                                 <option key={i} value={`${year - i}`}>{year - i}</option>
                             )}

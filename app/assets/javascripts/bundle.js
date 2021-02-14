@@ -758,6 +758,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       year: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.finalSubmit = _this.finalSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -772,11 +773,20 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleSubmit",
-    value: function handleSubmit(e) {
+    value: // handleInput(field) {
+    //     return e => this.
+    // }
+    function handleSubmit(e) {
+      debugger;
       e.preventDefault();
-      this.setState({
-        birthday: "".concat(this.state.month, "-").concat(this.state.day, "-").concat(this.state.year)
-      });
+      this.setState(_defineProperty({}, birthday, this.state.month + "-" + this.state.day + "-" + this.state.year));
+      this.finalSubmit(e);
+    }
+  }, {
+    key: "finalSubmit",
+    value: function finalSubmit(e) {
+      debugger;
+      e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.signup(user);
     }
@@ -824,7 +834,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }, "Birthday"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onSelect: this.update('month'),
+        onChange: this.update('month'),
         "aria-label": "Month",
         name: "month",
         id: "month",
@@ -855,7 +865,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }, "Nov"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "10"
       }, "Dec")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onSelect: this.update('day'),
+        onChange: this.update('day'),
         "aria-label": "Day",
         name: "day",
         id: "day",
@@ -867,7 +877,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
           value: "".concat(1 + i)
         }, 1 + i);
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onSelect: this.update('year'),
+        onChange: this.update('year'),
         "aria-label": "Year",
         name: "year",
         id: "year",
@@ -942,11 +952,9 @@ var mapStateToProps = function mapStateToProps(_ref) {
   return {
     errors: errors.session,
     formType: 'Sign Up',
-    date: {
-      month: "",
-      day: "",
-      year: ""
-    }
+    month: "",
+    day: "",
+    year: ""
   };
 };
 
