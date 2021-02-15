@@ -2,9 +2,9 @@
 	display:flex;
 	background-color: white;
 	justify-content: space-between;
-	padding: 5px 0;
 	border-bottom: 1px solid #f0f2f5;
     font-family: arial;
+	height: 56px;
 	
 }
 
@@ -15,13 +15,38 @@
 	// justify-content: space-between;
 
 }
+.left-nav {
+	margin-top: 6px;
 
-#fb-icon-button {
-	color: #1c8ef1;
+	#home-button {
+		margin-left: 48px;
+		color: #1c8ef1;
+		font-size: 28px;
+		cursor: pointer;
+		// border-bottom: 2px solid #1c8ef1;
+		// height: max-content;
+		// width: 112px;
+	}
+	#fb-icon-button {
+		color: #1c8ef1;
+		font-size: 40px;
+		cursor: pointer;
+	}
+
 }
 
+
+
+
+
 #search-bar {
-	border-radius: 10px;
+	grid-template-columns: 40px 70px;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	height: 40px;
+	width: 240px;
 	border-color: none;
 	background-color: #f0f2f5;
 	color: #ccd0d5;
@@ -31,17 +56,49 @@
 
 #search-bar > input {
 	border: none;
-	font-size: 16px;
+	margin-top: 10px;
+	font-size: 14px;
 	font-stretch: semi-expanded;
 	background-color: #f0f2f5;
 	display: inline-block;
+	text-indent: 4px;
 }
 
 #search-bar > i {
 	margin-left: 10px;
 	font-size: 16px;
+	color: #65676b;
 }
 
 #fb-icon-button {
 	margin-left: 20px;
+}
+
+.user-profile-button {
+	display: grid;
+	grid-template-columns: 40px 70px;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	border-color: white;
+	padding: 1px;
+	height: 32px;
+	cursor: pointer;
+	i {
+		font-size: 28px;
+		margin-top: 2px;
+		text-indent: 2px;
+		margin-right: 4px;
+		color: #ccd0d5;
+	}
+// will be link not div!!!
+	div {
+		font-size: 15px;
+		margin-top: 8px;
+	}
+}
+
+.user-profile-button:hover {
+	background-color: #f0f2f5;
 }

@@ -5,6 +5,7 @@
 
 #dd-icon {
     color: #ECF3FF;
+    font-size: 40px;
     margin-right: 20px;
     margin-left: 20px;
 }
@@ -35,14 +36,20 @@
 	border: 1px solid #ccd0d5;
 	border-radius: 3px;
 	padding: 10px;
-	width: 300px;
+	width: 360px;
     height: max-content;
 	z-index: 1;
-	color: #050505;
+	color: #050505;;
 	font-family: arial;
 	text-align: left;
+    text-indent: 4px;
 	// box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
     cursor: pointer;
+
+    i {
+        color: #ccd0d5;
+        font-size: 36px;
+    }
 }
 
 .profile-link,
@@ -53,23 +60,61 @@
     grid-template-columns: 10% 90%;
     margin-top: 6px;
     margin-bottom: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 
     div {
+        margin-top: 12px;
         h3 {
-            font-size: 18px;
-            margin-bottom: 2px;
+            // font-size: 18px;
+            margin-bottom: 4px;
             font-weight: normal;
         }
         p {
-            font-size: 10px;
+            // font-size: 10px;
             color: #65676b;
             margin-bottom: 6px;
+            font-weight: lighter;
         }
-    }
-	
+    }	
     
 }
 
+.feedback {
+    height: 60px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    div {
+        text-indent: 26px;
+    }
+    h3 {
+        font-size: 15px;
+    }
+    p {
+        font-size: 13px;
+    }
+    i {
+        margin-top: 8px;
+    }
+}
+.profile-link {
+    
+    height: 68 px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    div {
+        text-indent: 32px;
+    }
+    h3 {
+        font-size: 17px;
+    }
+    p {
+        font-size: 15px;
+    }
+    i {
+        font-size: 60px;
+    }
+}
 
 .profile-link:hover,
 .feedback:hover {
@@ -84,12 +129,18 @@
     display: grid;
         border-radius: 3px;
         display: grid;
+        height: 48px;
         grid-template-columns: 10% 80% 10%;
-        padding-top: 6px;
-        padding-bottom: 6px;
-        margin-top: 6px;
-        margin-bottom: 6px;
-        font-size: 12px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-size: 15px;
+        div {
+            margin-top: 12px;
+            text-indent: 14px;
+        }
+        
 
 }
 

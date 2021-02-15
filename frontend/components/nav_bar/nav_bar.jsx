@@ -1,7 +1,7 @@
 import React from 'react';
 import AccountDropdown from './account-dropdown';
 
-const NavBar = ({ currentUser, logout}) => {
+const NavBar = ({ fullUser, logout}) => {
 
     
 
@@ -17,19 +17,22 @@ const NavBar = ({ currentUser, logout}) => {
                         <i class="fas fa-search"></i>
                         <input type="text" placeholder="Search Friendbook"/>
                     </li>
+                    <li id="home-button">
+                        <i class="fas fa-home"></i>
+                    </li>
 
                 </ul>
             </nav>
             <nav className="right-nav">
                 <ul>
-                    <li id="user-profile-button">
+                    <li className="user-profile-button">
                         <i class="fas fa-user-circle"></i>
-                        {/* <button>{currentUser.first_name}</button> */}
+                        <div>{fullUser.first_name}</div> 
                         {/* <p>Username</p> */}
                     </li>
                     <li id="account-dropdown-btn">
                         <i id="dd-icon" class="fas fa-chevron-circle-down"></i>
-                        <AccountDropdown currentUser={currentUser} logout={logout}/>
+                        <AccountDropdown fullUser={fullUser} logout={logout}/>
 
                     </li>
                 </ul>
