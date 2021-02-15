@@ -8,7 +8,7 @@ const AccountDropdown = (props) => {
             <li className="profile-link">
                 <i class="fas fa-user-circle"></i>
                 <div>   
-                   <h3>{props.currentUser.first_name} {props.currentUser.last_name}</h3> 
+                   <h3>{props.fullUser.first_name} {props.fullUser.last_name}</h3> 
                     <p>See your profile</p> 
                 </div>
                   
