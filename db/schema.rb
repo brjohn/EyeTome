@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_222448) do
+ActiveRecord::Schema.define(version: 2021_02_14_194543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.string "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "poster_id", null: false
+    t.string "wall_owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "body", null: false
+    t.index ["poster_id"], name: "index_posts_on_poster_id"
+    t.index ["wall_owner_id"], name: "index_posts_on_wall_owner_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "requester_id", null: false
+    t.string "friend_requested_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_requested_id", "requester_id"], name: "index_requests_on_friend_requested_id_and_requester_id", unique: true
+    t.index ["requester_id"], name: "index_requests_on_requester_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
