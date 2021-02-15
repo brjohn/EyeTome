@@ -14,7 +14,7 @@ class Profile extends React.Component {
     render(){
         return (
             <div>
-                <ProfileHeader fullUser={this.props.fullUser}/>
+                <ProfileHeader profileOwner={this.props.profileOwner}/>
             </div>
         )
     }

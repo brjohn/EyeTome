@@ -18,7 +18,7 @@ const ProfileHeader = (props) => {
                 </div>
             </div>
             <div className="name-banner">
-                <h2>{props.fullUser.first_name} {props.fullUser.last_name}</h2>
+                <h2>{props.profileOwner.first_name} {props.profileOwner.last_name}</h2>
                 <div>Add Bio</div>
             </div>
 
