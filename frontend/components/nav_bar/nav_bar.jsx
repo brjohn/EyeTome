@@ -26,9 +26,16 @@ const NavBar = ({ fullUser, logout}) => {
             <nav className="right-nav">
                 <ul>
                     <li className="user-profile-button">
-                        <i class="fas fa-user-circle"></i>
-                        <div>{fullUser.first_name}</div> 
-                        {/* <p>Username</p> */}
+                        {/* <Link to={`/profile/${fullUser.id}`}>
+                            <i class="fas fa-user-circle"></i>
+                            <div>{fullUser.first_name}</div> 
+                        </Link> */}
+                        
+                            <i class="fas fa-user-circle"></i>
+                            <div>{fullUser.first_name}</div>
+                        
+                        
+                        
                     </li>
                     <li id="account-dropdown-btn">
                         <i id="dd-icon" class="fas fa-chevron-circle-down"></i>
