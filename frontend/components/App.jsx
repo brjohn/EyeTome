@@ -9,13 +9,13 @@ const App = () => (
     <div>
         <Modal />
         <header>   
-            <HomeContainer/>
+            {/* <HomeContainer/> */}
         </header>
 
-        {/* <Switch> */}
-            {/* <Route exact path="/profile/:user_id" component={ProfileContainer}/>
+        <Switch>
+            <Route path="/users/:userId" component={ProfileContainer}/>
             <Route path="/" component={HomeContainer}/>
-        </Switch> */}
+        </Switch>
     </div>
 );
 
