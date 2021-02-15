@@ -26,3 +26,13 @@ long = User.create({
     bio: "I love gardening and landscaping!",
     current_city: "Daffodil City",
 })
+
+a1 = User.create({first_name: "Amy", last_name: "Andrews", birthday: "01-04-1980", gender: "Female", email: "a@yahoo.com", password: "123456"})
+b1 = User.create({first_name: "Berttie", last_name: "Botts", birthday: "01-04-1980", gender: "Male", email: "b@yahoo.com", password: "123456"})
+c1 = User.create({first_name: "Courtney", last_name: "Clarahan", birthday: "01-04-1980", gender: "Female", email: "c@yahoo.com", password: "123456"})
+d1 = User.create({first_name: "Daphny", last_name: "Davidson", birthday: "03-05-1990", gender: "Female", email: "d@yahoo.com", password: "123456"})
+e1 = User.create({first_name: "Erik", last_name: "Eriksson", birthday: "03-05-1990", gender: "Male", email: "e@yahoo.com", password: "123456"})
+f1 = User.create({first_name: "Flo", last_name: "Ferdinand", birthday: "03-05-1990", gender: "Female", email: "f@yahoo.com", password: "123456"})
+g1 = User.create({first_name: "Georgie", last_name: "Giordano", birthday: "03-07-1990", gender: "Male", email: "g@yahoo.com", password: "123456"})
+h1 = User.create({first_name: "Helmut", last_name: "Hendriksson", birthday: "03-04-1990", gender: "Male", email: "h@yahoo.com", password: "123456"})
+j1 = User.create({first_name: "Jenny", last_name: "Jones", birthday: "03-06-1995", gender: "Female", email: "j@yahoo.com", password: "123456"})

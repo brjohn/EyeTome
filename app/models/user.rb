@@ -27,6 +27,41 @@ class User < ApplicationRecord
     # validates :bio, :work, :education, :current_city, :hometown, :relationship, :name_pronunciation, allow_blank: true
     validates :password, length: { minimum: 6}, allow_nil: true
 
+    has_many :user_friendships,
+    foreign_key: :user_id,
+    class_name: :Friendship,
+    dependent: :destroy
+
+    has_many :friend_friendships,
+    foreign_key: :friend_id,
+    class_name: :Friendship,
+    dependent: :destroy
+
+    has_many :friends,
+    through: :user_friendships,
+    source: :friend
+
+    has_many :posts,
+    foreign_key: :poster_id,
+    class_name: :Post 
+
+    has_one :wall_for_posts,
+    foreign_key: :wall_owner_id,
+    class_name: :Post
+
+    has_many :requests_received,
+    foreign_key: :friend_requested_id,
+    class_name: :Request
+
+    has_many :requests_made,
+    foreign_key: :requester_id,
+    class_name: :Request
+
+    # Active Storage Association
+    # has_one_attached :photo
+
+
+
     attr_reader :password 
 
     after_initialize :ensure_session_token

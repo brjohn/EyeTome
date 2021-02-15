@@ -24,6 +24,14 @@ class LoginForm extends React.Component{
     }
 
     render(){
+        const ifErrors = () => {
+            if (this.props.errors.length > 0){
+                return "red"
+            } else {
+                return "normal"
+            }
+        
+        }
 
         return (
             <div className="login-grid">
@@ -37,13 +45,14 @@ class LoginForm extends React.Component{
                 <div className="col-2">
                     <div className="login-form-container">
                         <form onSubmit={this.handleSubmit} className="login-form-box">
-                            <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} className="login-input" />
-                            <br />
-                            <input onChange={this.update('password')} placeholder="Password" type="password" value={this.state.password} className="login-input" />
-                            <br />
+                            <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} 
+                                className="login-input" id={ifErrors()}/>
                             <div className="errors">{this.props.errors}</div>
+                            <input onChange={this.update('password')} placeholder="Password" type="password" value={this.state.password} 
+                                className="login-input" id={ifErrors()}/>
+                            <br />
                             <button type="submit" className="login-button" >Log In</button>
-                            {/* <input type="submit" className="login-button" value="Log In" /> */}
+                            
                         </form>
                         <div className="line"></div>
                         <button onClick={() => this.props.openModal('signup')} className="signup-button">Create New Account</button>

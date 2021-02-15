@@ -122,7 +122,14 @@
     border: solid 1px #ccd0d5; 
     margin-bottom: 20px;
     text-indent: 6px;
-    cursor: pointer;
+    // cursor: pointer;
+}
+
+#red {
+    border-radius: 6px;
+    border-style: unset; 
+    border: solid 1px; 
+    border-color: red; 
 }
 
 
