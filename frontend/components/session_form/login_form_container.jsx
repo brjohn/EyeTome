@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         login: (user) => dispatch(login(user)),
         openModal: modal => dispatch(openModal(modal)),
-        clearSessionErrors: () => dispatch(clearSessionErrors())
+        clearSessionErrors: () => dispatch(clearSessionErrors()),
+
     }
 };
 

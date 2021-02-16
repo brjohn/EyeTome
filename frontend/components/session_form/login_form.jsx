@@ -9,6 +9,7 @@ class LoginForm extends React.Component{
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemo = this.loginDemo.bind(this);
     }
     
 
@@ -27,6 +28,11 @@ class LoginForm extends React.Component{
     openSignup() {
         this.props.clearSessionErrors
         this.props.openModal('signup')
+    }
+
+    loginDemo() {
+        const user = Object.assign({}, {email: "demo@yahoo.com"}, {password: "123456"})
+        this.props.login(user);
     }
 
 
@@ -65,9 +71,10 @@ class LoginForm extends React.Component{
                                 className="login-input" id={ifErrors()}/>
                             <br />
                             <div className="errors">{errors()}</div>
-                            <button type="submit" className="login-button" >Log In</button>
-                            
+                            <button type="submit" className="login-button" >Log In</button>   
                         </form>
+                        <button onClick={this.loginDemo}
+                            className="login-button" id="demo-login">Log In as a Demo User</button>
                         <div className="line"></div>
                         <button onClick={() => this.props.openModal('signup')} 
                         className="signup-button">Create New Account</button>

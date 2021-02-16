@@ -742,6 +742,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.loginDemo = _this.loginDemo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -766,6 +767,16 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function openSignup() {
       this.props.clearSessionErrors;
       this.props.openModal('signup');
+    }
+  }, {
+    key: "loginDemo",
+    value: function loginDemo() {
+      var user = Object.assign({}, {
+        email: "demo@yahoo.com"
+      }, {
+        password: "123456"
+      });
+      this.props.login(user);
     }
   }, {
     key: "render",
@@ -818,7 +829,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       }, errors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "login-button"
-      }, "Log In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Log In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.loginDemo,
+        className: "login-button",
+        id: "demo-login"
+      }, "Log In as a Demo User"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "line"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -1091,10 +1106,14 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.fn_err,
         id: "fn-err"
-      }, "What's your name?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "What's your name?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-right"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.ln_err,
         id: "ln-err"
-      }, "What's your name?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "What's your name?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-left"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('email'),
         placeholder: "Email",
         type: "text",
@@ -1104,7 +1123,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.email_err,
         id: "email-err"
-      }, "You'll use this when you log in and if you ever need to reset your password.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "You'll use this when you log in and if you ever need to reset your password.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-right"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('password'),
         placeholder: "New password",
         type: "password",
@@ -1114,18 +1135,20 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.pw_err,
         id: "pw-err"
-      }, "Enter a combination of at least six characters.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Enter a combination of at least six characters.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-right"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "birthday"
       }, "Birthday"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _defineProperty({
         onChange: this.update('month'),
         "aria-label": "Month",
         name: "month",
         id: "month",
         title: "Month",
         className: "date"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "id", ifErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
       }, "Jan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
@@ -1149,26 +1172,26 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         value: "11"
       }, "Nov"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "Dec")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "Dec")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _defineProperty({
         onChange: this.update('day'),
         "aria-label": "Day",
         name: "day",
         id: "day",
         title: "Day",
         className: "date"
-      }, Array.from(new Array(31), function (v, i) {
+      }, "id", ifErrors()), Array.from(new Array(31), function (v, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: i,
           value: "".concat(1 + i)
         }, 1 + i);
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _defineProperty({
         onChange: this.update('year'),
         "aria-label": "Year",
         name: "year",
         id: "year",
         title: "Year",
         className: "date"
-      }, Array.from(new Array(116), function (v, i) {
+      }, "id", ifErrors()), Array.from(new Array(116), function (v, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: i,
           value: "".concat(year - i)
@@ -1176,39 +1199,42 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.bday_err,
         id: "bday-err"
-      }, "It looks like you entered the wrong info. Please be sure to use your real birthday.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "It looks like you entered the wrong info. Please be sure to use your real birthday.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-right"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "gender"
       }, "Gender "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "radio"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "gender-input"
+        className: "gender-input",
+        id: ifErrors()
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Female"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onChange: this.update('gender'),
         value: "Female",
-        checked: this.state.gender === 'Female',
-        id: ifErrors()
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        checked: this.state.gender === 'Female'
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", _defineProperty({
         id: "male",
         className: "gender-input"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Male"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "id", ifErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Male"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onChange: this.update('gender'),
         value: "Male",
-        checked: this.state.gender === 'Male',
-        id: ifErrors()
+        checked: this.state.gender === 'Male'
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "gender-input"
+        className: "gender-input",
+        id: ifErrors()
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Custom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onChange: this.update('gender'),
         value: "Custom",
-        checked: this.state.gender === 'Custom',
-        id: ifErrors()
+        checked: this.state.gender === 'Custom'
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.gender_err,
         id: "gender-err"
-      }, "Please choose a gender.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Please choose a gender.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-right"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "signup-button",
         value: "Sign Up"

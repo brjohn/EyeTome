@@ -161,67 +161,6 @@ input[placeholder="Last name"] {
   text-indent: 4px;
 }
 
-// .left-errors {
-//   // position: relative;
-//   .hide {
-//     display: none;
-//   }
-//   .show {
-//     display: block;
-//     background-color: #BE4B49;
-//     color: white;
-//     font-size: 13px;
-//     padding: 10px;
-//     // width: min-content;
-//     // height: min-content;
-//     border-radius: 3px;
-//     margin-right: 24px;
-//     // margin-bottom: 40px;
-//     border-color:  #98312f;
-//     margin-left: 24px;
-//   }
-    
-// }
-
-//   #fn-error {
-//     margin-top: 108px;
-//     width: 150px;
-//   }
-//   #email-err {
-//     margin-top: 24px;
-//     width: 326px;
-//   }
-//   #pw-err {
-//     margin-top: 24px;
-//     width: 326px;
-//   }
-//   #bday-err {
-//     margin-top: 24px;
-//     width: 326px;
-//   }
-//   #gender-err {
-//     margin-top: 24px;
-//     width: 326px;
-//   }
-
-// .right-errors {
-//   .hide {
-//     display: none;
-//   }
-//   .show {
-//     display: block;
-//     background-color: #BE4B49;
-//     color: white;
-//     font-size: 13px;
-//     height: min-content;
-//     padding: 10px;
-//     border-radius: 3px;
-//     margin-top: 108px;
-//     margin-left: 8px;
-//     border-color:  #98312f;
-//     width: 346px;
-//   }
-// }
 .hide {
   display: none;
 }
@@ -230,6 +169,7 @@ input[placeholder="Last name"] {
   position: absolute;
   margin-right: 100px;
   background-color: #BE4B49;
+  border-color: #721e1c;
   color: white;
   font-size: 13px;
   height: min-content;
@@ -246,50 +186,76 @@ input[placeholder="Last name"] {
     width: 264px;
     right: 350px;
     top: 212px;
+    div {
+      top: 8px;
+      left: 296px;
+    }
   }
 
 #gender-err {
   width: 146px;
   right: 350px;
   top: 350px;
+  div {
+    top: 8px;
+    left: 178px;
+  }
 }
 #bday-err {
   width: 264px;
   right: 350px;
   top: 276px;
+  div {
+    top: 8px;
+    left: 296px;
+  }
 }
 #fn-err {
   width: 116px;
   right: 350px;
   top: 100px;
+  div {
+    top: 8px;
+    left: 148px;
+  }
 }
 #email-err {
   width: 264px;
   right: 350px;
   top: 150px;
+  div {
+    top: 8px;
+    left: 296px;
+  }
 }
 #ln-err {
   width: 116px;
   left: 451px;
   top: 100px;
+  div {
+    top: 8px;
+    right: 148px;
+  }
 }
 
 .arrow-right {
+  position: absolute;
   width: 0; 
   height: 0; 
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   
-  border-left: 60px solid#BE4B49;
+  border-left: 10px solid #BE4B49;
 }
 
 .arrow-left {
+  position: absolute;
   width: 0; 
   height: 0; 
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent; 
   
-  border-right:10px solid#BE4B49; 
+  border-right:10px solid #BE4B49; 
 }
 
  
