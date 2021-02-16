@@ -11784,3 +11784,369 @@ Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday
 Completed 422 Unprocessable Entity in 350ms (Views: 2.0ms | ActiveRecord: 3.2ms)
 
 
+Started GET "/" for ::1 at 2021-02-16 13:13:57 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 1406ms (Views: 1387.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:14:03 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (22.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 355ms (Views: 0.4ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:15:31 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 287ms (Views: 281.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:15:34 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 318ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:23:36 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 344ms (Views: 331.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:23:39 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 328ms (Views: 0.3ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:23:41 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"show", "ln_err"=>"show", "email_err"=>"show", "bday_err"=>"show", "gender_err"=>"show", "pw_err"=>"show"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 335ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:26:15 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 288ms (Views: 282.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:26:17 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 307ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:27:08 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 225ms (Views: 213.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:27:11 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 314ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:30:47 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 264ms (Views: 256.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:30:49 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 397ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:31:12 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 205ms (Views: 198.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:31:14 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 310ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:31:43 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 219ms (Views: 211.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:31:45 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 313ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:35:38 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 908ms (Views: 899.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:35:41 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 336ms (Views: 0.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:36:20 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 209ms (Views: 201.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:36:24 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 318ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:39:37 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 365ms (Views: 351.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:39:40 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 334ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:40:34 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 319ms (Views: 313.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:40:37 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 324ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:41:46 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 303ms (Views: 296.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:41:49 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 309ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:43:57 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 987ms (Views: 981.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:44:01 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 319ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:46:49 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 797ms (Views: 788.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:46:52 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 308ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:49:41 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 1079ms (Views: 1056.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:49:45 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 323ms (Views: 0.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-16 13:53:33 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 908ms (Views: 892.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:53:38 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"hide", "ln_err"=>"hide", "email_err"=>"hide", "bday_err"=>"hide", "gender_err"=>"hide", "pw_err"=>"hide"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 327ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/users" for ::1 at 2021-02-16 13:53:50 -0600
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Brynn", "last_name"=>"Johnson", "email"=>"brynnreginajohnson@gmail.com", "password"=>"[FILTERED]", "birthday"=>"--", "gender"=>"", "month"=>"", "day"=>"", "year"=>"", "fn_err"=>"show", "ln_err"=>"show", "email_err"=>"show", "bday_err"=>"show", "gender_err"=>"show", "pw_err"=>"show"}}
+Unpermitted parameters: :month, :day, :year, :fn_err, :ln_err, :email_err, :bday_err, :gender_err, :pw_err
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "brynnreginajohnson@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:5
+Completed 422 Unprocessable Entity in 307ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+

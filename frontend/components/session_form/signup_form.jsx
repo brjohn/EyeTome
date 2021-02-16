@@ -28,32 +28,6 @@ class SignupForm extends React.Component {
         this.props.clearSessionErrors()
     }
 
-    handleErrors(){
-        let fn_err = "hide"
-        if (this.props.errors.includes("First name can't be blank")){
-            fn_err = "show"
-            // this.setState({fn_err: "show"})
-        }
-        // if (this.props.errors.includes("Last name can't be blank")) {
-        //     this.setState({ ln_err: "show" })
-        // }
-        // if (this.props.errors.includes("Birthday can't be blank")) {
-        //     this.setState({ bday_err: "show" })
-        // }
-        // if (this.props.errors.includes("Gender can't be blank")) {
-        //     this.setState({ gender_err: "show" })
-        // }
-        // if (this.props.errors.includes("Password is too short (minimum is 6 characters)")) {
-        //     this.setState({ pw_err: "show" })
-        // }
-        // if (this.props.errors.includes("Email can't be blank")) {
-        //     this.setState({ email_err: "show" })
-        // }
-        this.setState({
-            fn_err: fn_err
-        })
-    }
-
     update(field) {
 
         return e => this.setState({
@@ -98,10 +72,7 @@ class SignupForm extends React.Component {
         user.birthday = `${user.month}-${user.day}-${user.year}`
         this.props.signup(user)
             .then(this.props.closeModal)
-            // .catch(this.handleErrors)
-    
     }
-
 
 
     render() {
@@ -117,12 +88,11 @@ class SignupForm extends React.Component {
                 return "normal"
             }
         }
-        // this.handleErrors();
         
         return (
         
             <div className="signup-fullwidth">
-                <div className="left-errors">
+                {/* <div className="left-errors">
                     <div className={this.state.fn_err} id="fn-err">What's your name?</div>
                     <div className={this.state.email_err} id="email-err">
                         You'll use this when you log in and if you ever need to reset your password.</div>
@@ -134,7 +104,7 @@ class SignupForm extends React.Component {
                     <div className={this.state.gender_err} id="gender-err">Please choose a gender.</div>
                     
 
-                </div>
+                </div> */}
             <div className="signup-form-container">
                 <div className="sign-up-header">
                     <h1>Sign Up</h1>
@@ -142,18 +112,31 @@ class SignupForm extends React.Component {
                 </div>
 
                 <form onSubmit={this.handleSubmit} className="signup-form-box">
-                    <div className="full-name"> 
-                        <input onChange={this.update('first_name')} placeholder="First name" type="text" value={this.state.first_name} 
-                            className="signup-input" id="firstname" id={ifErrors()}/>
-                        <input onChange={this.update('last_name')} placeholder="Last name" type="text" value={this.state.last_name} 
+                    <div>
+                        <div className="full-name"> 
+                            <input onChange={this.update('first_name')} placeholder="First name" type="text" value={this.state.first_name} 
+                                className="signup-input" id="firstname" id={ifErrors()}/>
+                            <input onChange={this.update('last_name')} placeholder="Last name" type="text" value={this.state.last_name} 
+                                className="signup-input" id={ifErrors()}/>
+                        </div>
+                        <div className={this.state.fn_err} id="fn-err">What's your name?</div>
+                        <div className={this.state.ln_err} id="ln-err">What's your name?</div>
+                    </div>
+                    <div>
+                        <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} 
                             className="signup-input" id={ifErrors()}/>
+                        <div className={this.state.email_err} id="email-err">
+                            You'll use this when you log in and if you ever need to reset your password.
+                        </div>
                     </div>
                     
-                    <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} 
-                        className="signup-input" id={ifErrors()}/>
-                    
-                    <input onChange={this.update('password')} placeholder="New password" type="password" value={this.state.password} 
-                        className="signup-input" id={ifErrors()}/>
+                    <div>
+                        <input onChange={this.update('password')} placeholder="New password" type="password" value={this.state.password} 
+                            className="signup-input" id={ifErrors()}/>
+                        <div className={this.state.pw_err} id="pw-err">
+                            Enter a combination of at least six characters.
+                        </div>
+                    </div>
                     
                     <div className="birthday">Birthday</div>
                     {/* <input onChange={this.update('birthday')} type="date" value={this.state.birthday} 
@@ -184,6 +167,9 @@ class SignupForm extends React.Component {
                                 <option key={i} value={`${year - i}`}>{year - i}</option>
                             )}
                         </select>
+                        <div className={this.state.bday_err} id="bday-err">
+                                It looks like you entered the wrong info. Please be sure to use your real birthday.
+                        </div>
                     </div>
                     
                     <div className="gender">Gender </div>
@@ -203,6 +189,7 @@ class SignupForm extends React.Component {
                                 <input type="radio" onChange={this.update('gender')} value="Custom" 
                                 checked={this.state.gender === 'Custom'} id={ifErrors()}/>
                         </label>
+                        <div className={this.state.gender_err} id="gender-err">Please choose a gender.</div>
                     </div>
             
                     
@@ -216,10 +203,10 @@ class SignupForm extends React.Component {
 
                 
             </div>
-                <div className="right-errors">
+                {/* <div className="right-errors">
                     <div className={this.state.ln_err} id="ln-err">What's your name?</div>
 
-                </div>
+                </div> */}
             </div>
 
         )
