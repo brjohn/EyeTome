@@ -773,10 +773,16 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var ifErrors = function ifErrors() {
-        if (_this3.props.errors.length > 0) {
+        if (_this3.props.errors.length > 0 && _this3.props.modal === null) {
           return "red";
         } else {
           return "normal";
+        }
+      };
+
+      var errors = function errors() {
+        if (_this3.props.modal === null) {
+          return _this3.props.errors;
         }
       };
 
@@ -809,7 +815,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         id: ifErrors()
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "errors"
-      }, this.props.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, errors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "login-button"
       }, "Log In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -855,9 +861,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var errors = _ref.errors;
+  var errors = _ref.errors,
+      ui = _ref.ui;
   return {
     errors: errors.session,
+    modal: ui.modal,
     formType: 'Log In'
   };
 };
@@ -1012,8 +1020,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       gender_err: "hide",
       pw_err: "hide"
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.finalSubmit = this.finalSubmit.bind(this);
-
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1021,6 +1028,34 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.clearSessionErrors();
+    }
+  }, {
+    key: "handleErrors",
+    value: function handleErrors() {
+      var fn_err = "hide";
+
+      if (this.props.errors.includes("First name can't be blank")) {
+        fn_err = "show"; // this.setState({fn_err: "show"})
+      } // if (this.props.errors.includes("Last name can't be blank")) {
+      //     this.setState({ ln_err: "show" })
+      // }
+      // if (this.props.errors.includes("Birthday can't be blank")) {
+      //     this.setState({ bday_err: "show" })
+      // }
+      // if (this.props.errors.includes("Gender can't be blank")) {
+      //     this.setState({ gender_err: "show" })
+      // }
+      // if (this.props.errors.includes("Password is too short (minimum is 6 characters)")) {
+      //     this.setState({ pw_err: "show" })
+      // }
+      // if (this.props.errors.includes("Email can't be blank")) {
+      //     this.setState({ email_err: "show" })
+      // }
+
+
+      this.setState({
+        fn_err: fn_err
+      });
     }
   }, {
     key: "update",
@@ -1033,32 +1068,17 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleSubmit",
-    value: // handleSubmit(e) {
-    //     debugger
-    //     e.preventDefault();
-    //     this.setState({ 
-    //         [birthday]: this.state.month + "-" + this.state.day + "-" +this.state.year
-    //     })
-    //     this.finalSubmit(e);
-    // }
-    // finalSubmit(e) {
-    //     debugger
-    //     e.preventDefault();
-    //     const user = Object.assign({}, this.state);
-    //     this.props.signup(user);
-    // }
-    function handleSubmit(e) {
+    value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       user.birthday = "".concat(user.month, "-").concat(user.day, "-").concat(user.year);
-      this.props.signup(user).then(this.props.closeModal);
+      this.props.signup(user).then(this.props.closeModal); // .catch(this.handleErrors)
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      // console.log(this.props.errors)
       var year = new Date().getFullYear();
       var month = new Date().getMonth();
       var day = new Date().getDay();
@@ -1069,9 +1089,29 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         } else {
           return "normal";
         }
-      };
+      }; // this.handleErrors();
+
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-fullwidth"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "left-errors"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.fn_err,
+        id: "fn-err"
+      }, "What's your name?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.email_err,
+        id: "email-err"
+      }, "You'll use this when you log in and if you ever need to reset your password."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.pw_err,
+        id: "pw-err"
+      }, "Enter a combination of at least six characters."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.bday_err,
+        id: "bday-err"
+      }, "It looks like you entered the wrong info. Please be sure to use your real birthday."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.gender_err,
+        id: "gender-err"
+      }, "Please choose a gender.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sign-up-header"
@@ -1200,9 +1240,60 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "submit",
         className: "signup-button",
         value: "Sign Up"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "errors"
-      }, this.props.errors)));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-errors"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.ln_err,
+        id: "ln-err"
+      }, "What's your name?")));
+    }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(nextProps, previousState) {
+      var fn_err = "hide";
+
+      if (nextProps.errors.includes("First name can't be blank")) {
+        fn_err = "show";
+      }
+
+      var ln_err = "hide";
+
+      if (nextProps.errors.includes("Last name can't be blank")) {
+        ln_err = "show";
+      }
+
+      var bday_err = "hide";
+
+      if (nextProps.errors.includes("Birthday can't be blank")) {
+        bday_err = "show";
+      }
+
+      var gender_err = "hide";
+
+      if (nextProps.errors.includes("Gender can't be blank")) {
+        gender_err = "show";
+      }
+
+      var pw_err = "hide";
+
+      if (nextProps.errors.includes("Password is too short (minimum is 6 characters)")) {
+        pw_err = "show";
+      }
+
+      var email_err = "hide";
+
+      if (nextProps.errors.includes("Email can't be blank")) {
+        email_err = "show";
+      }
+
+      return {
+        fn_err: fn_err,
+        ln_err: ln_err,
+        bday_err: bday_err,
+        gender_err: gender_err,
+        pw_err: pw_err,
+        email_err: email_err
+      };
     }
   }]);
 
