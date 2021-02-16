@@ -9,10 +9,10 @@ const ProfileHeader = (props) => {
                 <div className="profile-circle"></div>
                 <div className="photo-edits">
                     <button id="profile-pic-edit">
-                        <i class="fas fa-camera"></i>
+                        <i className="fas fa-camera"></i>
                     </button>
                     <button>
-                        <i class="fas fa-camera"></i>
+                        <i className="fas fa-camera"></i>
                         <p>Edit Cover Photo</p>
                     </button>
                 </div>

@@ -10,15 +10,15 @@ const NavBar = ({ fullUser, logout}) => {
             <nav className="left-nav">
                 <ul>
                     <li id="fb-icon-button">
-                        <i class="fab fa-facebook"></i>
+                        <i className="fab fa-facebook"></i>
                         
                     </li>
                     <li id="search-bar">
-                        <i class="fas fa-search"></i>
+                        <i className="fas fa-search"></i>
                         <input type="text" placeholder="Search Friendbook"/>
                     </li>
                     <li id="home-button">
-                        <i class="fas fa-home"></i>
+                        <i className="fas fa-home"></i>
                     </li>
 
                 </ul>
@@ -27,18 +27,18 @@ const NavBar = ({ fullUser, logout}) => {
                 <ul>
                     <li className="user-profile-button">
                         {/* <Link to={`/users/${fullUser.id}`}>
-                            <i class="fas fa-user-circle"></i>
+                            <i className="fas fa-user-circle"></i>
                             <div>{fullUser.first_name}</div> 
                         </Link> */}
                         
-                        <i class="fas fa-user-circle"></i>
+                        <i className="fas fa-user-circle"></i>
                         <div>{fullUser.first_name}</div>
                         
                         
                         
                     </li>
                     <li id="account-dropdown-btn">
-                        <i id="dd-icon" class="fas fa-chevron-circle-down"></i>
+                        <i id="dd-icon" className="fas fa-chevron-circle-down"></i>
                         <AccountDropdown fullUser={fullUser} logout={logout}/>
 
                     </li>

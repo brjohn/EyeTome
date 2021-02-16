@@ -12,12 +12,22 @@ class SignupForm extends React.Component {
             gender: "",
             month: "",
             day: "",
-            year: ""
+            year: "",
+            fn_err: "hide",
+            ln_err: "hide",
+            email_err: "hide",
+            bday_err: "hide",
+            gender_err: "hide",
+            pw_err: "hide",
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         // this.finalSubmit = this.finalSubmit.bind(this);
     };
+
+    componentDidMount(){
+        this.props.clearSessionErrors()
+    }
 
     update(field) {
 
@@ -44,8 +54,9 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.signup(user);
+        const user = Object.assign({}, this.state );
+        user.birthday = `${user.month}-${user.day}-${user.year}`
+        this.props.signup(user).then(this.props.closeModal)
     }
 
 
@@ -53,6 +64,9 @@ class SignupForm extends React.Component {
     render() {
         // console.log(this.props.errors)
         const year = new Date().getFullYear();
+        const month = new Date().getMonth();
+        const day = new Date().getDay();
+
         const ifErrors = () => {
             if (this.props.errors.length > 0) {
                 return "red"
@@ -84,22 +98,22 @@ class SignupForm extends React.Component {
                         className="signup-input" id={ifErrors()}/>
                     
                     <div className="birthday">Birthday</div>
-                    <input onChange={this.update('birthday')} type="date" value={this.state.birthday} 
-                        className="signup-input" id={ifErrors()}/>
-                    {/* <div className="date-wrapper">
+                    {/* <input onChange={this.update('birthday')} type="date" value={this.state.birthday} 
+                        className="signup-input" id={ifErrors()}/> */}
+                    <div className="date-wrapper">
                         <select onChange={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className="date">
                             <option value="1">Jan</option>
                             <option value="2">Feb</option>
                             <option value="3">Mar</option>
-                            <option value="12">Apr</option>
-                            <option value="4">May</option>
-                            <option value="5">Jun</option>
-                            <option value="6">Jul</option>
-                            <option value="11">Aug</option>
-                            <option value="7">Sep</option>
-                            <option value="8">Oct</option>
-                            <option value="9">Nov</option>
-                            <option value="10">Dec</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
                         </select>
                         <select onChange={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className="date">
                             {Array.from(new Array(31), (v, i) =>
@@ -112,7 +126,7 @@ class SignupForm extends React.Component {
                                 <option key={i} value={`${year - i}`}>{year - i}</option>
                             )}
                         </select>
-                    </div> */}
+                    </div>
                     
                     <div className="gender">Gender </div>
                     <div className="radio">

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
 import LoginForm from './login_form';
 import {openModal} from '../../actions/modal_actions';
+import {clearSessionErrors} from '../../actions/session_actions';
 
 const mapStateToProps = ({errors}) => {
     return {
@@ -15,7 +16,8 @@ const mapStateToProps = ({errors}) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         login: (user) => dispatch(login(user)),
-        openModal: modal => dispatch(openModal(modal))
+        openModal: modal => dispatch(openModal(modal)),
+        clearSessionErrors: () => dispatch(clearSessionErrors())
     }
 };
 

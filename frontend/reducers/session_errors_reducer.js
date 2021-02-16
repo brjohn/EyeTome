@@ -1,4 +1,4 @@
-import {RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS} from "../actions/session_actions";
+import {RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, CLEAR_SESSION_ERRORS} from "../actions/session_actions";
 import {CLOSE_MODAL} from '../actions/modal_actions';
 
 const sessionErrorsReducer = (oldState = [], action) => {
@@ -9,6 +9,8 @@ const sessionErrorsReducer = (oldState = [], action) => {
         case RECEIVE_CURRENT_USER:
             return []
         case CLOSE_MODAL:
+            return [];
+        case CLEAR_SESSION_ERRORS:
             return [];
         default:
             return oldState;
