@@ -36,3 +36,15 @@ f1 = User.create({first_name: "Flo", last_name: "Ferdinand", birthday: "03-05-19
 g1 = User.create({first_name: "Georgie", last_name: "Giordano", birthday: "03-07-1990", gender: "Male", email: "g@yahoo.com", password: "123456"})
 h1 = User.create({first_name: "Helmut", last_name: "Hendriksson", birthday: "03-04-1990", gender: "Male", email: "h@yahoo.com", password: "123456"})
 j1 = User.create({first_name: "Jenny", last_name: "Jones", birthday: "03-06-1995", gender: "Female", email: "j@yahoo.com", password: "123456"})
+
+guest = User.create({
+    first_name: "Demo", 
+    last_name: "User", 
+    birthday: "03-06-1995", 
+    gender: "Female", 
+    email: "demo@yahoo.com", 
+    password: "123456",
+    bio: "I am the Demo User and this is my bio!",
+    current_city: "New York"
+
+})

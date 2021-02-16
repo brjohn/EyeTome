@@ -92,19 +92,7 @@ class SignupForm extends React.Component {
         return (
         
             <div className="signup-fullwidth">
-                {/* <div className="left-errors">
-                    <div className={this.state.fn_err} id="fn-err">What's your name?</div>
-                    <div className={this.state.email_err} id="email-err">
-                        You'll use this when you log in and if you ever need to reset your password.</div>
-                    <div className={this.state.pw_err} id="pw-err">
-                        Enter a combination of at least six characters.</div>
-                    <div className={this.state.bday_err} id="bday-err">
-                        It looks like you entered the wrong info. Please be sure to use your real birthday.
-                    </div>
-                    <div className={this.state.gender_err} id="gender-err">Please choose a gender.</div>
-                    
-
-                </div> */}
+                
             <div className="signup-form-container">
                 <div className="sign-up-header">
                     <h1>Sign Up</h1>
@@ -119,14 +107,20 @@ class SignupForm extends React.Component {
                             <input onChange={this.update('last_name')} placeholder="Last name" type="text" value={this.state.last_name} 
                                 className="signup-input" id={ifErrors()}/>
                         </div>
-                        <div className={this.state.fn_err} id="fn-err">What's your name?</div>
-                        <div className={this.state.ln_err} id="ln-err">What's your name?</div>
+                        <div className={this.state.fn_err} id="fn-err">What's your name?
+                            <div className="arrow-right"></div>
+                        </div>
+                        
+                        <div className={this.state.ln_err} id="ln-err">What's your name?
+                            <div className="arrow-left"></div>
+                        </div>
                     </div>
                     <div>
                         <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} 
                             className="signup-input" id={ifErrors()}/>
                         <div className={this.state.email_err} id="email-err">
                             You'll use this when you log in and if you ever need to reset your password.
+                            <div className="arrow-right"></div>
                         </div>
                     </div>
                     
@@ -135,6 +129,7 @@ class SignupForm extends React.Component {
                             className="signup-input" id={ifErrors()}/>
                         <div className={this.state.pw_err} id="pw-err">
                             Enter a combination of at least six characters.
+                            <div className="arrow-right"></div>
                         </div>
                     </div>
                     
@@ -142,7 +137,7 @@ class SignupForm extends React.Component {
                     {/* <input onChange={this.update('birthday')} type="date" value={this.state.birthday} 
                         className="signup-input" id={ifErrors()}/> */}
                     <div className="date-wrapper">
-                        <select onChange={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className="date">
+                            <select onChange={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className="date" id={ifErrors()}>
                             <option value="1">Jan</option>
                             <option value="2">Feb</option>
                             <option value="3">Mar</option>
@@ -156,40 +151,44 @@ class SignupForm extends React.Component {
                             <option value="11">Nov</option>
                             <option value="12">Dec</option>
                         </select>
-                        <select onChange={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className="date">
+                            <select onChange={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className="date" id={ifErrors()}>
                             {Array.from(new Array(31), (v, i) =>
                                 <option key={i} value={`${1 + i}`}>{1 + i}</option>
                             )}
 
                         </select>
-                        <select onChange={this.update('year')} aria-label="Year" name="year" id="year" title="Year" className="date">
+                            <select onChange={this.update('year')} aria-label="Year" name="year" id="year" title="Year" className="date" id={ifErrors()}>
                             {Array.from(new Array(116), (v, i) =>
                                 <option key={i} value={`${year - i}`}>{year - i}</option>
                             )}
                         </select>
                         <div className={this.state.bday_err} id="bday-err">
-                                It looks like you entered the wrong info. Please be sure to use your real birthday.
+                            It looks like you entered the wrong info. Please be sure to use your real birthday.
+                            <div className="arrow-right"></div>
                         </div>
                     </div>
                     
                     <div className="gender">Gender </div>
                     <div className="radio">
-                        <label className="gender-input">
+                        <label className="gender-input" id={ifErrors()}>
                                 <div>Female</div>
                                 <input type="radio" onChange={this.update('gender')} value="Female" 
-                                checked={this.state.gender === 'Female'} id={ifErrors()}/>
+                                checked={this.state.gender === 'Female'} />
                         </label>
-                        <label id="male" className="gender-input">
+                        <label id="male" className="gender-input" id={ifErrors()}>
                                 <div>Male</div>
                                 <input type="radio" onChange={this.update('gender')} value="Male" 
-                                checked={this.state.gender === 'Male'} id={ifErrors()}/>
+                                checked={this.state.gender === 'Male'} />
                         </label>
-                        <label className="gender-input">
+                        <label className="gender-input" id={ifErrors()}>
                                 <div>Custom</div>
                                 <input type="radio" onChange={this.update('gender')} value="Custom" 
-                                checked={this.state.gender === 'Custom'} id={ifErrors()}/>
+                                checked={this.state.gender === 'Custom'} />
                         </label>
-                        <div className={this.state.gender_err} id="gender-err">Please choose a gender.</div>
+                        <div className={this.state.gender_err} id="gender-err">
+                            Please choose a gender.
+                            <div className="arrow-right"></div>
+                        </div>
                     </div>
             
                     
@@ -198,15 +197,11 @@ class SignupForm extends React.Component {
                     <br />
                     
                     <input type="submit" className="signup-button" value="Sign Up" />
-                    {/* <div className="errors">{this.props.errors}</div> */}
+                    
                 </form>
-
-                
+    
             </div>
-                {/* <div className="right-errors">
-                    <div className={this.state.ln_err} id="ln-err">What's your name?</div>
-
-                </div> */}
+                
             </div>
 
         )
