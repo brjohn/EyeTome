@@ -22,11 +22,36 @@ class SignupForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.finalSubmit = this.finalSubmit.bind(this);
     };
 
     componentDidMount(){
         this.props.clearSessionErrors()
+    }
+
+    handleErrors(){
+        let fn_err = "hide"
+        if (this.props.errors.includes("First name can't be blank")){
+            fn_err = "show"
+            // this.setState({fn_err: "show"})
+        }
+        // if (this.props.errors.includes("Last name can't be blank")) {
+        //     this.setState({ ln_err: "show" })
+        // }
+        // if (this.props.errors.includes("Birthday can't be blank")) {
+        //     this.setState({ bday_err: "show" })
+        // }
+        // if (this.props.errors.includes("Gender can't be blank")) {
+        //     this.setState({ gender_err: "show" })
+        // }
+        // if (this.props.errors.includes("Password is too short (minimum is 6 characters)")) {
+        //     this.setState({ pw_err: "show" })
+        // }
+        // if (this.props.errors.includes("Email can't be blank")) {
+        //     this.setState({ email_err: "show" })
+        // }
+        this.setState({
+            fn_err: fn_err
+        })
     }
 
     update(field) {
@@ -36,33 +61,51 @@ class SignupForm extends React.Component {
         });
     };
 
-    // handleSubmit(e) {
-    //     debugger
-    //     e.preventDefault();
-    //     this.setState({ 
-    //         [birthday]: this.state.month + "-" + this.state.day + "-" +this.state.year
-    //     })
-    //     this.finalSubmit(e);
-    // }
+   static getDerivedStateFromProps(nextProps, previousState) {
 
-    // finalSubmit(e) {
-    //     debugger
-    //     e.preventDefault();
-    //     const user = Object.assign({}, this.state);
-    //     this.props.signup(user);
-    // }
+       let fn_err = "hide";
+       if (nextProps.errors.includes("First name can't be blank")) {
+           fn_err = "show"
+       }
+       let ln_err = "hide";
+       if (nextProps.errors.includes("Last name can't be blank")) {
+           ln_err = "show"
+       }
+       let bday_err = "hide";
+       if (nextProps.errors.includes("Birthday can't be blank")) {
+           bday_err = "show"
+       }
+       let gender_err = "hide";
+       if (nextProps.errors.includes("Gender can't be blank")) {
+           gender_err = "show"
+       }
+       let pw_err = "hide";
+       if (nextProps.errors.includes("Password is too short (minimum is 6 characters)")) {
+           pw_err = "show"
+       }
+       let email_err = "hide";
+       if (nextProps.errors.includes("Email can't be blank")) {
+           email_err = "show"
+        }
+       
+       return {fn_err, ln_err, bday_err, gender_err, pw_err, email_err}
+
+   }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state );
         user.birthday = `${user.month}-${user.day}-${user.year}`
-        this.props.signup(user).then(this.props.closeModal)
+        this.props.signup(user)
+            .then(this.props.closeModal)
+            // .catch(this.handleErrors)
+    
     }
 
 
 
     render() {
-        // console.log(this.props.errors)
+        
         const year = new Date().getFullYear();
         const month = new Date().getMonth();
         const day = new Date().getDay();
@@ -74,9 +117,24 @@ class SignupForm extends React.Component {
                 return "normal"
             }
         }
+        // this.handleErrors();
         
         return (
+        
+            <div className="signup-fullwidth">
+                <div className="left-errors">
+                    <div className={this.state.fn_err} id="fn-err">What's your name?</div>
+                    <div className={this.state.email_err} id="email-err">
+                        You'll use this when you log in and if you ever need to reset your password.</div>
+                    <div className={this.state.pw_err} id="pw-err">
+                        Enter a combination of at least six characters.</div>
+                    <div className={this.state.bday_err} id="bday-err">
+                        It looks like you entered the wrong info. Please be sure to use your real birthday.
+                    </div>
+                    <div className={this.state.gender_err} id="gender-err">Please choose a gender.</div>
+                    
 
+                </div>
             <div className="signup-form-container">
                 <div className="sign-up-header">
                     <h1>Sign Up</h1>
@@ -153,10 +211,15 @@ class SignupForm extends React.Component {
                     <br />
                     
                     <input type="submit" className="signup-button" value="Sign Up" />
-                    <div className="errors">{this.props.errors}</div>
+                    {/* <div className="errors">{this.props.errors}</div> */}
                 </form>
 
                 
+            </div>
+                <div className="right-errors">
+                    <div className={this.state.ln_err} id="ln-err">What's your name?</div>
+
+                </div>
             </div>
 
         )

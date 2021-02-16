@@ -33,12 +33,17 @@ class LoginForm extends React.Component{
 
     render(){
         const ifErrors = () => {
-            if (this.props.errors.length > 0){
+            if (this.props.errors.length > 0 && this.props.modal === null){
                 return "red"
             } else {
                 return "normal"
             }
-        
+        }
+
+        const errors = () => {
+            if (this.props.modal === null){
+                return this.props.errors 
+            }
         }
 
         return (
@@ -59,7 +64,7 @@ class LoginForm extends React.Component{
                             <input onChange={this.update('password')} placeholder="Password" type="password" value={this.state.password} 
                                 className="login-input" id={ifErrors()}/>
                             <br />
-                            <div className="errors">{this.props.errors}</div>
+                            <div className="errors">{errors()}</div>
                             <button type="submit" className="login-button" >Log In</button>
                             
                         </form>

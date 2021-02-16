@@ -10,10 +10,11 @@
 
 .modal-child {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 3px 3px 10px 1px #ccd0d5;
+  top: 20%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // box-shadow: 3px 3px 10px 1px #ccd0d5;
+  width: 100%;
 }
 
 .signup-form-container {
@@ -27,6 +28,18 @@
   position: relative;
   border: 2px, solid, #65676b;
   justify-content: center;
+  box-shadow: 3px 3px 10px 1px #ccd0d5;
+  // left: 30%;
+  top: 0%;
+  // position: absolute;
+  
+  
+}
+.signup-fullwidth {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
 }
 
 .sign-up-header h1 {
@@ -146,6 +159,68 @@ input[placeholder="Last name"] {
   border: solid 1px #ccd0d5; 
   margin-top: 8px;
   text-indent: 4px;
+}
+
+.left-errors {
+  // position: relative;
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+    background-color: #BE4B49;
+    color: white;
+    font-size: 13px;
+    padding: 10px;
+    // width: min-content;
+    // height: min-content;
+    border-radius: 3px;
+    margin-right: 24px;
+    // margin-bottom: 40px;
+    border-color:  #98312f;
+    margin-left: 24px;
+  }
+    
+}
+
+  #fn-error {
+    margin-top: 108px;
+    width: 150px;
+  }
+  #email-err {
+    margin-top: 24px;
+    width: 326px;
+  }
+  #pw-err {
+    margin-top: 24px;
+    width: 326px;
+  }
+  #bday-err {
+    margin-top: 24px;
+    width: 326px;
+  }
+  #gender-err {
+    margin-top: 24px;
+    width: 326px;
+  }
+
+.right-errors {
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+    background-color: #BE4B49;
+    color: white;
+    font-size: 13px;
+    height: min-content;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 108px;
+    margin-left: 8px;
+    border-color:  #98312f;
+    width: 346px;
+  }
 }
 
 

@@ -6,9 +6,10 @@ import LoginForm from './login_form';
 import {openModal} from '../../actions/modal_actions';
 import {clearSessionErrors} from '../../actions/session_actions';
 
-const mapStateToProps = ({errors}) => {
+const mapStateToProps = ({errors, ui}) => {
     return {
         errors: errors.session,
+        modal: ui.modal,
         formType: 'Log In',
     }
 };
