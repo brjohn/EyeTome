@@ -10,7 +10,7 @@ function Modal({ modal, closeModal }) {
     let component;
     switch (modal) {
         case 'signup':
-            component = <SignupFormContainer/>;
+            component = <SignupFormContainer />;
             break;
         default:
             return null;

@@ -9,6 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon-32x32.png') %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <% if logged_in? %>
+      <script type="text/javascript">
+        window.currentUser =
+        <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+      </script>
+    <% end %>
   </head>
 
   <body>

@@ -7,7 +7,7 @@ const Home = ({currentUser, closeModal}) => {
 
     // if (currentUser) {
     //     closeModal();
-        return <NavBarContainer/>
+        return (<NavBarContainer/>)
     // } else {
     //     return <LoginFormContainer/>;
     // }

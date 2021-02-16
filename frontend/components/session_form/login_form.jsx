@@ -10,6 +10,7 @@ class LoginForm extends React.Component{
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    
 
     update(field) {
         return e => this.setState({
@@ -22,6 +23,13 @@ class LoginForm extends React.Component{
         const user = Object.assign({}, this.state);
         this.props.login(user);
     }
+
+    openSignup() {
+        this.props.clearSessionErrors
+        this.props.openModal('signup')
+    }
+
+
 
     render(){
         const ifErrors = () => {
@@ -47,15 +55,17 @@ class LoginForm extends React.Component{
                         <form onSubmit={this.handleSubmit} className="login-form-box">
                             <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} 
                                 className="login-input" id={ifErrors()}/>
-                            <div className="errors">{this.props.errors}</div>
+                            
                             <input onChange={this.update('password')} placeholder="Password" type="password" value={this.state.password} 
                                 className="login-input" id={ifErrors()}/>
                             <br />
+                            <div className="errors">{this.props.errors}</div>
                             <button type="submit" className="login-button" >Log In</button>
                             
                         </form>
                         <div className="line"></div>
-                        <button onClick={() => this.props.openModal('signup')} className="signup-button">Create New Account</button>
+                        <button onClick={() => this.props.openModal('signup')} 
+                        className="signup-button">Create New Account</button>
                     </div>
                 </div>
                 
