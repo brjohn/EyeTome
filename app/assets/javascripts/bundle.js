@@ -1030,34 +1030,6 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       this.props.clearSessionErrors();
     }
   }, {
-    key: "handleErrors",
-    value: function handleErrors() {
-      var fn_err = "hide";
-
-      if (this.props.errors.includes("First name can't be blank")) {
-        fn_err = "show"; // this.setState({fn_err: "show"})
-      } // if (this.props.errors.includes("Last name can't be blank")) {
-      //     this.setState({ ln_err: "show" })
-      // }
-      // if (this.props.errors.includes("Birthday can't be blank")) {
-      //     this.setState({ bday_err: "show" })
-      // }
-      // if (this.props.errors.includes("Gender can't be blank")) {
-      //     this.setState({ gender_err: "show" })
-      // }
-      // if (this.props.errors.includes("Password is too short (minimum is 6 characters)")) {
-      //     this.setState({ pw_err: "show" })
-      // }
-      // if (this.props.errors.includes("Email can't be blank")) {
-      //     this.setState({ email_err: "show" })
-      // }
-
-
-      this.setState({
-        fn_err: fn_err
-      });
-    }
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1072,7 +1044,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       user.birthday = "".concat(user.month, "-").concat(user.day, "-").concat(user.year);
-      this.props.signup(user).then(this.props.closeModal); // .catch(this.handleErrors)
+      this.props.signup(user).then(this.props.closeModal);
     }
   }, {
     key: "render",
@@ -1089,36 +1061,18 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         } else {
           return "normal";
         }
-      }; // this.handleErrors();
-
+      };
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-fullwidth"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "left-errors"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.fn_err,
-        id: "fn-err"
-      }, "What's your name?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.email_err,
-        id: "email-err"
-      }, "You'll use this when you log in and if you ever need to reset your password."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.pw_err,
-        id: "pw-err"
-      }, "Enter a combination of at least six characters."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.bday_err,
-        id: "bday-err"
-      }, "It looks like you entered the wrong info. Please be sure to use your real birthday."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.gender_err,
-        id: "gender-err"
-      }, "Please choose a gender.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sign-up-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It's quick and easy.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "signup-form-box"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "full-name"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _defineProperty({
         onChange: this.update('first_name'),
@@ -1134,14 +1088,23 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.last_name,
         className: "signup-input",
         id: ifErrors()
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.fn_err,
+        id: "fn-err"
+      }, "What's your name?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.ln_err,
+        id: "ln-err"
+      }, "What's your name?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('email'),
         placeholder: "Email",
         type: "text",
         value: this.state.email,
         className: "signup-input",
         id: ifErrors()
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.email_err,
+        id: "email-err"
+      }, "You'll use this when you log in and if you ever need to reset your password.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('password'),
         placeholder: "New password",
         type: "password",
@@ -1149,6 +1112,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-input",
         id: ifErrors()
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.pw_err,
+        id: "pw-err"
+      }, "Enter a combination of at least six characters.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "birthday"
       }, "Birthday"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-wrapper"
@@ -1207,7 +1173,10 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
           key: i,
           value: "".concat(year - i)
         }, year - i);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.bday_err,
+        id: "bday-err"
+      }, "It looks like you entered the wrong info. Please be sure to use your real birthday.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "gender"
       }, "Gender "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "radio"
@@ -1236,16 +1205,14 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         value: "Custom",
         checked: this.state.gender === 'Custom',
         id: ifErrors()
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.gender_err,
+        id: "gender-err"
+      }, "Please choose a gender.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "signup-button",
         value: "Sign Up"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "right-errors"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.ln_err,
-        id: "ln-err"
-      }, "What's your name?")));
+      }))));
     }
   }], [{
     key: "getDerivedStateFromProps",
