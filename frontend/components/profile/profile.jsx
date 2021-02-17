@@ -1,6 +1,7 @@
 // when profile renders, navbar home icon and profile button change colors
 import React from 'react'
 import ProfileHeader from './profile_header';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 
 class Profile extends React.Component {
@@ -14,6 +15,7 @@ class Profile extends React.Component {
     render(){
         return (
             <div>
+                <NavBarContainer/>
                 <ProfileHeader profileOwner={this.props.profileOwner}/>
             </div>
         )
