@@ -1,0 +1,105 @@
+.profile-header {
+    height: 450px;
+    color: #050505;
+    background-color: hotpink;
+}
+
+.cover-photo-wrapper {
+    height: 348px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: greenyellow;
+}
+
+.cover-photo {
+    cursor: pointer;
+    position: relative;
+    width: 940px;
+    display: block;
+    height: 348px;
+    background-color: paleturquoise;
+    
+}
+
+.pic-edit-banner {
+    position: absolute;
+    margin-top: 268px;
+    width: 940px;
+    height: 80px;
+    display: block;
+    background-color: rgba(255, 0, 0, 0.3);    
+}
+
+.profile-circle {
+    position: absolute;
+    margin-top: 180px;
+    width: 168px;
+    height: 168px;
+    background-color: gray;
+    border-radius: 50%;
+    border: solid white 5px;
+}
+
+#profile-pic-edit {
+    cursor: pointer;
+    margin-left: 510px;
+    margin-top: 43px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    outline: none;
+    border-style: none;
+    border-color: none;
+    background-color: #E4E6EB;
+    i {
+        font-size: 20px;   
+    }
+}
+
+#cover-photo-edit {
+    position: absolute;
+    color: #050505;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #E4E6EB;
+    border-style: none;
+    border-color: none;
+    width: 165px;
+    height: 36px;
+    font-size: 15px;
+    margin-left: 200px;
+    margin-top: 32px;
+    display: inline-grid;
+    grid-template-columns: 15% 85%;
+    i {
+        text-indent: 2px;
+        margin-top: 7px;
+        font-size: 16px;
+    }
+    p {
+        margin-top: 7px;
+        font-stretch: condensed;
+    }
+
+}
+
+#cover-photo-edit:hover,
+#profile-pic-edit:hover {
+    background: #f0f2f5;
+}
+
+.name-banner {
+    text-align: center;
+    h2 {
+        font-size: 32px;
+        margin-top: 28px;
+    }
+    div {
+        margin-top: 6px;
+        font-size: 15px;
+        color: #1c8ef1;
+        cursor: pointer;
+    }
+    
+}
