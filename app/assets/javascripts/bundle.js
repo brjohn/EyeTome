@@ -423,6 +423,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _account_dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./account-dropdown */ "./frontend/components/nav_bar/account-dropdown.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -450,11 +452,12 @@ var NavBar = function NavBar(_ref) {
     className: "fas fa-home"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
     className: "right-nav"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/users/".concat(fullUser.id),
     className: "user-profile-button"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-user-circle"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, fullUser.first_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, fullUser.first_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     id: "account-dropdown-btn"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     id: "dd-icon",
@@ -815,15 +818,13 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Email",
         type: "text",
         value: this.state.email,
-        className: "login-input",
-        id: ifErrors()
+        className: "login-input ".concat(ifErrors())
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('password'),
         placeholder: "Password",
         type: "password",
         value: this.state.password,
-        className: "login-input",
-        id: ifErrors()
+        className: "login-input ".concat(ifErrors())
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "errors"
       }, errors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1025,8 +1026,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       password: "",
       birthday: "",
       gender: "",
-      month: "",
-      day: "",
+      month: "1",
+      day: "1",
       year: "",
       fn_err: "hide",
       ln_err: "hide",
@@ -1089,20 +1090,18 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "full-name"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _defineProperty({
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('first_name'),
         placeholder: "First name",
         type: "text",
         value: this.state.first_name,
-        className: "signup-input",
-        id: "firstname"
-      }, "id", ifErrors())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "signup-input ".concat(ifErrors())
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('last_name'),
         placeholder: "Last name",
         type: "text",
         value: this.state.last_name,
-        className: "signup-input",
-        id: ifErrors()
+        className: "signup-input ".concat(ifErrors())
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.fn_err,
         id: "fn-err"
@@ -1118,8 +1117,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Email",
         type: "text",
         value: this.state.email,
-        className: "signup-input",
-        id: ifErrors()
+        className: "signup-input ".concat(ifErrors())
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.email_err,
         id: "email-err"
@@ -1130,8 +1128,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "New password",
         type: "password",
         value: this.state.password,
-        className: "signup-input",
-        id: ifErrors()
+        className: "signup-input ".concat(ifErrors())
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.pw_err,
         id: "pw-err"
@@ -1141,14 +1138,14 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "birthday"
       }, "Birthday"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _defineProperty({
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.update('month'),
         "aria-label": "Month",
         name: "month",
         id: "month",
         title: "Month",
-        className: "date"
-      }, "id", ifErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        className: "date ".concat(ifErrors())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
       }, "Jan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "2"
@@ -1172,26 +1169,26 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         value: "11"
       }, "Nov"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "12"
-      }, "Dec")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _defineProperty({
+      }, "Dec")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.update('day'),
         "aria-label": "Day",
         name: "day",
         id: "day",
         title: "Day",
-        className: "date"
-      }, "id", ifErrors()), Array.from(new Array(31), function (v, i) {
+        className: "date ".concat(ifErrors())
+      }, Array.from(new Array(31), function (v, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: i,
           value: "".concat(1 + i)
         }, 1 + i);
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _defineProperty({
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.update('year'),
         "aria-label": "Year",
         name: "year",
         id: "year",
         title: "Year",
-        className: "date"
-      }, "id", ifErrors()), Array.from(new Array(116), function (v, i) {
+        className: "date ".concat(ifErrors())
+      }, Array.from(new Array(116), function (v, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: i,
           value: "".concat(year - i)
@@ -1206,24 +1203,22 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }, "Gender "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "radio"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "gender-input",
-        id: ifErrors()
+        className: "gender-input ".concat(ifErrors())
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Female"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onChange: this.update('gender'),
         value: "Female",
         checked: this.state.gender === 'Female'
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", _defineProperty({
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "male",
-        className: "gender-input"
-      }, "id", ifErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Male"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "gender-input ".concat(ifErrors())
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Male"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onChange: this.update('gender'),
         value: "Male",
         checked: this.state.gender === 'Male'
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "gender-input",
-        id: ifErrors()
+        className: "gender-input ".concat(ifErrors())
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Custom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         onChange: this.update('gender'),
@@ -1275,7 +1270,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
 
       var email_err = "hide";
 
-      if (nextProps.errors.includes("Email can't be blank")) {
+      if (nextProps.errors.includes("Email can't be blank") || nextProps.errors.includes("Email has already been taken")) {
         email_err = "show";
       }
 

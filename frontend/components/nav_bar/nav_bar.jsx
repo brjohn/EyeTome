@@ -1,5 +1,6 @@
 import React from 'react';
 import AccountDropdown from './account-dropdown';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ fullUser, logout}) => {
 
@@ -25,14 +26,14 @@ const NavBar = ({ fullUser, logout}) => {
             </nav>
             <nav className="right-nav">
                 <ul>
-                    <li className="user-profile-button">
-                        {/* <Link to={`/users/${fullUser.id}`}>
+                    <li >
+                        <Link to={`/users/${fullUser.id}`} className="user-profile-button">
                             <i className="fas fa-user-circle"></i>
                             <div>{fullUser.first_name}</div> 
-                        </Link> */}
+                        </Link>
                         
-                        <i className="fas fa-user-circle"></i>
-                        <div>{fullUser.first_name}</div>
+                        {/* <i className="fas fa-user-circle"></i>
+                        <div>{fullUser.first_name}</div> */}
                         
                         
                         

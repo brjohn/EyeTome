@@ -10,8 +10,8 @@ class SignupForm extends React.Component {
             password: "",
             birthday: "",
             gender: "",
-            month: "",
-            day: "",
+            month: "1",
+            day: "1",
             year: "",
             fn_err: "hide",
             ln_err: "hide",
@@ -58,7 +58,7 @@ class SignupForm extends React.Component {
            pw_err = "show"
        }
        let email_err = "hide";
-       if (nextProps.errors.includes("Email can't be blank")) {
+       if (nextProps.errors.includes("Email can't be blank") || nextProps.errors.includes("Email has already been taken")) {
            email_err = "show"
         }
        
@@ -103,9 +103,9 @@ class SignupForm extends React.Component {
                     <div>
                         <div className="full-name"> 
                             <input onChange={this.update('first_name')} placeholder="First name" type="text" value={this.state.first_name} 
-                                className="signup-input" id="firstname" id={ifErrors()}/>
+                                    className={`signup-input ${ifErrors()}`}/>
                             <input onChange={this.update('last_name')} placeholder="Last name" type="text" value={this.state.last_name} 
-                                className="signup-input" id={ifErrors()}/>
+                                className={`signup-input ${ifErrors()}`}/>
                         </div>
                         <div className={this.state.fn_err} id="fn-err">What's your name?
                             <div className="arrow-right"></div>
@@ -117,7 +117,7 @@ class SignupForm extends React.Component {
                     </div>
                     <div>
                         <input onChange={this.update('email')} placeholder="Email" type="text" value={this.state.email} 
-                            className="signup-input" id={ifErrors()}/>
+                            className={`signup-input ${ifErrors()}`}/>
                         <div className={this.state.email_err} id="email-err">
                             You'll use this when you log in and if you ever need to reset your password.
                             <div className="arrow-right"></div>
@@ -126,7 +126,7 @@ class SignupForm extends React.Component {
                     
                     <div>
                         <input onChange={this.update('password')} placeholder="New password" type="password" value={this.state.password} 
-                            className="signup-input" id={ifErrors()}/>
+                            className={`signup-input ${ifErrors()}`}/>
                         <div className={this.state.pw_err} id="pw-err">
                             Enter a combination of at least six characters.
                             <div className="arrow-right"></div>
@@ -137,7 +137,7 @@ class SignupForm extends React.Component {
                     {/* <input onChange={this.update('birthday')} type="date" value={this.state.birthday} 
                         className="signup-input" id={ifErrors()}/> */}
                     <div className="date-wrapper">
-                            <select onChange={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className="date" id={ifErrors()}>
+                            <select onChange={this.update('month')} aria-label="Month" name="month" id="month" title="Month" className={`date ${ifErrors()}`}>
                             <option value="1">Jan</option>
                             <option value="2">Feb</option>
                             <option value="3">Mar</option>
@@ -151,13 +151,13 @@ class SignupForm extends React.Component {
                             <option value="11">Nov</option>
                             <option value="12">Dec</option>
                         </select>
-                            <select onChange={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className="date" id={ifErrors()}>
+                            <select onChange={this.update('day')} aria-label="Day" name="day" id="day" title="Day" className={`date ${ifErrors()}`}>
                             {Array.from(new Array(31), (v, i) =>
                                 <option key={i} value={`${1 + i}`}>{1 + i}</option>
                             )}
 
                         </select>
-                            <select onChange={this.update('year')} aria-label="Year" name="year" id="year" title="Year" className="date" id={ifErrors()}>
+                            <select onChange={this.update('year')} aria-label="Year" name="year" id="year" title="Year" className={`date ${ifErrors()}`}>
                             {Array.from(new Array(116), (v, i) =>
                                 <option key={i} value={`${year - i}`}>{year - i}</option>
                             )}
@@ -170,17 +170,17 @@ class SignupForm extends React.Component {
                     
                     <div className="gender">Gender </div>
                     <div className="radio">
-                        <label className="gender-input" id={ifErrors()}>
+                            <label className={`gender-input ${ifErrors()}`}>
                                 <div>Female</div>
                                 <input type="radio" onChange={this.update('gender')} value="Female" 
                                 checked={this.state.gender === 'Female'} />
                         </label>
-                        <label id="male" className="gender-input" id={ifErrors()}>
+                            <label id="male" className={`gender-input ${ifErrors()}`}>
                                 <div>Male</div>
                                 <input type="radio" onChange={this.update('gender')} value="Male" 
                                 checked={this.state.gender === 'Male'} />
                         </label>
-                        <label className="gender-input" id={ifErrors()}>
+                            <label className={`gender-input ${ifErrors()}`}>
                                 <div>Custom</div>
                                 <input type="radio" onChange={this.update('gender')} value="Custom" 
                                 checked={this.state.gender === 'Custom'} />
