@@ -1032,6 +1032,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       fn_err: "hide",
       ln_err: "hide",
       email_err: "hide",
+      email_err2: "hide",
       bday_err: "hide",
       gender_err: "hide",
       pw_err: "hide"
@@ -1123,6 +1124,11 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         id: "email-err"
       }, "You'll use this when you log in and if you ever need to reset your password.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-right"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.email_err2,
+        id: "email-err2"
+      }, "This email address has already been taken.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-left"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('password'),
         placeholder: "New password",
@@ -1270,8 +1276,14 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
 
       var email_err = "hide";
 
-      if (nextProps.errors.includes("Email can't be blank") || nextProps.errors.includes("Email has already been taken")) {
+      if (nextProps.errors.includes("Email can't be blank")) {
         email_err = "show";
+      }
+
+      var email_err2 = "hide";
+
+      if (nextProps.errors.includes("Email has already been taken")) {
+        email_err2 = "show";
       }
 
       return {
@@ -1280,7 +1292,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         bday_err: bday_err,
         gender_err: gender_err,
         pw_err: pw_err,
-        email_err: email_err
+        email_err: email_err,
+        email_err2: email_err2
       };
     }
   }]);

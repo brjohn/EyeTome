@@ -58,5 +58,13 @@ table {
 }
 
 button {
-	border-color: none;
+	outline: none;
+}
+
+Link {
+	text-decoration: none;
+}
+a {
+	text-decoration: none;
+	color: #050505;
 }

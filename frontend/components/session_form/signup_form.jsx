@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
             fn_err: "hide",
             ln_err: "hide",
             email_err: "hide",
+            email_err2: "hide",
             bday_err: "hide",
             gender_err: "hide",
             pw_err: "hide",
@@ -58,11 +59,15 @@ class SignupForm extends React.Component {
            pw_err = "show"
        }
        let email_err = "hide";
-       if (nextProps.errors.includes("Email can't be blank") || nextProps.errors.includes("Email has already been taken")) {
+       if (nextProps.errors.includes("Email can't be blank")) {
            email_err = "show"
-        }
+    }
+       let email_err2 = "hide";
+       if (nextProps.errors.includes("Email has already been taken")) {
+           email_err2 = "show"
+       }
        
-       return {fn_err, ln_err, bday_err, gender_err, pw_err, email_err}
+       return {fn_err, ln_err, bday_err, gender_err, pw_err, email_err, email_err2}
 
    }
 
@@ -121,6 +126,10 @@ class SignupForm extends React.Component {
                         <div className={this.state.email_err} id="email-err">
                             You'll use this when you log in and if you ever need to reset your password.
                             <div className="arrow-right"></div>
+                        </div>
+                        <div className={this.state.email_err2} id="email-err2">
+                            This email address has already been taken.
+                        <div className="arrow-left"></div>
                         </div>
                     </div>
                     
