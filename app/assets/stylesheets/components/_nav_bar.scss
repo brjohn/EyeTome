@@ -35,10 +35,6 @@
 
 }
 
-
-
-
-
 #search-bar {
 	grid-template-columns: 40px 70px;
 	border-bottom-left-radius: 18px;
@@ -74,7 +70,7 @@
 	margin-left: 20px;
 }
 
-.user-profile-button {
+.user-profile-button >Link{
 	display: grid;
 	grid-template-columns: 40px 70px;
 	border-bottom-left-radius: 18px;
