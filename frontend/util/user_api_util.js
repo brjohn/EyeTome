@@ -14,7 +14,11 @@ export const updateUser = user => {
         $.ajax({
             url: `api/users/${user.id}`,
             method: "PATCH",
-            data: {user: user}
+            data: {user: user},
+            // for AWS photos???:
+            // data: formData,
+            // contentType: false,
+            // processData: false
         })
     )
 }

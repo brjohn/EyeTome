@@ -20395,3 +20395,100 @@ Processing by Api::SessionsController#create as JSON
 Completed 401 Unauthorized in 5ms (Views: 0.3ms | ActiveRecord: 1.5ms)
 
 
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2969231131467707400)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateActiveStorageTables (20210217180729)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (75.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210217180729_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/migrate/20210217180729_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  ↳ db/migrate/20210217180729_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/migrate/20210217180729_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20210217180729_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210217180729"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (14.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2969231131467707400)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+[36m  S3 Storage (840.4ms) [0m[32mUploaded file to key: 19g71Zbkvhou8e284AYehS2n (checksum: cpe+r/KqipMxFD6NA5Ow1g==)[0m
+  [1m[35m (23.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Blob Create (36.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "19g71Zbkvhou8e284AYehS2n"], ["filename", "pexels-pixabay-207839.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 65646], ["checksum", "cpe+r/KqipMxFD6NA5Ow1g=="], ["created_at", "2021-02-17 18:48:02.602167"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Attachment Create (63.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "User"], ["record_id", 107], ["blob_id", 1], ["created_at", "2021-02-17 18:48:02.691135"]]
+  [1m[36mUser Update (29.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2021-02-17 18:48:02.756300"], ["id", 107]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 6f2e0332-b98c-4ec6-976f-652696e38c03) to Async(default) with arguments: #<GlobalID:0x00007fab36721a58 @uri=#<URI::GID gid://friendbook/ActiveStorage::Blob/1>>
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03] Performing ActiveStorage::AnalyzeJob (Job ID: 6f2e0332-b98c-4ec6-976f-652696e38c03) from Async(default) with arguments: #<GlobalID:0x00007fab37be6f38 @uri=#<URI::GID gid://friendbook/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03] [36m  S3 Storage (264.6ms) [0m[34mDownloaded file from key: 19g71Zbkvhou8e284AYehS2n[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03]   [1m[36mActiveStorage::Blob Update (0.9ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03]   [1m[35m (159.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f2e0332-b98c-4ec6-976f-652696e38c03] Performed ActiveStorage::AnalyzeJob (Job ID: 6f2e0332-b98c-4ec6-976f-652696e38c03) from Async(default) in 498.42ms
+Started GET "/" for ::1 at 2021-02-17 14:14:15 -0600
+  [1m[35m (25.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brynnjohnson/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Started GET "/" for ::1 at 2021-02-17 14:14:17 -0600
+Completed 200 OK in 4047ms (Views: 4035.6ms | ActiveRecord: 0.0ms)
+
+
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 100ms (Views: 93.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-17 14:14:22 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (18.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 122], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (25.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ZejeOwa8yfGJPTTFbA11CQ"], ["updated_at", "2021-02-17 20:14:22.894131"], ["id", 122]]
+  ↳ app/models/user.rb:91
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (3.6ms)
+Completed 200 OK in 464ms (Views: 17.3ms | ActiveRecord: 75.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 14:19:50 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZejeOwa8yfGJPTTFbA11CQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+Completed 200 OK in 736ms (Views: 722.9ms | ActiveRecord: 1.2ms)
+
+
