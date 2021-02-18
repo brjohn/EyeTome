@@ -5,7 +5,9 @@ import Profile from './profile';
 const mapStateToProps = ({ session, entities: { users } }, ownProps) => ({
     // posts
     // friends
-    profileOwner: users[ownProps.match.params.userId]
+    profileOwner: users[ownProps.match.params.userId],
+    currentUser: session.currentUser,
+    profileOwnerId: ownProps.match.params.userId
 
 });
 

@@ -18,8 +18,8 @@ const NavBar = ({ fullUser, logout}) => {
                         <i className="fas fa-search"></i>
                         <input type="text" placeholder="Search Friendbook"/>
                     </li>
-                    <li id="home-button">
-                        <i className="fas fa-home"></i>
+                    <li >
+                        <Link to="/" id="home-button"><i className="fas fa-home"></i></Link>    
                     </li>
 
                 </ul>

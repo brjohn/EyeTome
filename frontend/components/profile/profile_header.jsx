@@ -1,6 +1,25 @@
 import React from 'react';
 
 const ProfileHeader = (props) => {
+    const bio = () => {
+        if (props.profileOwner.bio){
+            return props.profileOwner.bio; 
+        } else {
+            if (props.profileOwner.id === props.currentUser) {
+                return "Add Bio";
+            } else {
+                return "";
+            }
+        }
+    }
+    const restrict = () => {
+        
+        if (props.profileOwner.id === props.currentUser){
+            return "";
+        } else {
+            return "hide";
+        }
+    }
 
     return (
         <div className="profile-header">
@@ -8,8 +27,7 @@ const ProfileHeader = (props) => {
                 <div className="cover-photo"></div>
                 <div className="profile-circle"></div>
                 <div className="pic-edit-banner">
-                    {/* <div className="profile-circle"></div> */}
-                    <div className="photo-edits">
+                    <div className={`photo-edits ${restrict()}`}>
                         <button id="profile-pic-edit">
                             <i className="fas fa-camera"></i>
                         </button>
@@ -23,7 +41,7 @@ const ProfileHeader = (props) => {
             </div>
             <div className="name-banner">
                 <h2>{props.profileOwner.first_name} {props.profileOwner.last_name}</h2>
-                <div>Add Bio</div>
+                <div>{bio()}</div>
             </div>
 
         </div>
