@@ -1,7 +1,8 @@
 .profile-header {
     height: 450px;
     color: #050505;
-    background-color: hotpink;
+    background-color: white;
+    // background-color: hotpink;
 }
 
 .cover-photo-wrapper {
@@ -9,7 +10,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: greenyellow;
+    // background-color: greenyellow;
+    background: linear-gradient(#050505 0%, white 95%);
 }
 
 .cover-photo {
@@ -18,7 +20,8 @@
     width: 940px;
     display: block;
     height: 348px;
-    background-color: paleturquoise;
+    background-color: #f0f2f5;
+    // background-color: paleturquoise;
     
 }
 
@@ -28,7 +31,8 @@
     width: 940px;
     height: 80px;
     display: block;
-    background-color: rgba(255, 0, 0, 0.3);    
+    background-color: none;
+    // background-color: rgba(255, 0, 0, 0.3);    
 }
 
 .profile-circle {
@@ -36,7 +40,7 @@
     margin-top: 180px;
     width: 168px;
     height: 168px;
-    background-color: gray;
+    background-color: #ccd0d5;
     border-radius: 50%;
     border: solid white 5px;
 }
