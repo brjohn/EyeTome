@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import UpdateProfileFormContainer from './update_profile_form_container';
 
 const ProfileHeader = (props) => {
     const bio = () => {
@@ -12,6 +14,13 @@ const ProfileHeader = (props) => {
             }
         }
     }
+    // openPhotoUpload = (display) => {
+
+    // }
+
+    // let uploadForm = this.openPhotoUpload;
+
+    
     const restrict = () => {
         
         if (props.profileOwner.id === props.currentUser){
@@ -28,6 +37,7 @@ const ProfileHeader = (props) => {
                 <div className="profile-circle"></div>
                 <div className="pic-edit-banner">
                     <div className={`photo-edits ${restrict()}`}>
+                        
                         <button id="profile-pic-edit">
                             <i className="fas fa-camera"></i>
                         </button>
@@ -43,6 +53,7 @@ const ProfileHeader = (props) => {
                 <h2>{props.profileOwner.first_name} {props.profileOwner.last_name}</h2>
                 <div>{bio()}</div>
             </div>
+            <UpdateProfileFormContainer/>
 
         </div>
     )

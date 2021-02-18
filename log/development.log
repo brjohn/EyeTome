@@ -21674,3 +21674,1413 @@ Processing by Api::UsersController#show as JSON
 Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/" for ::1 at 2021-02-18 09:25:10 -0600
+Started GET "/" for ::1 at 2021-02-18 09:25:11 -0600
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brynnjohnson/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/brynnjohnson/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Started GET "/" for ::1 at 2021-02-18 09:25:16 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (32.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  [1m[36mUser Load (33.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 4863ms (Views: 4767.9ms | ActiveRecord: 79.2ms)
+
+
+Completed 200 OK in 122ms (Views: 75.3ms | ActiveRecord: 42.6ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 4857ms (Views: 4762.1ms | ActiveRecord: 88.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 09:25:30 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+Completed 200 OK in 203ms (Views: 194.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/users/112" for ::1 at 2021-02-18 09:25:31 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"112"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (8.8ms)
+  Rendered api/users/show.json.jbuilder (10.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273493543220'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273493576900'
+
+Started GET "/" for ::1 at 2021-02-18 09:25:48 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+Completed 200 OK in 99ms (Views: 92.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/112" for ::1 at 2021-02-18 09:25:49 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"112"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.6ms)
+  Rendered api/users/show.json.jbuilder (15.6ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273496493780'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273496547120'
+
+Started GET "/" for ::1 at 2021-02-18 09:25:50 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+Completed 200 OK in 68ms (Views: 62.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/112" for ::1 at 2021-02-18 09:25:50 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"112"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.1ms)
+  Rendered api/users/show.json.jbuilder (13.7ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273464536740'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273460769920'
+
+Started GET "/" for ::1 at 2021-02-18 09:26:17 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+Completed 200 OK in 61ms (Views: 55.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/122" for ::1 at 2021-02-18 09:26:17 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"122"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (10.4ms)
+  Rendered api/users/show.json.jbuilder (13.5ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273463697640'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273463731960'
+
+Started GET "/api/users/122" for ::1 at 2021-02-18 09:26:22 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"122"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.3ms)
+  Rendered api/users/show.json.jbuilder (8.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273460324160'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273460358700'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:26:28 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Y_0ia1It8EQAt0iN3-NkiQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (13.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 122], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (15.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "A97CSPVUKzvJmUOJdSEXDg"], ["updated_at", "2021-02-18 15:26:28.216094"], ["id", 122]]
+  ↳ app/models/user.rb:91
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 37.6ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:26:44 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"a@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "a@yahoo.com"], ["id", 113], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["updated_at", "2021-02-18 15:26:44.579586"], ["id", 113]]
+  ↳ app/models/user.rb:91
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (3.5ms)
+Completed 200 OK in 332ms (Views: 17.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/users/113" for ::1 at 2021-02-18 09:26:49 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"113"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.6ms)
+  Rendered api/users/show.json.jbuilder (8.6ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273459329760'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273459342320'
+
+Started GET "/" for ::1 at 2021-02-18 09:27:20 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+Completed 200 OK in 68ms (Views: 62.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/112" for ::1 at 2021-02-18 09:27:21 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"112"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (9.6ms)
+  Rendered api/users/show.json.jbuilder (13.3ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273414150120'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273414260740'
+
+Started GET "/" for ::1 at 2021-02-18 09:27:34 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+Completed 200 OK in 83ms (Views: 74.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/122" for ::1 at 2021-02-18 09:27:38 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"122"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (8.2ms)
+  Rendered api/users/show.json.jbuilder (10.3ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273514040260'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273498381180'
+
+Started GET "/" for ::1 at 2021-02-18 09:28:28 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+Completed 200 OK in 103ms (Views: 92.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/122" for ::1 at 2021-02-18 09:28:29 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"122"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (42.4ms)
+  Rendered api/users/show.json.jbuilder (46.3ms)
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273492902560'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273492991360'
+
+Started GET "/" for ::1 at 2021-02-18 09:28:40 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+Completed 200 OK in 75ms (Views: 69.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/113" for ::1 at 2021-02-18 09:28:45 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"113"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.7ms)
+  Rendered api/users/show.json.jbuilder (8.7ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273461879100'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273432059300'
+
+Started GET "/" for ::1 at 2021-02-18 09:28:58 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+Completed 200 OK in 66ms (Views: 59.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/112" for ::1 at 2021-02-18 09:28:58 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"112"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (23.9ms)
+  Rendered api/users/show.json.jbuilder (27.8ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273428233380'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273428276480'
+
+Started GET "/" for ::1 at 2021-02-18 09:29:26 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 64ms (Views: 58.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/users/122" for ::1 at 2021-02-18 09:29:26 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"122"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (15.4ms)
+  Rendered api/users/show.json.jbuilder (18.5ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273427199320'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273427233240'
+
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE DATABASE "friendbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE DATABASE "friendbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (24.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35mSQL (20.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (44.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (32.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (5.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (30.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (23.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (54.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" character varying NOT NULL, "friend_id" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendships_on_friend_id_and_user_id" ON "friendships"  ("friend_id", "user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_friendships_on_user_id" ON "friendships"  ("user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (13.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:48
+  [1m[35m (38.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "poster_id" character varying NOT NULL, "wall_owner_id" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "body" character varying NOT NULL)[0m
+  ↳ db/schema.rb:48
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_poster_id" ON "posts"  ("poster_id")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_wall_owner_id" ON "posts"  ("wall_owner_id")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (13.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests" CASCADE[0m
+  ↳ db/schema.rb:58
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "requests" ("id" bigserial primary key, "requester_id" character varying NOT NULL, "friend_requested_id" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:58
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_requests_on_friend_requested_id_and_requester_id" ON "requests"  ("friend_requested_id", "requester_id")[0m
+  ↳ db/schema.rb:58
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_requests_on_requester_id" ON "requests"  ("requester_id")[0m
+  ↳ db/schema.rb:58
+  [1m[35m (18.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:67
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "birthday" date NOT NULL, "gender" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "bio" text, "work" character varying, "education" character varying, "current_city" character varying, "hometown" character varying, "relationship" character varying, "name_pronunciation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:67
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_first_name" ON "users"  ("first_name")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_last_name" ON "users"  ("last_name")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (17.5ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:90
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (2.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (41.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" character varying NOT NULL, "friend_id" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendships_on_friend_id_and_user_id" ON "friendships"  ("friend_id", "user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_friendships_on_user_id" ON "friendships"  ("user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:48
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "poster_id" character varying NOT NULL, "wall_owner_id" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "body" character varying NOT NULL)[0m
+  ↳ db/schema.rb:48
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_poster_id" ON "posts"  ("poster_id")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_wall_owner_id" ON "posts"  ("wall_owner_id")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests" CASCADE[0m
+  ↳ db/schema.rb:58
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "requests" ("id" bigserial primary key, "requester_id" character varying NOT NULL, "friend_requested_id" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:58
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_requests_on_friend_requested_id_and_requester_id" ON "requests"  ("friend_requested_id", "requester_id")[0m
+  ↳ db/schema.rb:58
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_requests_on_requester_id" ON "requests"  ("requester_id")[0m
+  ↳ db/schema.rb:58
+  [1m[35m (11.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:67
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "birthday" date NOT NULL, "gender" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "bio" text, "work" character varying, "education" character varying, "current_city" character varying, "hometown" character varying, "relationship" character varying, "name_pronunciation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:67
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_first_name" ON "users"  ("first_name")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_last_name" ON "users"  ("last_name")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:67
+  [1m[35m (6.8ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:90
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210217180729)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210214194543),
+(20210214190612),
+(20210214172358),
+(20210214164711);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (3.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2021-02-18 15:29:58.871220"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-02-18 15:29:58.877819"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "scienceguy@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Bill"], ["last_name", "Nye"], ["birthday", "1955-12-04"], ["gender", "Male"], ["email", "scienceguy@gmail.com"], ["password_digest", "$2a$12$.CVXWh.1L5p9tcZNhwDnf.h4/6S9OLEBV5cv7bXiHg/iG7hQE.9oy"], ["session_token", "vdrJyfRr66FxbnKKxwkZgQ"], ["created_at", "2021-02-18 15:29:59.297336"], ["updated_at", "2021-02-18 15:29:59.297336"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "magicschoolbus@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Miss"], ["last_name", "Frizzle"], ["birthday", "1960-10-12"], ["gender", "Female"], ["email", "magicschoolbus@gmail.com"], ["password_digest", "$2a$12$i/U2Eyi2nTUrUScdK7FPguAelbJw7JQUQ3YCvq5Y7kaZPF0M6CUna"], ["session_token", "b4v66cwmjdtiXvcg3oKdGQ"], ["created_at", "2021-02-18 15:29:59.612325"], ["updated_at", "2021-02-18 15:29:59.612325"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "deltanu@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Elle"], ["last_name", "Woods"], ["birthday", "1985-07-05"], ["gender", "Female"], ["email", "deltanu@gmail.com"], ["password_digest", "$2a$12$hnS2ScYLxtxaolVEvesc2.Ui05Z5TSke6e2YChAbawITmDYCFf9xC"], ["session_token", "kLk9hdq5Ao2htZzWDoXpEA"], ["created_at", "2021-02-18 15:29:59.923830"], ["updated_at", "2021-02-18 15:29:59.923830"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "spiceworld@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Ginger"], ["last_name", "Spice"], ["birthday", "1980-04-01"], ["gender", "Female"], ["email", "spiceworld@gmail.com"], ["password_digest", "$2a$12$WKqojs2AGi1yNzXqFWJQ4ueVZeoRCNC9B5p8J6Yl2tFfrOJbtYD82"], ["session_token", "rqk6rOLONoFTUS0oXZmB7g"], ["created_at", "2021-02-18 15:30:00.246236"], ["updated_at", "2021-02-18 15:30:00.246236"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gmail"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Al"], ["last_name", "J"], ["birthday", "1980-04-01"], ["gender", "Female"], ["email", "gmail"], ["password_digest", "$2a$12$ydhDY4x6IWep.Grsl8.24.3qnKp7qHb3iCeOGduHS8IWKrd/PWa7u"], ["session_token", "NsqUrbl7sXpHt0Xe_vEfuQ"], ["created_at", "2021-02-18 15:30:00.556056"], ["updated_at", "2021-02-18 15:30:00.556056"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daisy@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "bio", "current_city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["first_name", "Daisy"], ["last_name", "Dandilion"], ["birthday", "1980-04-01"], ["gender", "Female"], ["email", "daisy@gmail.com"], ["password_digest", "$2a$12$pTzQoqQYU1cVn.RF.90KWOh5PfDKB9.VH2HNx.oicVUApekv6n3X2"], ["session_token", "MyH51JclzjQm-tOVV1heQw"], ["bio", "I love gardening and landscaping!"], ["current_city", "Daffodil City"], ["created_at", "2021-02-18 15:30:00.864146"], ["updated_at", "2021-02-18 15:30:00.864146"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Amy"], ["last_name", "Andrews"], ["birthday", "1980-04-01"], ["gender", "Female"], ["email", "a@yahoo.com"], ["password_digest", "$2a$12$qEju4Fq79rn4LteW3e/ykuAHK3VShrgDanRWFqMH7yTF2S/wLKcTC"], ["session_token", "sGSpOYcK0MkRYEQSpiixHg"], ["created_at", "2021-02-18 15:30:01.185355"], ["updated_at", "2021-02-18 15:30:01.185355"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "b@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Berttie"], ["last_name", "Botts"], ["birthday", "1980-04-01"], ["gender", "Male"], ["email", "b@yahoo.com"], ["password_digest", "$2a$12$yK23/crMp..mbarwlVzHSeH7TWu/VIHd5ZFU08H4eYErv8SsR/CyG"], ["session_token", "kLmgJsrCsGe219Hat2p8zA"], ["created_at", "2021-02-18 15:30:01.487357"], ["updated_at", "2021-02-18 15:30:01.487357"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "c@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Courtney"], ["last_name", "Clarahan"], ["birthday", "1980-04-01"], ["gender", "Female"], ["email", "c@yahoo.com"], ["password_digest", "$2a$12$NmjefOxvwJZGiz0xNGmJFegARVM2lQlmSyKv4jlTSSZvyuA6ae28u"], ["session_token", "ml2XqL5gbVvu7627XtFL9g"], ["created_at", "2021-02-18 15:30:01.789418"], ["updated_at", "2021-02-18 15:30:01.789418"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "d@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Daphny"], ["last_name", "Davidson"], ["birthday", "1990-05-03"], ["gender", "Female"], ["email", "d@yahoo.com"], ["password_digest", "$2a$12$DEpn9Bnl.PFt/41dd1sHuumPI9lu4TcFK8VIVjpZI0CqsoSPzZZ7G"], ["session_token", "98gkxpF99MLT1KQno3DEbA"], ["created_at", "2021-02-18 15:30:02.096508"], ["updated_at", "2021-02-18 15:30:02.096508"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "e@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Erik"], ["last_name", "Eriksson"], ["birthday", "1990-05-03"], ["gender", "Male"], ["email", "e@yahoo.com"], ["password_digest", "$2a$12$MmfnpisJUz.4KUdz3QDt2ewyoGyyeKnD1UKMsopecntiEYFjD5xkm"], ["session_token", "4cydtVdkTdnHvIiOsWsTOA"], ["created_at", "2021-02-18 15:30:02.412761"], ["updated_at", "2021-02-18 15:30:02.412761"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "f@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Flo"], ["last_name", "Ferdinand"], ["birthday", "1990-05-03"], ["gender", "Female"], ["email", "f@yahoo.com"], ["password_digest", "$2a$12$5UNQ/XOqU7.UcmqOwYyRVubG8i5AoByQxz.SyrH7epG2Cb832hkzy"], ["session_token", "xiU8Q9Ilqqa6GNsLMgSyFA"], ["created_at", "2021-02-18 15:30:02.720575"], ["updated_at", "2021-02-18 15:30:02.720575"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "g@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Georgie"], ["last_name", "Giordano"], ["birthday", "1990-07-03"], ["gender", "Male"], ["email", "g@yahoo.com"], ["password_digest", "$2a$12$chLp/5aXpFHesTSvCkZWGu//q6nzLvjwoGyGRKSQLb37uZqD5pIaW"], ["session_token", "aL7XLu5U1Uk7MeciHbgC1A"], ["created_at", "2021-02-18 15:30:03.029323"], ["updated_at", "2021-02-18 15:30:03.029323"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "h@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mUser Create (11.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Helmut"], ["last_name", "Hendriksson"], ["birthday", "1990-04-03"], ["gender", "Male"], ["email", "h@yahoo.com"], ["password_digest", "$2a$12$ly7CJO/WHB.UTYLP4Zimg.Agu.5xDEiIBH2cFWd8rLqNpSpBG3rhO"], ["session_token", "77MC1NMcqUle-51paYhPeQ"], ["created_at", "2021-02-18 15:30:03.347393"], ["updated_at", "2021-02-18 15:30:03.347393"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "j@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Jenny"], ["last_name", "Jones"], ["birthday", "1995-06-03"], ["gender", "Female"], ["email", "j@yahoo.com"], ["password_digest", "$2a$12$5JixUwYy9CJEPxin2oCBNu3uSthNZPECKVjLcZ9PUUrL5TLrye3xK"], ["session_token", "XPZP8jZS2uf0eYE9Kx6kpQ"], ["created_at", "2021-02-18 15:30:03.716653"], ["updated_at", "2021-02-18 15:30:03.716653"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "birthday", "gender", "email", "password_digest", "session_token", "bio", "current_city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["first_name", "Demo"], ["last_name", "User"], ["birthday", "1995-06-03"], ["gender", "Female"], ["email", "demo@yahoo.com"], ["password_digest", "$2a$12$vU788XdzFt2YsS3tciwDxObhdjmiCN.SuuYDnZbfnlDKDTxEbxVSe"], ["session_token", "PptNbtH4MaSabguM3U3teg"], ["bio", "I am the Demo User and this is my bio!"], ["current_city", "New York"], ["created_at", "2021-02-18 15:30:04.047897"], ["updated_at", "2021-02-18 15:30:04.047897"]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+Started GET "/" for ::1 at 2021-02-18 09:30:07 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BkDHOo80HsDaKn7lAzIHIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 74ms (Views: 62.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:30:11 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "phijGn9IadyTwevkDoxBfw"], ["updated_at", "2021-02-18 15:30:12.006075"], ["id", 16]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/users/show.json.jbuilder (3.2ms)
+Completed 200 OK in 329ms (Views: 17.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 09:30:14 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered api/users/show.json.jbuilder (8.0ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273462525600'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273430661000'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:30:38 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "phijGn9IadyTwevkDoxBfw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "sgVqq5iAu_y3h7cettVk2A"], ["updated_at", "2021-02-18 15:30:38.227215"], ["id", 16]]
+  ↳ app/models/user.rb:91
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:30:50 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"a@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "a@yahoo.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "64cFIMe6BvOer1js2HfNVw"], ["updated_at", "2021-02-18 15:30:50.917052"], ["id", 7]]
+  ↳ app/models/user.rb:91
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (2.6ms)
+Completed 200 OK in 318ms (Views: 15.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/users/7" for ::1 at 2021-02-18 09:30:54 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"7"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (7.3ms)
+  Rendered api/users/show.json.jbuilder (9.6ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273419405500'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273425861320'
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2021-02-18 09:33:08 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "64cFIMe6BvOer1js2HfNVw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+Completed 200 OK in 95ms (Views: 85.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/10" for ::1 at 2021-02-18 09:33:09 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"10"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (21.1ms)
+  Rendered api/users/show.json.jbuilder (25.9ms)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273508914200'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273513470360'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:33:18 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "64cFIMe6BvOer1js2HfNVw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "a@yahoo.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (3.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "jvPWk_nFdqT4AryEWxnqeQ"], ["updated_at", "2021-02-18 15:33:18.828772"], ["id", 7]]
+  ↳ app/models/user.rb:91
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:33:36 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"g@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "g@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "g@yahoo.com"], ["id", 13], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "VKGGUphYDWCi0nTzU0yn6Q"], ["updated_at", "2021-02-18 15:33:37.274698"], ["id", 13]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/users/show.json.jbuilder (4.4ms)
+Completed 200 OK in 332ms (Views: 17.6ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/users/13" for ::1 at 2021-02-18 09:33:40 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"13"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.7ms)
+  Rendered api/users/show.json.jbuilder (9.8ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273465731680'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273496802780'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:35:09 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VKGGUphYDWCi0nTzU0yn6Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "g@yahoo.com"], ["id", 13], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ns-Qhg-sbCMs4euhVE6Sow"], ["updated_at", "2021-02-18 15:35:09.475650"], ["id", 13]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:35:18 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"j@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "j@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "j@yahoo.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "jjxYfp9adnwkYnMIy0WbcA"], ["updated_at", "2021-02-18 15:35:19.266487"], ["id", 15]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (2.9ms)
+Completed 200 OK in 334ms (Views: 17.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/users/15" for ::1 at 2021-02-18 09:35:22 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"15"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (7.0ms)
+  Rendered api/users/show.json.jbuilder (9.4ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273464454100'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273464522040'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:35:47 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jjxYfp9adnwkYnMIy0WbcA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "j@yahoo.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "eKWt7MxM_uO3g2oizS0bkg"], ["updated_at", "2021-02-18 15:35:47.531002"], ["id", 15]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:35:49 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ABT6M4kJGizKMB1Xnit7RA"], ["updated_at", "2021-02-18 15:35:50.199502"], ["id", 16]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (3.8ms)
+Completed 200 OK in 330ms (Views: 17.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 09:35:51 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (9.3ms)
+  Rendered api/users/show.json.jbuilder (11.2ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273427293020'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273427360600'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:36:07 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ABT6M4kJGizKMB1Xnit7RA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "wGfAyFxCBsBGunkZaTVF0g"], ["updated_at", "2021-02-18 15:36:07.184063"], ["id", 16]]
+  ↳ app/models/user.rb:91
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:36:15 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"b@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "b@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "b@yahoo.com"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "5tHFph_5PCQCpmG-X0UAaQ"], ["updated_at", "2021-02-18 15:36:16.098404"], ["id", 8]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (2.9ms)
+Completed 200 OK in 327ms (Views: 16.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/api/users/8" for ::1 at 2021-02-18 09:36:18 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"8"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.8ms)
+  Rendered api/users/show.json.jbuilder (9.4ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273458806980'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273416011100'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:37:01 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5tHFph_5PCQCpmG-X0UAaQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "b@yahoo.com"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "5eMKv0_jGzQDMJJxCzW7Sg"], ["updated_at", "2021-02-18 15:37:01.128324"], ["id", 8]]
+  ↳ app/models/user.rb:91
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:37:10 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"c@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "c@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "c@yahoo.com"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (4.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "N6J9XCgJfBlGESFgM-g75w"], ["updated_at", "2021-02-18 15:37:11.216524"], ["id", 9]]
+  ↳ app/models/user.rb:91
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/users/show.json.jbuilder (3.0ms)
+Completed 200 OK in 333ms (Views: 18.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/users/9" for ::1 at 2021-02-18 09:37:17 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"9"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (7.7ms)
+  Rendered api/users/show.json.jbuilder (9.7ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273458643240'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273415761820'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:37:26 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "N6J9XCgJfBlGESFgM-g75w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "c@yahoo.com"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "6C2JfmxJXEPa9ajcWd8l7A"], ["updated_at", "2021-02-18 15:37:26.972605"], ["id", 9]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:37:35 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"d@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "d@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "d@yahoo.com"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "nWcV-6EJac-bsA1mYFXo1w"], ["updated_at", "2021-02-18 15:37:35.921746"], ["id", 10]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/users/show.json.jbuilder (3.8ms)
+Completed 200 OK in 329ms (Views: 16.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/users/10" for ::1 at 2021-02-18 09:37:38 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"10"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered api/users/show.json.jbuilder (7.7ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273427315880'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273463551660'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:37:50 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nWcV-6EJac-bsA1mYFXo1w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "d@yahoo.com"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "XLeYvedb_EJCoGvtvR-OCA"], ["updated_at", "2021-02-18 15:37:50.626327"], ["id", 10]]
+  ↳ app/models/user.rb:91
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:38:02 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"e@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "e@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "e@yahoo.com"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "tVtPtLz01cZtxrYf5YSQiA"], ["updated_at", "2021-02-18 15:38:02.636929"], ["id", 11]]
+  ↳ app/models/user.rb:91
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (2.6ms)
+Completed 200 OK in 320ms (Views: 15.8ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/users/11" for ::1 at 2021-02-18 09:38:05 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"11"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (9.1ms)
+  Rendered api/users/show.json.jbuilder (11.5ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273464438820'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273464376240'
+
+Started GET "/api/users/8" for ::1 at 2021-02-18 09:39:05 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"8"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (8.3ms)
+  Rendered api/users/show.json.jbuilder (10.7ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273492021220'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273464814840'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:39:27 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "tVtPtLz01cZtxrYf5YSQiA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "e@yahoo.com"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "po0wfXKfCmg8JA5cDabHvg"], ["updated_at", "2021-02-18 15:39:27.491043"], ["id", 11]]
+  ↳ app/models/user.rb:91
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 09:39:39 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"daisy@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daisy@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "daisy@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "kreaAJ39S7dP7QQxd6fa2Q"], ["updated_at", "2021-02-18 15:39:39.502841"], ["id", 6]]
+  ↳ app/models/user.rb:91
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/users/show.json.jbuilder (2.6ms)
+Completed 200 OK in 335ms (Views: 17.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/users/6" for ::1 at 2021-02-18 09:39:45 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"6"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (7.5ms)
+  Rendered api/users/show.json.jbuilder (9.9ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273493461580'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273513206300'
+
+Started DELETE "/api/session" for ::1 at 2021-02-18 09:40:38 -0600
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kreaAJ39S7dP7QQxd6fa2Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "daisy@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Ef5TzYflxIFR4WqRnO3uJw"], ["updated_at", "2021-02-18 15:40:38.469389"], ["id", 6]]
+  ↳ app/models/user.rb:91
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 10:38:41 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 1380ms (Views: 1367.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-18 10:38:46 -0600
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:91
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@yahoo.com"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/models/user.rb:91
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["updated_at", "2021-02-18 16:38:46.561139"], ["id", 16]]
+  ↳ app/models/user.rb:91
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:91
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (40.2ms)
+Completed 200 OK in 459ms (Views: 44.1ms | ActiveRecord: 52.8ms)
+
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 10:38:48 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (6.1ms)
+  Rendered api/users/show.json.jbuilder (8.0ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273460133240'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273460176300'
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 10:38:53 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (5.8ms)
+  Rendered api/users/show.json.jbuilder (7.7ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273459737760'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273426704940'
+
+Started GET "/" for ::1 at 2021-02-18 11:41:06 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (12.8ms)
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (19.0ms)
+Completed 200 OK in 903ms (Views: 866.3ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 11:44:38 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (26.4ms)
+Completed 200 OK in 1069ms (Views: 1054.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 11:47:07 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (10.2ms)
+Completed 200 OK in 1115ms (Views: 1098.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 11:47:29 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (4.9ms)
+Completed 200 OK in 888ms (Views: 878.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 11:50:20 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (11.4ms)
+Completed 200 OK in 652ms (Views: 637.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 11:50:58 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+Completed 200 OK in 618ms (Views: 611.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 11:52:28 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (5.7ms)
+Completed 200 OK in 1118ms (Views: 1105.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 11:52:29 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (35.4ms)
+  Rendered api/users/show.json.jbuilder (43.4ms)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273460262660'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273460229460'
+
+Started GET "/" for ::1 at 2021-02-18 12:50:14 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (27.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (11.2ms)
+Completed 200 OK in 929ms (Views: 882.8ms | ActiveRecord: 29.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 12:51:42 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (8.7ms)
+Completed 200 OK in 981ms (Views: 960.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 12:51:43 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (17.3ms)
+  Rendered api/users/show.json.jbuilder (22.9ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273513814900'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273513829640'
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 12:51:43 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (11.9ms)
+  Rendered api/users/show.json.jbuilder (17.9ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273508899560'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273508947220'
+
+Started GET "/" for ::1 at 2021-02-18 14:18:01 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (20.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mActiveStorage::Attachment Load (13.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "User"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "User"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (88.6ms)
+Completed 200 OK in 944ms (Views: 807.4ms | ActiveRecord: 116.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 14:18:29 -0600
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zemxxCjPHrmDfBvV1IVbBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "User"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "User"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (12.9ms)
+Completed 200 OK in 954ms (Views: 910.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 14:18:31 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (17.3ms)
+  Rendered api/users/show.json.jbuilder (25.1ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273498539480'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273509505980'
+
+Started GET "/api/users/16" for ::1 at 2021-02-18 14:18:31 -0600
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"16"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (155.8ms)
+  Rendered api/users/show.json.jbuilder (158.9ms)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__3904223927439062553_70273493904460'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__4163957494089284037_70273509086540'
+

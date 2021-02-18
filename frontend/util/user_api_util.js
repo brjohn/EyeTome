@@ -17,8 +17,8 @@ export const updateUser = user => {
             data: {user: user},
             // for AWS photos???:
             // data: formData,
-            // contentType: false,
-            // processData: false
+            contentType: false,
+            processData: false
         })
     )
 }
