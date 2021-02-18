@@ -27,7 +27,8 @@ class User < ApplicationRecord
     # validates :bio, :work, :education, :current_city, :hometown, :relationship, :name_pronunciation, allow_blank: true
     validates :password, length: { minimum: 6}, allow_nil: true
 
-    has_many_attached :photos
+    has_one_attached :profile_pic
+    has_one_attached :cover_photo
 
     has_many :user_friendships,
     foreign_key: :user_id,
