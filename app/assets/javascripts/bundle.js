@@ -446,11 +446,12 @@ var NavBar = function NavBar(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     placeholder: "Search Friendbook"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/",
     id: "home-button"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-home"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
     className: "right-nav"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     to: "/users/".concat(fullUser.id),
@@ -566,11 +567,22 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Profile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUser(this.props.profileOwnerId);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        profileOwner: this.props.profileOwner
-      }));
+      if (!this.props.profileOwner) {
+        return null;
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          profileOwner: this.props.profileOwner,
+          currentUser: this.props.currentUser,
+          profileOwnerId: this.props.profileOwnerId
+        }));
+      }
     }
   }]);
 
@@ -603,7 +615,9 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
   return {
     // posts
     // friends
-    profileOwner: users[ownProps.match.params.userId]
+    profileOwner: users[ownProps.match.params.userId],
+    currentUser: session.currentUser,
+    profileOwnerId: ownProps.match.params.userId
   };
 };
 
@@ -639,6 +653,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileHeader = function ProfileHeader(props) {
+  var bio = function bio() {
+    if (props.profileOwner.bio) {
+      return props.profileOwner.bio;
+    } else {
+      if (props.profileOwner.id === props.currentUser) {
+        return "Add Bio";
+      } else {
+        return "";
+      }
+    }
+  };
+
+  var restrict = function restrict() {
+    if (props.profileOwner.id === props.currentUser) {
+      return "";
+    } else {
+      return "hide";
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -650,7 +684,7 @@ var ProfileHeader = function ProfileHeader(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pic-edit-banner"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "photo-edits"
+    className: "photo-edits ".concat(restrict())
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     id: "profile-pic-edit"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -661,7 +695,7 @@ var ProfileHeader = function ProfileHeader(props) {
     className: "fas fa-camera"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit Cover Photo"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "name-banner"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.profileOwner.first_name, " ", props.profileOwner.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Add Bio")));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.profileOwner.first_name, " ", props.profileOwner.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, bio())));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProfileHeader);

@@ -12,14 +12,24 @@ class Profile extends React.Component {
         }
     }
 
+    componentDidMount(){
+        this.props.fetchUser(this.props.profileOwnerId)
+    }
+
     render(){
+        if (!this.props.profileOwner){
+            return null;
+        } else {
         return (
             <div>
                 <NavBarContainer/>
-                <ProfileHeader profileOwner={this.props.profileOwner}/>
+                <ProfileHeader 
+                    profileOwner={this.props.profileOwner} 
+                    currentUser={this.props.currentUser}
+                    profileOwnerId={this.props.profileOwnerId}/>
             </div>
         )
-    }
+    }}
 
 }
 
