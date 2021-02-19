@@ -31,6 +31,7 @@ class UpdateProfileForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const formData = new FormData();
         // const formData = new FormData();
@@ -47,6 +48,7 @@ class UpdateProfileForm extends React.Component {
             formData.append('user[cover_photo]', this.state.coverPhotoFile);
         }
         this.props.updateUser(formData);
+        this.props.closeModal();
 
     }
 
@@ -104,10 +106,12 @@ class UpdateProfileForm extends React.Component {
                         <div className="cp-area">{previewCP}</div> 
                     </div>
                     <div className="edit-bio-div">
-                        <div>Bio</div>
-                        <input type="text" className="bio-input" value={this.state.bio} onChange={this.update('bio')}/>  
+                        <div className="bio-header">Bio</div>
+                        <div className="bio-input-wrapper">
+                            <input type="text" className="bio-input" placeholder="Describe yourself..." value={this.state.bio} onChange={this.update('bio')}/>  
+                        </div>
                     </div>
-                    <div className="into-div">Customize your Intro
+                    {/* <div className="into-div">Customize your Intro
                         <div>Work
                             <label>Add a workplace
                                 <input type="text" value={this.state.work} onChange={this.update('work')}/>
@@ -128,7 +132,7 @@ class UpdateProfileForm extends React.Component {
                                 <input type="text" value={this.state.hometown} onChange={this.update('hometown')} />
                             </label>
                         </div>
-                    </div>
+                    </div> */}
                     <input type="submit" className="update-button" value="Save Changes" />
                 </form>
                 </div>

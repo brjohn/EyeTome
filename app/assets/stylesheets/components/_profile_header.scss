@@ -24,6 +24,13 @@
     // background-color: paleturquoise;
     
 }
+.cov-photo {
+    cursor: pointer;
+    position: relative;
+    width: 940px;
+    display: block;
+    height: 348px;   
+}
 
 .pic-edit-banner {
     position: absolute;
@@ -41,6 +48,14 @@
     width: 168px;
     height: 168px;
     background-color: #ccd0d5;
+    border-radius: 50%;
+    border: solid white 5px;
+}
+.prof-circle {
+    position: absolute;
+    margin-top: 180px;
+    width: 168px;
+    height: 168px;
     border-radius: 50%;
     border: solid white 5px;
 }

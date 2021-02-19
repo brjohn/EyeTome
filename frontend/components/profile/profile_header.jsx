@@ -14,12 +14,21 @@ const ProfileHeader = (props) => {
             }
         }
     }
-    // openPhotoUpload = (display) => {
 
-    // }
-
-    // let uploadForm = this.openPhotoUpload;
-
+    const pp = () => {
+        if (props.profileOwner.profilePicFile) {
+            return <img height="168px" width="168px" src={props.profileOwner.profilePicFile} className="prof-circle" />;
+        } else {
+            return <div className="profile-circle"></div>;
+        }
+    }
+    const cp = () => {
+        if (props.profileOwner.coverPhotoFile){
+            return <img height="348px" width="940px" src={props.profileOwner.coverPhotoFile} className="cov-photo" />;
+        } else {
+            return <div className="cover-photo"></div>;
+        }
+    }
     
     const restrict = () => {
         
@@ -33,8 +42,8 @@ const ProfileHeader = (props) => {
     return (
         <div className="profile-header">
             <div className="cover-photo-wrapper">
-                <div className="cover-photo"></div>
-                <div className="profile-circle"></div>
+                {cp()}
+                {pp()}
                 <div className="pic-edit-banner">
                     <div className={`photo-edits ${restrict()}`}>
                         
@@ -51,7 +60,7 @@ const ProfileHeader = (props) => {
             </div>
             <div className="name-banner">
                 <h2>{props.profileOwner.first_name} {props.profileOwner.last_name}</h2>
-                <div>{bio()}</div>
+                <div onClick={() => props.openModal('editprofile')}>{bio()}</div>
             </div>
             {/* <UpdateProfileFormContainer/> */}
 
