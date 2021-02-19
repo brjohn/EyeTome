@@ -847,11 +847,11 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
       formData.append('user[hometown]', this.state.hometown);
 
       if (this.state.profilePicFile) {
-        formData.append('user[profile_pic]', this.state.profilePicUrl);
+        formData.append('user[profile_pic]', this.state.profilePicFile);
       }
 
       if (this.state.coverPhotoFile) {
-        formData.append('user[cover_photo]', this.state.coverPhotoUrl);
+        formData.append('user[cover_photo]', this.state.coverPhotoFile);
       }
 
       this.props.updateUser(formData);
