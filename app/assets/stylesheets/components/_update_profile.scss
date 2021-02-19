@@ -6,7 +6,7 @@
 
 .update-profile-box {
     width: 712px;
-    border-radius: 6px;
+    border-radius: 12px;
     background-color: white;
     height: min-content;
     padding: 10px;
@@ -42,6 +42,7 @@
         i {
             color: #ccd0d5;
             font-size: 36px;
+            cursor: pointer;
         }
     } 
 }
@@ -76,6 +77,7 @@
         border: none;
         background: none;
         outline: none;
+        cursor: pointer;
     }
 }
 .pp-preview {
@@ -97,3 +99,46 @@
     border-radius: 8px;
     border-color: none;
 }
+
+.edit-bio-div {
+    height: 94 px;
+    margin-bottom: 8px;
+    border-bottom: solid 2px #e5e5e5;
+    .bio-header {
+        font-size: 20px;
+        margin-top: 4px;
+        text-indent: 4px;
+        font-weight: bold;
+    }
+    .bio-input-wrapper {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        input {
+            height: 36px;
+            width: 300px;
+            text-align: center;
+            border: none;
+            outline: none;
+        }
+        input[placeholder="Describe yourself..."] {
+            color:  #ccd0d5;
+            font-size: 16px;
+        }
+    }
+        
+}
+.update-button {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    width: 100%;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 18px;
+        font-stretch: condensed;
+        color: #1c8ef1;
+        cursor: pointer;
+        text-align: center;
+        
+    }

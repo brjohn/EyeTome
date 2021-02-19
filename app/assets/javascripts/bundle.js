@@ -677,10 +677,37 @@ var ProfileHeader = function ProfileHeader(props) {
         return "";
       }
     }
-  }; // openPhotoUpload = (display) => {
-  // }
-  // let uploadForm = this.openPhotoUpload;
+  };
 
+  var pp = function pp() {
+    if (props.profileOwner.profilePicFile) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        height: "168px",
+        width: "168px",
+        src: props.profileOwner.profilePicFile,
+        className: "prof-circle"
+      });
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-circle"
+      });
+    }
+  };
+
+  var cp = function cp() {
+    if (props.profileOwner.coverPhotoFile) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        height: "348px",
+        width: "940px",
+        src: props.profileOwner.coverPhotoFile,
+        className: "cov-photo"
+      });
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cover-photo"
+      });
+    }
+  };
 
   var restrict = function restrict() {
     if (props.profileOwner.id === props.currentUser) {
@@ -694,11 +721,7 @@ var ProfileHeader = function ProfileHeader(props) {
     className: "profile-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "cover-photo-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "cover-photo"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-circle"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, cp(), pp(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pic-edit-banner"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "photo-edits ".concat(restrict())
@@ -718,7 +741,11 @@ var ProfileHeader = function ProfileHeader(props) {
     className: "fas fa-camera"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit Cover Photo"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "name-banner"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.profileOwner.first_name, " ", props.profileOwner.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, bio())));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.profileOwner.first_name, " ", props.profileOwner.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return props.openModal('editprofile');
+    }
+  }, bio())));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProfileHeader);
@@ -809,6 +836,7 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      debugger;
       e.preventDefault();
       var formData = new FormData(); // const formData = new FormData();
 
@@ -828,6 +856,7 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
       }
 
       this.props.updateUser(formData);
+      this.props.closeModal();
     }
   }, {
     key: "handlePPFile",
@@ -917,30 +946,17 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
         className: "cp-area"
       }, previewCP)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-bio-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bio-header"
+      }, "Bio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bio-input-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "bio-input",
+        placeholder: "Describe yourself...",
         value: this.state.bio,
         onChange: this.update('bio')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "into-div"
-      }, "Customize your Intro", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Work", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Add a workplace", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.work,
-        onChange: this.update('work')
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Education", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Add a high school or college", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.education,
-        onChange: this.update('education')
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Current City", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Lives in", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.currentCity,
-        onChange: this.update('currentCity')
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hometown", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "From", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.hometown,
-        onChange: this.update('hometown')
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "update-button",
         value: "Save Changes"
@@ -2028,10 +2044,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var middlewares = [redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]];
+
+if (true) {
+  // must use 'require' (import only allowed at top of file)
+  var _require = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js"),
+      _logger = _require.logger;
+
+  middlewares.push(_logger);
+}
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, middlewares));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

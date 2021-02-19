@@ -51,3 +51,37 @@ guest = User.create({
 
 })
 
+file1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/charles-deluvio-lJJlaUWYrPE-unsplash.jpg')
+guest.profile_pic.attach(file1)
+file2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/ignacio-correia-1_yycyoMT6g-unsplash.jpg')
+guest.cover_photo.attach(file2)
+
+afile1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/filip-havlik-N3GHOlnT_2c-unsplash.jpg')
+afile2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/frank-mckenna-PdITidCbTM8-unsplash.jpg')
+a1.profile_pic.attach(afile1)
+a1.cover_photo.attach(afile2)
+
+bfile1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/david-straight-7QBElZQC-jE-unsplash.jpg')
+bfile2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/garrett-sears-rXVFCA3fQ4I-unsplash.jpg')
+b1.profile_pic.attach(bfile1)
+b1.cover_photo.attach(bfile2)
+
+cfile1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/liana-mikah-6KRmH6k3Rdk-unsplash.jpg')
+cfile2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/liam-pozz-HZvGtncWvyQ-unsplash.jpg')
+c1.profile_pic.attach(cfile1)
+c1.cover_photo.attach(cfile2)
+
+dfile1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/bruno-horwath-rSUeHOMrhZs-unsplash.jpg')
+dfile2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/marlen-alimanov-kuwCCjTZEUk-unsplash.jpg')
+d1.profile_pic.attach(dfile1)
+d1.cover_photo.attach(dfile2)
+
+gfile1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/jared-rice-NTyBbu66_SI-unsplash.jpg')
+gfile2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/jo-arounding-c5SwN-KkE4g-unsplash.jpg')
+g1.profile_pic.attach(gfile1)
+g1.cover_photo.attach(gfile2)
+
+efile1 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/ricky-kharawala-adK3Vu70DEQ-unsplash.jpg')
+efile2 = open('https://friendbook-seeds.s3.us-east-2.amazonaws.com/chen-mizrach-jL6PTWI7h18-unsplash.jpg')
+e1.profile_pic.attach(efile1)
+e1.cover_photo.attach(efile2)
