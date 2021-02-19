@@ -31,7 +31,7 @@ class UpdateProfileForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
+        
         e.preventDefault();
         const formData = new FormData();
         // const formData = new FormData();
@@ -42,10 +42,10 @@ class UpdateProfileForm extends React.Component {
         formData.append('user[current_city]', this.state.currentCity);
         formData.append('user[hometown]', this.state.hometown);
         if (this.state.profilePicFile) {
-            formData.append('user[profile_pic]', this.state.profilePicFile);
+            formData.append('user[profile_pic]', this.state.profilePicUrl);
         }
         if (this.state.coverPhotoFile) {
-            formData.append('user[cover_photo]', this.state.coverPhotoFile);
+            formData.append('user[cover_photo]', this.state.coverPhotoUrl);
         }
         this.props.updateUser(formData);
         this.props.closeModal();
