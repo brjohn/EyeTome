@@ -680,11 +680,11 @@ var ProfileHeader = function ProfileHeader(props) {
   };
 
   var pp = function pp() {
-    if (props.profileOwner.profilePicFile) {
+    if (props.profileOwner.profilePicUrl) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         height: "168px",
         width: "168px",
-        src: props.profileOwner.profilePicFile,
+        src: props.profileOwner.profilePicUrl,
         className: "prof-circle"
       });
     } else {
@@ -695,11 +695,11 @@ var ProfileHeader = function ProfileHeader(props) {
   };
 
   var cp = function cp() {
-    if (props.profileOwner.coverPhotoFile) {
+    if (props.profileOwner.coverPhotoUrl) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         height: "348px",
         width: "940px",
-        src: props.profileOwner.coverPhotoFile,
+        src: props.profileOwner.coverPhotoUrl,
         className: "cov-photo"
       });
     } else {
@@ -836,7 +836,6 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      debugger;
       e.preventDefault();
       var formData = new FormData(); // const formData = new FormData();
 
@@ -848,11 +847,11 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
       formData.append('user[hometown]', this.state.hometown);
 
       if (this.state.profilePicFile) {
-        formData.append('user[profile_pic]', this.state.profilePicFile);
+        formData.append('user[profile_pic]', this.state.profilePicUrl);
       }
 
       if (this.state.coverPhotoFile) {
-        formData.append('user[cover_photo]', this.state.coverPhotoFile);
+        formData.append('user[cover_photo]', this.state.coverPhotoUrl);
       }
 
       this.props.updateUser(formData);

@@ -16,15 +16,15 @@ const ProfileHeader = (props) => {
     }
 
     const pp = () => {
-        if (props.profileOwner.profilePicFile) {
-            return <img height="168px" width="168px" src={props.profileOwner.profilePicFile} className="prof-circle" />;
+        if (props.profileOwner.profilePicUrl) {
+            return <img height="168px" width="168px" src={props.profileOwner.profilePicUrl} className="prof-circle" />;
         } else {
             return <div className="profile-circle"></div>;
         }
     }
     const cp = () => {
-        if (props.profileOwner.coverPhotoFile){
-            return <img height="348px" width="940px" src={props.profileOwner.coverPhotoFile} className="cov-photo" />;
+        if (props.profileOwner.coverPhotoUrl){
+            return <img height="348px" width="940px" src={props.profileOwner.coverPhotoUrl} className="cov-photo" />;
         } else {
             return <div className="cover-photo"></div>;
         }
