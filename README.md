@@ -5,7 +5,7 @@ ___
 Friendbook is a social media app that helps you connect with others by building 
 personal profiles, finding friends, and sharing posts and comments with each other. 
 
-Join the community! [Check out Friendbook here.](https://friendbook-2021.herokuapp.com/#/ "Friendbook")
+See Friendbook in action! [Check out Friendbook here.](https://friendbook-2021.herokuapp.com/#/ "Friendbook")
 
 ___
 
