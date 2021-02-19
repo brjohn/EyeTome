@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import SignupFormContainer from './signup_form_container';
+import UpdateProfileFormContainer from '../profile/update_profile_form_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal){
@@ -11,6 +12,9 @@ function Modal({ modal, closeModal }) {
     switch (modal) {
         case 'signup':
             component = <SignupFormContainer />;
+            break;
+        case 'editprofile':
+            component = <UpdateProfileFormContainer/>;
             break;
         default:
             return null;

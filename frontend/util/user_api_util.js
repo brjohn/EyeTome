@@ -9,14 +9,13 @@ export const fetchUser = id => {
     )
 } 
 
-export const updateUser = user => {
+export const updateUser = formData => {
+    
     return (
         $.ajax({
-            url: `api/users/${user.id}`,
+            url: `api/users/${formData.get("user[id]")}`,
             method: "PATCH",
-            data: {user: user},
-            // for AWS photos???:
-            // data: formData,
+            data: formData,
             contentType: false,
             processData: false
         })

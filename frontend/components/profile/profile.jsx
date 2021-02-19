@@ -2,6 +2,7 @@
 import React from 'react'
 import ProfileHeader from './profile_header';
 import NavBarContainer from '../nav_bar/nav_bar_container';
+import Modal from '../session_form/modal';
 
 
 class Profile extends React.Component {
@@ -22,11 +23,13 @@ class Profile extends React.Component {
         } else {
         return (
             <div>
+                <Modal/>
                 <NavBarContainer/>
                 <ProfileHeader 
                     profileOwner={this.props.profileOwner} 
                     currentUser={this.props.currentUser}
-                    profileOwnerId={this.props.profileOwnerId}/>
+                    profileOwnerId={this.props.profileOwnerId}
+                    openModal={this.props.openModal}/>
             </div>
         )
     }}

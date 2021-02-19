@@ -50,3 +50,4 @@ guest = User.create({
     current_city: "New York"
 
 })
+
