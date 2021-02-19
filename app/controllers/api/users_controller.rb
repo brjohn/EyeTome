@@ -9,6 +9,7 @@ class Api::UsersController < ApplicationController
             
             render json: @user.errors.full_messages, status: 422
         end
+    end
 
         def update
             @user = User.find(params[:id])
@@ -29,7 +30,7 @@ class Api::UsersController < ApplicationController
             render "api/users/index"
         end
 
-    end
+    
 
     private
     def user_params

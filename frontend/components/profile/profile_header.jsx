@@ -38,10 +38,10 @@ const ProfileHeader = (props) => {
                 <div className="pic-edit-banner">
                     <div className={`photo-edits ${restrict()}`}>
                         
-                        <button id="profile-pic-edit">
+                        <button onClick={() => props.openModal('editprofile')} id="profile-pic-edit">
                             <i className="fas fa-camera"></i>
                         </button>
-                        <button id="cover-photo-edit">
+                        <button onClick={() => props.openModal('editprofile')} id="cover-photo-edit">
                             <i className="fas fa-camera"></i>
                             <p>Edit Cover Photo</p>
                         </button>
@@ -53,7 +53,7 @@ const ProfileHeader = (props) => {
                 <h2>{props.profileOwner.first_name} {props.profileOwner.last_name}</h2>
                 <div>{bio()}</div>
             </div>
-            <UpdateProfileFormContainer/>
+            {/* <UpdateProfileFormContainer/> */}
 
         </div>
     )

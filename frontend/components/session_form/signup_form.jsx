@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
         }
         
         return (
-        
+            
             <div className="signup-fullwidth">
                 
             <div className="signup-form-container">
@@ -212,6 +212,7 @@ class SignupForm extends React.Component {
             </div>
                 
             </div>
+            
 
         )
     }
