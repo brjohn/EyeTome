@@ -44,11 +44,11 @@ class User < ApplicationRecord
     through: :user_friendships,
     source: :friend
 
-    has_many :posts,
+    has_many :authored_posts,
     foreign_key: :poster_id,
     class_name: :Post 
 
-    has_one :wall_for_posts,
+    has_many :posts_on_wall,
     foreign_key: :wall_owner_id,
     class_name: :Post
 
@@ -68,6 +68,15 @@ class User < ApplicationRecord
     attr_reader :password 
 
     after_initialize :ensure_session_token
+
+    def wall_posts
+        
+    end
+
+    def all_posts
+        
+        
+    end
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

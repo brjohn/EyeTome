@@ -15,7 +15,7 @@ class Request < ApplicationRecord
     foreign_key: :requester_id,
     class_name: :User
 
-    belongs_to :friend_requested,  #or has_one???
+    belongs_to :friend_requested,  
     foreign_key: :friend_requested_id,
     class_name: :User
 end
