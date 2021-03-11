@@ -19,5 +19,7 @@ class Friendship < ApplicationRecord
     foreign_key: :friend_id,
     class_name: :User
 
+    
+
 
 end
