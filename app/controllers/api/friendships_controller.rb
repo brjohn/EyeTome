@@ -9,7 +9,7 @@ class Api::FriendshipsController < ApplicationController
             request.destroy 
             render "api/friendships/show"
         else
-            render json: @friendship.errors.full_messages, status 422
+            render json: @friendship.errors.full_messages, status: 422
         end
 
     end
@@ -22,7 +22,7 @@ class Api::FriendshipsController < ApplicationController
             reverse_friendship.destroy 
             render "api/friendships/show"
         else
-            render json: ["Friendship not found"], status 404
+            render json: ["Friendship not found"], status: 404
         end
             
     end
