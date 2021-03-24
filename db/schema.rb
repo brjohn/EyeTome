@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_180729) do
+ActiveRecord::Schema.define(version: 2021_03_24_012105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_180729) do
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.string "user_id", null: false
-    t.string "friend_id", null: false
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_180729) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "poster_id", null: false
-    t.string "wall_owner_id", null: false
+    t.integer "poster_id", null: false
+    t.integer "wall_owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "body", null: false
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_180729) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.string "requester_id", null: false
-    t.string "friend_requested_id", null: false
+    t.integer "requester_id", null: false
+    t.integer "friend_requested_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_requested_id", "requester_id"], name: "index_requests_on_friend_requested_id_and_requester_id", unique: true
