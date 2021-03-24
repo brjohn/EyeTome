@@ -1,8 +1,6 @@
 class Api::PostsController < ApplicationController
     # before_action :require_login
 
-    #remember to make a way to capture the wall_owner_id!!!
-
     def index
         @posts = Post.all 
         render :index
@@ -14,6 +12,7 @@ class Api::PostsController < ApplicationController
     end
 
     def create
+        debugger
         @post = Post.new(post_params)
         if @post.save
             render :show

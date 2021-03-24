@@ -8,7 +8,7 @@ const postsReducer = (oldState = {}, action) => {
         case RECEIVE_POSTS:
             return action.posts
         default:
-            return state;
+            return oldState;
     }
 };
 
