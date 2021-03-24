@@ -12,6 +12,8 @@
 class Post < ApplicationRecord
     validates :poster_id, :wall_owner_id, presence: true
 
+    has_one_attached :post_pic
+
     belongs_to :poster,
     foreign_key: :poster_id,
     class_name: :User
