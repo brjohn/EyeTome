@@ -1812,9 +1812,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_post_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util/post_api_util */ "./frontend/util/post_api_util.js");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1838,12 +1840,12 @@ document.addEventListener("DOMContentLoaded", function () {
         currentUser: id
       }
     };
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState); // Clean up after ourselves so we don't accidentally use the
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])(preloadedState); // Clean up after ourselves so we don't accidentally use the
     // global currentUser instead of the one in the store
 
     delete window.currentUser;
   } else {
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])();
   }
 
   window.getState = store.getState;
@@ -1851,8 +1853,12 @@ document.addEventListener("DOMContentLoaded", function () {
   window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["signup"];
   window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"];
   window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"];
+  window.createPost = _util_post_api_util__WEBPACK_IMPORTED_MODULE_3__["createPost"];
+  window.fetchPost = _util_post_api_util__WEBPACK_IMPORTED_MODULE_3__["fetchPost"];
+  window.fetchPosts = _util_post_api_util__WEBPACK_IMPORTED_MODULE_3__["fetchPosts"];
+  window.deletePost = _util_post_api_util__WEBPACK_IMPORTED_MODULE_3__["deletePost"];
   var root = document.getElementById("root");
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
   }), root);
 });
@@ -1961,7 +1967,7 @@ var postsReducer = function postsReducer() {
       return action.posts;
 
     default:
-      return state;
+      return oldState;
   }
 };
 
@@ -2198,20 +2204,26 @@ var fetchPosts = function fetchPosts() {
     method: "GET"
   });
 };
-var createPost = function createPost(formData) {
+var createPost = function createPost(post) {
   return $.ajax({
     url: "api/posts",
     method: "POST",
-    data: formData
+    data: {
+      post: post
+    } // contentType: false,
+    // processData: false
+
   });
 };
-var updatePost = function updatePost(formData) {
+var updatePost = function updatePost(post) {
   return $.ajax({
     url: "api/posts/".concat(formData.get("post[id]")),
     method: "PATCH",
-    data: formData,
-    contentType: false,
-    processData: false
+    data: {
+      post: post
+    } // contentType: false,
+    // processData: false
+
   });
 };
 var deletePost = function deletePost(id) {

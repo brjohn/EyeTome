@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {signup, login, logout} from "./actions/session_actions"
+import {createPost, fetchPost, fetchPosts, deletePost} from "./util/post_api_util"
 // import 
 import configureStore from './store/store';
 import Root from './components/root';
@@ -37,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
    window.signup = signup;
    window.logout = logout;
    window.login = login;
+   window.createPost = createPost;
+   window.fetchPost = fetchPost;
+   window.fetchPosts = fetchPosts;
+   window.deletePost = deletePost;
     
     
     const root = document.getElementById("root");
