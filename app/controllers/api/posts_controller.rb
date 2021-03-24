@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-    before_action :require_logged_in
+    # before_action :require_login
 
     #remember to make a way to capture the wall_owner_id!!!
 
