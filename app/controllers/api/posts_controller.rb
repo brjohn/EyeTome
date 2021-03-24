@@ -35,7 +35,7 @@ class Api::PostsController < ApplicationController
         @post = Post.find_by(id: params[:id])
         if @post 
             @post.destroy 
-            render :index 
+            render :show 
         else
             render json: ['Cannot find or delete post'], status: 422
         end
