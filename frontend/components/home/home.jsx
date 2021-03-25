@@ -9,7 +9,10 @@ const Home = ({currentUser, closeModal}) => {
         return (
             <div>
               <NavBarContainer/>
-                <NewsFeedContainer/>   
+              <div className="home-below-nav">
+                <NewsFeedContainer/>
+              </div>
+                   
             </div>
         
         )

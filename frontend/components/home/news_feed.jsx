@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class NewsFeed extends React.Component {
     constructor(props){
@@ -19,7 +20,14 @@ class NewsFeed extends React.Component {
                     return (
                         <li className="post" key={idx}>
                             <div className="post-header">
-                                {post.poster_id}
+                                <Link to={`/users/${post.poster.id}`} className="poster-thumbnail">
+                                    <i className="fas fa-user-circle"></i> 
+                                </Link>
+                                <Link to={`/users/${post.poster.id}`} className="poster-name">
+                                    <div>{post.poster.first_name} {post.poster.last_name}</div> 
+                                </Link>
+                                
+                                
                             </div>
                             <div className="post-text">
                                 {post.body}
