@@ -32,7 +32,8 @@ export const createPost = post => {
 export const updatePost = post => {
     return ( 
         $.ajax({
-            url: `api/posts/${formData.get("post[id]")}`,
+            // url: `api/posts/${post.get("post[id]")}`,
+            url: `api/posts/${post.id}`,
             method: "PATCH",
             data: {post},
             // contentType: false,
@@ -43,7 +44,7 @@ export const updatePost = post => {
 
 export const deletePost = id => {
     return (
-        S.ajax({
+        $.ajax({
             url: `api/posts/${id}`,
             method: "DELETE"
         })

@@ -1,12 +1,18 @@
-import {RECEIVE_POST, RECEIVE_POSTS} from '../actions/post_actions';
+import {RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST} from '../actions/post_actions';
 
 const postsReducer = (oldState = {}, action) => {
+    // debugger
     Object.freeze(oldState);
     switch(action.type){
-        case RECEIVE_POST:
-            return Object.assign({}, oldState, {[action.post.id]: action.post});
         case RECEIVE_POSTS:
-            return action.posts
+            return action.posts;
+        case RECEIVE_POST:
+            const newPost = {[action.post.id]: action.post}
+            return Object.assign({}, oldState, newPost);
+        case REMOVE_POST:
+            let nextState = Object.assign({}, oldState);
+            delete nextState[action.post.id];
+            return nextState;
         default:
             return oldState;
     }
