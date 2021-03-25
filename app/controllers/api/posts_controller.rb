@@ -2,7 +2,11 @@ class Api::PostsController < ApplicationController
     # before_action :require_login
 
     def index
-        @posts = Post.all 
+        if params[:wallId] == 'all'
+            @posts = Post.all
+        else
+            @posts = Post.all.where(wall_owner_id: params[:wallId])
+        end
         render :index
     end
 
