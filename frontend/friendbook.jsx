@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {signup, login, logout} from "./actions/session_actions"
-import {createPost, fetchPost, fetchPosts, deletePost} from "./util/post_api_util"
+import {createPost, fetchPost, fetchPosts, deletePost, updatePost} from "./actions/post_actions"
 // import 
 import configureStore from './store/store';
 import Root from './components/root';
+import { updateUser } from "./actions/user_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
    window.fetchPost = fetchPost;
    window.fetchPosts = fetchPosts;
    window.deletePost = deletePost;
+   window.updatePost = updatePost;
     
     
     const root = document.getElementById("root");
