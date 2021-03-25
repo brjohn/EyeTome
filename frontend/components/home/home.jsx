@@ -1,16 +1,19 @@
 import React from 'react';
 import LoginFormContainer from '../session_form/login_form_container';
 import NavBarContainer from '../nav_bar/nav_bar_container';
-import NavBar from '../nav_bar/nav_bar';
+import NewsFeedContainer from './news_feed_container';
 
 const Home = ({currentUser, closeModal}) => {
 
-    // if (currentUser) {
-    //     closeModal();
-        return (<NavBarContainer/>)
-    // } else {
-    //     return <LoginFormContainer/>;
-    // }
+    
+        return (
+            <div>
+              <NavBarContainer/>
+                <NewsFeedContainer/>   
+            </div>
+        
+        )
+    
 
 }
 
