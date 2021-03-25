@@ -148,7 +148,7 @@ var receivePost = function receivePost(post) {
 };
 var receivePosts = function receivePosts(posts) {
   return {
-    type: RECEIVE_POST,
+    type: RECEIVE_POSTS,
     posts: posts
   };
 };
@@ -172,9 +172,9 @@ var fetchPost = function fetchPost(id) {
     });
   };
 };
-var fetchPosts = function fetchPosts() {
+var fetchPosts = function fetchPosts(wallId) {
   return function (dispatch) {
-    return _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchPosts"]().then(function (posts) {
+    return _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchPosts"](wallId).then(function (posts) {
       return dispatch(receivePosts(posts));
     });
   };
@@ -1830,7 +1830,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- // import 
+ // import {fetchPosts} from "./util/post_api_util"
 
 
 
@@ -2218,10 +2218,13 @@ var fetchPost = function fetchPost(id) {
     method: "GET"
   });
 };
-var fetchPosts = function fetchPosts() {
+var fetchPosts = function fetchPosts(wallId) {
   return $.ajax({
     url: "api/posts",
-    method: "GET"
+    method: "GET",
+    data: {
+      wallId: wallId
+    }
   });
 };
 var createPost = function createPost(post) {

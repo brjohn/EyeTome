@@ -10,7 +10,7 @@ export const receivePost = (post) => ({
 });
 
 export const receivePosts = (posts) => ({
-    type: RECEIVE_POST,
+    type: RECEIVE_POSTS,
     posts
 });
 
@@ -27,8 +27,8 @@ export const fetchPost = (id) => dispatch => (
     PostApiUtil.fetchPost(id).then(post => dispatch(receivePost(post)))
 );
 
-export const fetchPosts = () => dispatch => (
-    PostApiUtil.fetchPosts().then(posts => dispatch(receivePosts(posts)))
+export const fetchPosts = (wallId) => dispatch => (
+    PostApiUtil.fetchPosts(wallId).then(posts => dispatch(receivePosts(posts)))
 );
 
 export const updatePost = (post) => dispatch => (

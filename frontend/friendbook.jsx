@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {signup, login, logout} from "./actions/session_actions"
-import {createPost, fetchPost, fetchPosts, deletePost, updatePost} from "./actions/post_actions"
-// import 
+import {createPost, fetchPost, deletePost, updatePost, fetchPosts} from "./actions/post_actions"
+// import {fetchPosts} from "./util/post_api_util"
 import configureStore from './store/store';
 import Root from './components/root';
 import { updateUser } from "./actions/user_actions";
