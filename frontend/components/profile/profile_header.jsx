@@ -62,7 +62,7 @@ const ProfileHeader = (props) => {
                 <h2>{props.profileOwner.first_name} {props.profileOwner.last_name}</h2>
                 <div onClick={() => props.openModal('editprofile')}>{bio()}</div>
             </div>
-            {/* <UpdateProfileFormContainer/> */}
+            
 
         </div>
     )
