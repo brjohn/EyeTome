@@ -26,20 +26,30 @@
     color: #ccd0d5;
 }
 .poster-name {
+    font-weight: bolder;
     margin-top: 4px;
     margin-left: 8px;
 } 
 .post-text {
     margin: 16px;
 }
+.post-pic-div {
+    display: flex;
+    justify-content: center;
+}
 .post-pic {
     max-width: 100%;
+    margin-bottom: 12px;
+    max-height: 574px;
+    display: flex;
+    text-align: center;
 }
 
 .post h1 {
     // height: 60px;
     font-size: 20px;
     text-align: center;
+    margin-top: 4px;
     margin-left: 16px;
     margin-right: 16px;
     padding-bottom: 18px;
@@ -49,4 +59,64 @@
 .post-form-el {
     display: flex;
     flex-direction: column;
+    input[type="text"] {
+        border: none;
+        outline: none;
+        font-size: 24px; 
+        color: #050505;
+        min-height: 154px;
+    }
+    input[placeholder="What's on your mind?"]{
+        color: #65676b; 
+    }
+    label {
+        height: 52px;
+        width: 200px;
+        align-self: center;
+        margin-left: 16px;
+        margin-right: 16px;
+        border: 1px solid #ccced2;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        p {
+            margin-left: 12px;
+            margin-top: 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        i {
+            // margin-left: 60px;
+            margin-right: 24px;
+            margin-top: 16px;
+            font-size: 24px;
+            color: #45bd62;
+        }
+    }
+    .post-button {
+        background-color: #1878f2;
+        color: white;
+        border-radius: 6px;
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+
 }
+#close-post-form {
+    font-size: 36px;
+    color: #e4e6eb;
+    position: absolute;
+    margin-left: 450px;
+    cursor: pointer;
+
+}
+
