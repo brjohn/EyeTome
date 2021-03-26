@@ -12,6 +12,20 @@ class Profile extends React.Component {
         this.state = {
             // 
         }
+        this.displayEditProfile = this.displayEditProfile.bind(this);
+    }
+    displayEditProfile(){
+        
+        if(parseInt(this.props.profileOwnerId) === this.props.currentUser){
+            return (
+                <button onClick={() => this.props.openModal('editprofile')} >
+                    <i className="fas fa-pencil-alt"></i>
+                    <p>Edit Profile</p>
+                </button>
+            )
+        } else {
+            return <div className="edit-button-height"></div>;
+        }
     }
 
     componentDidMount(){
@@ -35,10 +49,11 @@ class Profile extends React.Component {
                     openModal={this.props.openModal}/>
                 <div className="profile-nav">
                     <div className="smaller-profile-nav">
-                       <button onClick={() => this.props.openModal('editprofile')} >
+                       {/* <button onClick={() => this.props.openModal('editprofile')} >
                             <i className="fas fa-pencil-alt"></i>
                             <p>Edit Profile</p>
-                        </button> 
+                        </button>  */}
+                        {this.displayEditProfile()}
                     </div>       
                 </div>
                 <div className="profile-below">
