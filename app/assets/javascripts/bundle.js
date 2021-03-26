@@ -158,9 +158,9 @@ var removePost = function removePost(post) {
     post: post
   };
 };
-var createPost = function createPost(post) {
+var createPost = function createPost(formData) {
   return function (dispatch) {
-    return _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__["createPost"](post).then(function (post) {
+    return _util_post_api_util__WEBPACK_IMPORTED_MODULE_0__["createPost"](formData).then(function (post) {
       return dispatch(receivePost(post));
     });
   };
@@ -2556,13 +2556,11 @@ var fetchPosts = function fetchPosts(wallId) {
     }
   });
 };
-var createPost = function createPost(post) {
+var createPost = function createPost(formData) {
   return $.ajax({
     url: "api/posts",
     method: "POST",
-    data: {
-      post: post
-    },
+    data: formData,
     contentType: false,
     processData: false
   });
