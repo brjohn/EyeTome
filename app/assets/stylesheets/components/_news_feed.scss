@@ -6,3 +6,26 @@
     padding: 32px;
     // background-color:lemonchiffon; 
 }
+.make-post-top {
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+}
+.whats-on-your-mind {
+    cursor: pointer;
+    height: 40px;
+    width: 100%;
+    background-color: #f0f2f5;
+    margin-right: 16px;
+    margin-left: 12px;
+    color: #65676b;
+    border-radius: 16px;
+    p {
+        margin-left: 12px;
+        margin-top: 12px;
+    }
+    
+}
+.whats-on-your-mind:hover {
+    background-color: #e2e4e6;
+}

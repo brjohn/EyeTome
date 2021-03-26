@@ -16,7 +16,23 @@ class NewsFeed extends React.Component {
     render (){
         return (
             <div className="news-feed">
-                <div onClick={()=> this.props.openModal('createpost')}>Create Post</div>
+                <div className="post">
+                    <div className="make-post-top">
+                       <div className="poster-thumbnail">
+                            <i className="fas fa-user-circle"></i> 
+                        </div>
+                        <div className="whats-on-your-mind" onClick={()=> this.props.openModal('createpost')}>
+                            <p> What's on your mind, {this.props.poster.first_name}? </p>
+                        </div> 
+                    </div>
+                    <div className="make-post-bottom">
+                        <i className="far fa-file-image">
+                            <p>Photo</p>
+                        </i>
+                    </div>
+                     
+                </div>
+                
                 <PostList posts={this.props.posts}/>
             </div>
         )
