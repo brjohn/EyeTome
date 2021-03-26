@@ -46,11 +46,16 @@ class PostForm extends React.Component {
         <div className="post-form-container">
         <div className="post">
             <h1>Create Post</h1>
-            <div className="post-header">   
-                <i className="fas fa-user-circle"></i> 
-                <div>{this.props.poster.first_name} {this.props.poster.last_name}</div>
+            <div className="post-header"> 
+                <div className="poster-thumbnail">
+                   <i className="fas fa-user-circle"></i> 
+                </div>  
+                <div className="poster-name">
+                   <div>{this.props.poster.first_name} {this.props.poster.last_name}</div> 
+                </div> 
+                
             </div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="post-form-el">
                 <input 
                     type="text" 
                     className="post-text"
