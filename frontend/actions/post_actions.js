@@ -19,8 +19,8 @@ export const removePost = (post) => ({
     post
 })
 
-export const createPost = (post) => dispatch => (
-    PostApiUtil.createPost(post).then(post => dispatch(receivePost(post)))
+export const createPost = (formData) => dispatch => (
+    PostApiUtil.createPost(formData).then(post => dispatch(receivePost(post)))
 );
 
 export const fetchPost = (id) => dispatch => (
