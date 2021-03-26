@@ -1,0 +1,52 @@
+.all-nf-posts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.post {
+    color: #050505;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: white; 
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+}
+.post-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.poster-thumbnail {
+    font-size: 38px;
+    color: #ccd0d5;
+}
+.poster-name {
+    margin-top: 4px;
+    margin-left: 8px;
+} 
+.post-text {
+    margin: 16px;
+}
+.post-pic {
+    max-width: 100%;
+}
+
+.post h1 {
+    // height: 60px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-bottom: 18px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ccced2;
+}
+.post-form-el {
+    display: flex;
+    flex-direction: column;
+}
