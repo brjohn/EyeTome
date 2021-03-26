@@ -16,10 +16,7 @@ class NewsFeed extends React.Component {
     render (){
         return (
             <div className="news-feed">
-                <PostForm 
-                poster={this.props.currentUser}
-                createPost={this.props.createPost}
-                />
+                <div onClick={()=> this.props.openModal('createpost')}>Create Post</div>
                 <PostList posts={this.props.posts}/>
             </div>
         )
