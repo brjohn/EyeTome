@@ -29,7 +29,8 @@ const PostList = (props) => {
                             <div className="post-text">
                                 {post.body}
                             </div>
-                            {postPic(post)}
+                            <div className="post-pic-div">{postPic(post)}</div>
+                            
                         </li>
 
                     )

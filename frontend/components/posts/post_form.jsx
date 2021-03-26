@@ -10,6 +10,7 @@ class PostForm extends React.Component {
         }
         this.handlePostPic = this.handlePostPic.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.preview = this.preview.bind(this);
     }
     update(field) {
         return e => this.setState({
@@ -36,6 +37,14 @@ class PostForm extends React.Component {
             formData.append('post[post_pic]', this.state.postPicFile);
         }
         this.props.createPost(formData);
+        this.props.closeModal();
+    }
+    preview(){
+        if (this.state.postPicUrl){
+            return <img src={this.state.postPicUrl} className="post-pic"/>
+        } else {
+            return null;
+        }
     }
 
     
@@ -45,6 +54,7 @@ class PostForm extends React.Component {
         <div className="inner-modal-child">
         <div className="post-form-container">
         <div className="post">
+            <i className="fas fa-times-circle" id="close-post-form" onClick={()=>this.props.closeModal()}></i>
             <h1>Create Post</h1>
             <div className="post-header"> 
                 <div className="poster-thumbnail">
@@ -63,11 +73,18 @@ class PostForm extends React.Component {
                     value={this.state.body}
                     onChange={this.update('body')}   
                 />
+                {this.preview()}
                 <input 
                     type="file"
-                    className="post-pic-input"
+                    // className="post-pic-input"
                     onChange={this.handlePostPic}
+                    id="post-pic-input"
+                    hidden
                 />
+                <label htmlFor="post-pic-input">
+                    <p>Add to Your Post</p>
+                    <i className="far fa-file-image"></i>
+                </label>
                 <input 
                     type="submit"
                     className="post-button"
