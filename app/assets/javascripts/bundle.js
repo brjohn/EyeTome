@@ -859,6 +859,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var postPic = function postPic(post) {
+  if (post.postPicUrl) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: post.postPicUrl,
+      className: "post-pic"
+    });
+  } else {
+    return null;
+  }
+};
+
 var PostList = function PostList(props) {
   var allPosts = props.posts;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -879,7 +890,7 @@ var PostList = function PostList(props) {
       className: "poster-name"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.poster.first_name, " ", post.poster.last_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "post-text"
-    }, post.body));
+    }, post.body), postPic(post));
   }));
 };
 
@@ -944,10 +955,30 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {// 
     };
+    _this.displayEditProfile = _this.displayEditProfile.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Profile, [{
+    key: "displayEditProfile",
+    value: function displayEditProfile() {
+      var _this2 = this;
+
+      if (parseInt(this.props.profileOwnerId) === this.props.currentUser) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this2.props.openModal('editprofile');
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-pencil-alt"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit Profile"));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "edit-button-height"
+        });
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchUser(this.props.profileOwnerId);
@@ -956,8 +987,6 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       if (!this.props.profileOwner) {
         return null;
       } else {
@@ -970,13 +999,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           className: "profile-nav"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "smaller-profile-nav"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            return _this2.props.openModal('editprofile');
-          }
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-pencil-alt"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit Profile")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, this.displayEditProfile())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "profile-below"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "smaller-profile-below"

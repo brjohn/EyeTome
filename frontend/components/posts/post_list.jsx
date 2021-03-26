@@ -1,6 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const postPic = (post) => {
+    if (post.postPicUrl) {
+        return <img src={post.postPicUrl} className="post-pic"/>
+    } else {
+        return null;
+    }
+}
+
 const PostList = (props) => {
         let allPosts = props.posts
 
@@ -21,6 +29,7 @@ const PostList = (props) => {
                             <div className="post-text">
                                 {post.body}
                             </div>
+                            {postPic(post)}
                         </li>
 
                     )
