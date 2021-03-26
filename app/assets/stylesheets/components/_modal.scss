@@ -221,5 +221,11 @@ input[placeholder="Last name"] {
   
   border-right:10px solid #BE4B49; 
 }
+.inner-modal-child {
+  display: flex;
+  justify-content: center;
+}
 
- 
+.post-form-container {
+  width: 500px;
+}

@@ -40,7 +40,10 @@ class PostForm extends React.Component {
 
     
     render (){
+
     return (
+        <div className="inner-modal-child">
+        <div className="post-form-container">
         <div className="post">
             <h1>Create Post</h1>
             <div className="post-header">   
@@ -68,6 +71,8 @@ class PostForm extends React.Component {
 
             </form>
 
+        </div>
+        </div>
         </div>
     )
     }
