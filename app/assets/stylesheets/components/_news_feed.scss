@@ -1,6 +1,43 @@
-.all-nf-posts {
+.news-feed {
+    display: flex;
+    flex-direction: column;
     max-width: 680px;
     min-width: 540px;
     padding: 32px;
-    background-color: white;
+    // background-color:lemonchiffon; 
+}
+
+.all-nf-posts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.post {
+    color: #050505;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: white; 
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+}
+.post-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.poster-thumbnail {
+    font-size: 38px;
+    color: #ccd0d5;
+}
+.poster-name {
+    margin-top: 4px;
+    margin-left: 8px;
+} 
+.post-text {
+    margin: 16px;
 }
