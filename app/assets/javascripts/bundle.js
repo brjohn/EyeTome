@@ -846,8 +846,8 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var formData = new FormData();
-      formData.append('post[poster_id]', this.props.poster.id);
-      formData.append('post[wall_owner_id]', this.props.poster.id);
+      formData.append('post[poster_id]', this.props.fullCurrentUser.id);
+      formData.append('post[wall_owner_id]', this.props.profileOwnerId);
       formData.append('post[body]', this.state.body);
 
       if (this.state.postPicFile) {
@@ -894,7 +894,7 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-user-circle"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "poster-name"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.poster.first_name, " ", this.props.poster.last_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.fullCurrentUser.first_name, " ", this.props.fullCurrentUser.last_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "post-form-el"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -946,12 +946,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
+var mapStateToProps = function mapStateToProps(_ref, ownProps) {
   var session = _ref.session,
       entities = _ref.entities;
+
+  var ownerId = function ownerId() {
+    if (ownProps.match) {
+      return ownProps.match.params.userId;
+    } else {
+      return session.currentUser;
+    }
+  };
+
   return {
-    poster: entities.users[session.currentUser],
-    posts: Object.values(entities.posts)
+    fullCurrentUser: entities.users[session.currentUser],
+    posts: Object.values(entities.posts),
+    profileOwnerId: ownerId()
   };
 };
 
