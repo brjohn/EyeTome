@@ -4,6 +4,7 @@ import ProfileHeader from './profile_header';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import Modal from '../session_form/modal';
 import PostList from '../posts/post_list';
+import CreatePostBox from '../posts/create_post_box';
 
 
 class Profile extends React.Component {
@@ -49,10 +50,6 @@ class Profile extends React.Component {
                     openModal={this.props.openModal}/>
                 <div className="profile-nav">
                     <div className="smaller-profile-nav">
-                       {/* <button onClick={() => this.props.openModal('editprofile')} >
-                            <i className="fas fa-pencil-alt"></i>
-                            <p>Edit Profile</p>
-                        </button>  */}
                         {this.displayEditProfile()}
                     </div>       
                 </div>
@@ -60,6 +57,7 @@ class Profile extends React.Component {
                     <div className="smaller-profile-below">
                         <div className="left-profile-stuff"></div>
                         <div className="right-profile">
+                            <CreatePostBox openModal={this.props.openModal} poster={this.props.fullCurrentUser}/>
                            <PostList posts={this.props.posts}/> 
                         </div>
                         

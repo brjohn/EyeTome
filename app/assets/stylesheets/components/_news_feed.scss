@@ -29,3 +29,31 @@
 .whats-on-your-mind:hover {
     background-color: #e2e4e6;
 }
+.make-post-bottom {
+    border-top: 1px solid #ccced2; 
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    i {
+        display: flex;
+        margin-top: 8px;
+        flex-direction: row;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-size: 24px;
+        color:  #45bd62;
+        p {
+            margin-top: 6px;
+           font-size: 15px;
+           color: #6d6f73;
+           text-indent: 8px;
+        } 
+    }
+    i:hover {
+        background-color: #f0f2f5;
+    }
+}
