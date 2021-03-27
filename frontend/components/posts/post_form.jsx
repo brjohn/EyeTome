@@ -30,8 +30,8 @@ class PostForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const formData = new FormData();
-        formData.append('post[poster_id]', this.props.poster.id);
-        formData.append('post[wall_owner_id]', this.props.poster.id);
+        formData.append('post[poster_id]', this.props.fullCurrentUser.id);
+        formData.append('post[wall_owner_id]', this.props.profileOwnerId);
         formData.append('post[body]', this.state.body);
         if (this.state.postPicFile) {
             formData.append('post[post_pic]', this.state.postPicFile);
@@ -61,7 +61,7 @@ class PostForm extends React.Component {
                    <i className="fas fa-user-circle"></i> 
                 </div>  
                 <div className="poster-name">
-                   <div>{this.props.poster.first_name} {this.props.poster.last_name}</div> 
+                   <div>{this.props.fullCurrentUser.first_name} {this.props.fullCurrentUser.last_name}</div> 
                 </div> 
                 
             </div>
