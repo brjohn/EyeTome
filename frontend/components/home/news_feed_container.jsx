@@ -5,13 +5,14 @@ import {openModal, closeModal} from '../../actions/modal_actions';
 
 const mapStateToProps = ({session, entities}) => ({
     poster: entities.users[session.currentUser],
-    posts: Object.values(entities.posts)
+    posts: Object.values(entities.posts),
+    postForm: 'createpost'
 });
 
 const mapDispatchToProps = dispatch => ({
     fetchPosts: (wallId) => dispatch(fetchPosts(wallId)),
     createPost: (post) => dispatch(createPost(post)),
-    openModal: modal => dispatch(openModal(modal)),
+    openModal: (modal) => dispatch(openModal(modal)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);

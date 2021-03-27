@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SignupFormContainer from './signup_form_container';
 import UpdateProfileFormContainer from '../profile/update_profile_form_container';
 import PostFormContainer from '../posts/post_form_container';
+import ProfilePostFormContainer from '../posts/profile_post_form_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal){
@@ -21,7 +22,10 @@ function Modal({ modal, closeModal }) {
             component = <PostFormContainer/>;
             break;
         default:
-            return null;
+            component = <ProfilePostFormContainer/>;
+            break;
+        // default:
+        //     return null;
     }
 
     return (

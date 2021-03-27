@@ -12,7 +12,9 @@ const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) 
     fullCurrentUser: users[session.currentUser],
     profileOwnerId: ownProps.match.params.userId,
     modal: ui.modal,
-    posts: Object.values(posts) 
+    posts: Object.values(posts),
+    postForm: 'createwallpost'
+    // postForm: users[ownProps.match.params.userId] 
 
 
 });
@@ -24,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
     
     fetchUser: id => dispatch(fetchUser(id)),
     updateUser: user => dispatch(updateUser(user)),
-    openModal: modal => dispatch(openModal(modal)),
+    openModal: (modal) => dispatch(openModal(modal)),
     fetchPosts: (wallId) => dispatch(fetchPosts(wallId))
 });
 

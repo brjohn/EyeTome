@@ -57,7 +57,11 @@ class Profile extends React.Component {
                     <div className="smaller-profile-below">
                         <div className="left-profile-stuff"></div>
                         <div className="right-profile">
-                            <CreatePostBox openModal={this.props.openModal} poster={this.props.fullCurrentUser}/>
+                            <CreatePostBox 
+                            openModal={this.props.openModal} 
+                            poster={this.props.fullCurrentUser} 
+                            postForm={parseInt(this.props.profileOwnerId)}
+                            />
                            <PostList posts={this.props.posts}/> 
                         </div>
                         
