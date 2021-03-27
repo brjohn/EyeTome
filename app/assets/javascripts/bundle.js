@@ -495,8 +495,9 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-feed"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        openModel: this.props.openModel,
-        poster: this.props.poster
+        openModal: this.props.openModal,
+        poster: this.props.poster,
+        postForm: this.props.postForm
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
         posts: this.props.posts
       }));
@@ -533,7 +534,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
       entities = _ref.entities;
   return {
     poster: entities.users[session.currentUser],
-    posts: Object.values(entities.posts)
+    posts: Object.values(entities.posts),
+    postForm: 'createpost'
   };
 };
 
@@ -738,14 +740,14 @@ var CreatePostBox = function CreatePostBox(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "whats-on-your-mind",
     onClick: function onClick() {
-      return props.openModal('createpost');
+      return props.openModal(props.postForm);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " What's on your mind, ", props.poster.first_name, "? "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "make-post-bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-file-image",
     onClick: function onClick() {
-      return props.openModal('createpost');
+      return props.openModal(props.postForm);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Photo"))));
 };
@@ -844,6 +846,7 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      debugger;
       e.preventDefault();
       var formData = new FormData();
       formData.append('post[poster_id]', this.props.fullCurrentUser.id);
@@ -946,22 +949,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref, ownProps) {
+var mapStateToProps = function mapStateToProps(_ref) {
   var session = _ref.session,
       entities = _ref.entities;
-
-  var ownerId = function ownerId() {
-    if (ownProps.match) {
-      return ownProps.match.params.userId;
-    } else {
-      return session.currentUser;
-    }
-  };
-
   return {
     fullCurrentUser: entities.users[session.currentUser],
     posts: Object.values(entities.posts),
-    profileOwnerId: ownerId()
+    profileOwnerId: session.currentUser
   };
 };
 
@@ -1036,6 +1030,56 @@ var PostList = function PostList(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostList);
+
+/***/ }),
+
+/***/ "./frontend/components/posts/profile_post_form_container.jsx":
+/*!*******************************************************************!*\
+  !*** ./frontend/components/posts/profile_post_form_container.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+/* harmony import */ var _post_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post_form */ "./frontend/components/posts/post_form.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(_ref, ownProps) {
+  var ui = _ref.ui,
+      session = _ref.session,
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      posts = _ref$entities.posts;
+  return {
+    profileOwnerId: ui.modal,
+    fullCurrentUser: users[session.currentUser],
+    posts: Object.values(posts) // profileOwnerId: ownProps.match.params.userId
+
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchPosts: function fetchPosts(wallId) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["fetchPosts"])(wallId));
+    },
+    createPost: function createPost(post) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["createPost"])(post));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1152,7 +1196,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           className: "right-profile"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
           openModal: this.props.openModal,
-          poster: this.props.fullCurrentUser
+          poster: this.props.fullCurrentUser,
+          postForm: parseInt(this.props.profileOwnerId)
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
           posts: this.props.posts
         })))));
@@ -1201,7 +1246,9 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
     fullCurrentUser: users[session.currentUser],
     profileOwnerId: ownProps.match.params.userId,
     modal: ui.modal,
-    posts: Object.values(posts)
+    posts: Object.values(posts),
+    postForm: 'createwallpost' // postForm: users[ownProps.match.params.userId] 
+
   };
 };
 
@@ -1864,6 +1911,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _profile_update_profile_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../profile/update_profile_form_container */ "./frontend/components/profile/update_profile_form_container.jsx");
 /* harmony import */ var _posts_post_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../posts/post_form_container */ "./frontend/components/posts/post_form_container.jsx");
+/* harmony import */ var _posts_profile_post_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../posts/profile_post_form_container */ "./frontend/components/posts/profile_post_form_container.jsx");
+
 
 
 
@@ -1895,7 +1944,10 @@ function Modal(_ref) {
       break;
 
     default:
-      return null;
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_profile_post_form_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+      break;
+    // default:
+    //     return null;
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -15,7 +15,10 @@ class NewsFeed extends React.Component {
     render (){
         return (
             <div className="news-feed">
-                <CreatePostBox openModel={this.props.openModel} poster={this.props.poster}/>
+                <CreatePostBox 
+                openModal={this.props.openModal} 
+                poster={this.props.poster} 
+                postForm={this.props.postForm}/>
                 <PostList posts={this.props.posts}/>
             </div>
         )
