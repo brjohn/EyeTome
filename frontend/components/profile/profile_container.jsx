@@ -9,6 +9,7 @@ const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) 
     // friends
     profileOwner: users[ownProps.match.params.userId],
     currentUser: session.currentUser,
+    fullCurrentUser: users[session.currentUser],
     profileOwnerId: ownProps.match.params.userId,
     modal: ui.modal,
     posts: Object.values(posts) 
