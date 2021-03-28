@@ -2,9 +2,17 @@ import React from 'react';
 import AccountDropdown from './account-dropdown';
 import { Link } from 'react-router-dom';
 
+
+
 const NavBar = ({ fullUser, logout}) => {
 
-    
+    const thumbnail = () => {
+        if (fullUser.profilePicUrl){
+            return <img src={fullUser.profilePicUrl} className="navbar-thumbnail"/>
+        } else {
+            return <i className="fas fa-user-circle"></i>
+        }
+    }
 
     return (
         <header className="main-nav">
@@ -28,15 +36,9 @@ const NavBar = ({ fullUser, logout}) => {
                 <ul>
                     <li >
                         <Link to={`/users/${fullUser.id}`} className="user-profile-button">
-                            <i className="fas fa-user-circle"></i>
+                            {thumbnail()}
                             <div>{fullUser.first_name}</div> 
                         </Link>
-                        
-                        {/* <i className="fas fa-user-circle"></i>
-                        <div>{fullUser.first_name}</div> */}
-                        
-                        
-                        
                     </li>
                     <li id="account-dropdown-btn">
                         <i id="dd-icon" className="fas fa-chevron-circle-down"></i>
