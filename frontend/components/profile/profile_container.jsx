@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
 import Profile from './profile';
 import { openModal } from '../../actions/modal_actions';
-import {fetchPosts} from '../../actions/post_actions';
+import {deletePost, fetchPosts} from '../../actions/post_actions';
 
 const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) => ({
     // posts
@@ -27,7 +27,8 @@ const mapDispatchToProps = dispatch => ({
     fetchUser: id => dispatch(fetchUser(id)),
     updateUser: user => dispatch(updateUser(user)),
     openModal: (modal) => dispatch(openModal(modal)),
-    fetchPosts: (wallId) => dispatch(fetchPosts(wallId))
+    fetchPosts: (wallId) => dispatch(fetchPosts(wallId)),
+    deletePost: (id) => dispatch(deletePost(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

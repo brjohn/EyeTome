@@ -10,6 +10,7 @@ const postPic = (post) => {
 }
 
 
+
 const PostList = (props) => {
     let allPosts = props.posts
 
@@ -17,9 +18,13 @@ const PostList = (props) => {
         if (post.poster.id === props.currentUser ){
             return (
                 <div className="edit-post-icon">
-                    
-                        <i className="fas fa-ellipsis-h"></i>
-                    
+                    <i className="fas fa-ellipsis-h" ></i>
+                    <ul className="post-options-dropdown">
+                        <li onClick={()=>props.deletePost(post.id)}>
+                            <i className="far fa-trash-alt"></i>
+                            <p>Delete this post</p>
+                        </li>
+                    </ul>
                 </div>
             )
         } else {

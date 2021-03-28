@@ -500,7 +500,8 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
         postForm: this.props.postForm
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
         posts: this.props.posts,
-        currentUser: this.props.currentUser
+        currentUser: this.props.currentUser,
+        deletePost: this.props.deletePost
       }));
     }
   }]);
@@ -551,6 +552,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
+    },
+    deletePost: function deletePost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["deletePost"])(id));
     }
   };
 };
@@ -1014,7 +1018,15 @@ var PostList = function PostList(props) {
         className: "edit-post-icon"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-ellipsis-h"
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "post-options-dropdown"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        onClick: function onClick() {
+          return props.deletePost(post.id);
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-trash-alt"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Delete this post"))));
     } else {
       return null;
     }
@@ -1217,7 +1229,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           postForm: parseInt(this.props.profileOwnerId)
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
           posts: this.props.posts,
-          currentUser: this.props.currentUser
+          currentUser: this.props.currentUser,
+          deletePost: this.props.deletePost
         })))));
       }
     }
@@ -1286,6 +1299,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchPosts: function fetchPosts(wallId) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_4__["fetchPosts"])(wallId));
+    },
+    deletePost: function deletePost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_4__["deletePost"])(id));
     }
   };
 };
