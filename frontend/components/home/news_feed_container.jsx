@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {fetchPosts, createPost} from '../../actions/post_actions';
+import {fetchPosts, createPost, deletePost} from '../../actions/post_actions';
 import NewsFeed from './news_feed';
 import {openModal, closeModal} from '../../actions/modal_actions';
 
@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPosts: (wallId) => dispatch(fetchPosts(wallId)),
     createPost: (post) => dispatch(createPost(post)),
     openModal: (modal) => dispatch(openModal(modal)),
+    deletePost: (id) => dispatch(deletePost(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);
