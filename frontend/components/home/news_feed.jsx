@@ -19,7 +19,7 @@ class NewsFeed extends React.Component {
                 openModal={this.props.openModal} 
                 poster={this.props.poster} 
                 postForm={this.props.postForm}/>
-                <PostList posts={this.props.posts}/>
+                <PostList posts={this.props.posts} currentUser={this.props.currentUser}/>
             </div>
         )
     }

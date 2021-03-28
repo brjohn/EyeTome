@@ -6,7 +6,8 @@ import {openModal, closeModal} from '../../actions/modal_actions';
 const mapStateToProps = ({session, entities}) => ({
     poster: entities.users[session.currentUser],
     posts: Object.values(entities.posts),
-    postForm: 'createpost'
+    postForm: 'createpost',
+    currentUser: session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

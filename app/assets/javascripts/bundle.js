@@ -499,7 +499,8 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
         poster: this.props.poster,
         postForm: this.props.postForm
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        posts: this.props.posts
+        posts: this.props.posts,
+        currentUser: this.props.currentUser
       }));
     }
   }]);
@@ -535,7 +536,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
   return {
     poster: entities.users[session.currentUser],
     posts: Object.values(entities.posts),
-    postForm: 'createpost'
+    postForm: 'createpost',
+    currentUser: session.currentUser
   };
 };
 
@@ -1005,6 +1007,19 @@ var postPic = function postPic(post) {
 
 var PostList = function PostList(props) {
   var allPosts = props.posts;
+
+  var displayPostOptionsIcon = function displayPostOptionsIcon(post) {
+    if (post.poster.id === props.currentUser) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-post-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-ellipsis-h"
+      }));
+    } else {
+      return null;
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "all-nf-posts"
   }, allPosts.reverse().map(function (post, idx) {
@@ -1012,7 +1027,9 @@ var PostList = function PostList(props) {
       className: "post",
       key: idx
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-header"
+      className: "post-header-list"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "post-header-left"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/users/".concat(post.poster.id),
       className: "poster-thumbnail"
@@ -1021,7 +1038,7 @@ var PostList = function PostList(props) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/users/".concat(post.poster.id),
       className: "poster-name"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.poster.first_name, " ", post.poster.last_name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.poster.first_name, " ", post.poster.last_name))), displayPostOptionsIcon(post)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "post-text"
     }, post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "post-pic-div"
@@ -1199,7 +1216,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           poster: this.props.fullCurrentUser,
           postForm: parseInt(this.props.profileOwnerId)
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          posts: this.props.posts
+          posts: this.props.posts,
+          currentUser: this.props.currentUser
         })))));
       }
     }

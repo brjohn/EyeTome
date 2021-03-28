@@ -18,7 +18,6 @@ const CreatePostBox = (props) => {
                     <p>Photo</p>
                 </i>
             </div>
-                     
         </div>
     )
 }

@@ -62,7 +62,7 @@ class Profile extends React.Component {
                             poster={this.props.fullCurrentUser} 
                             postForm={parseInt(this.props.profileOwnerId)}
                             />
-                           <PostList posts={this.props.posts}/> 
+                           <PostList posts={this.props.posts} currentUser={this.props.currentUser}/> 
                         </div>
                         
                     </div>
