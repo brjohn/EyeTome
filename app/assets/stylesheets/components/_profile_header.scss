@@ -21,6 +21,7 @@
     display: block;
     height: 348px;
     background-color: #f0f2f5;
+    
     // background-color: paleturquoise;
     
 }
@@ -29,7 +30,9 @@
     position: relative;
     width: 940px;
     display: block;
-    height: 348px;   
+    height: 348px;  
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px; 
 }
 
 .pic-edit-banner {

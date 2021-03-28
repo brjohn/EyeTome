@@ -16,10 +16,23 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
 .post-header {
+    background: none;
     display: flex;
     flex-direction: row;
     margin-left: 16px;
     margin-right: 16px;
+}
+.post-header-list {
+    background: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.post-header-left {
+    display: flex;
+    flex-direction: row;
 }
 .poster-thumbnail {
     font-size: 38px;
@@ -30,6 +43,17 @@
     margin-top: 4px;
     margin-left: 8px;
 } 
+.edit-post-icon {
+    i {
+        text-align: center;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ccd0d5;
+    }
+    i:hover {
+        color: #65676b;
+    }
+}
 .post-text {
     margin: 16px;
 }
