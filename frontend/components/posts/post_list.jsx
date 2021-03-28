@@ -9,6 +9,13 @@ const postPic = (post) => {
     }
 }
 
+const thumbnail = (poster) => {
+    if (poster.profilePicUrl){
+        return <img src={poster.profilePicUrl} className="thumbnail"/>
+    } else {
+        return <i className="fas fa-user-circle"></i>
+    }
+}
 
 
 const PostList = (props) => {
@@ -41,7 +48,8 @@ const PostList = (props) => {
                             <div className="post-header-list">
                                 <div className="post-header-left">
                                 <Link to={`/users/${post.poster.id}`} className="poster-thumbnail">
-                                    <i className="fas fa-user-circle"></i> 
+                                    {thumbnail(post.poster)}
+                                    {/* <i className="fas fa-user-circle"></i>  */}
                                 </Link>
                                 <Link to={`/users/${post.poster.id}`} className="poster-name">
                                     <div>{post.poster.first_name} {post.poster.last_name}</div> 

@@ -78,7 +78,7 @@
 	border-top-left-radius: 18px;
 	border-top-right-radius: 18px;
 	border-color: white;
-	padding: 1px;
+	padding: 4px;
 	height: 32px;
 	cursor: pointer;
 	i {
@@ -87,6 +87,12 @@
 		text-indent: 2px;
 		margin-right: 4px;
 		color: #ccd0d5;
+	}
+	.navbar-thumbnail {
+		margin-left: 2px;
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
 	}
 // will be link not div!!!
 	div {

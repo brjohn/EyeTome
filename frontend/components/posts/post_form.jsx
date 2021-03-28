@@ -11,6 +11,7 @@ class PostForm extends React.Component {
         this.handlePostPic = this.handlePostPic.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.preview = this.preview.bind(this);
+        this.thumbnail = this.thumbnail.bind(this);
     }
     update(field) {
         return e => this.setState({
@@ -47,6 +48,13 @@ class PostForm extends React.Component {
             return null;
         }
     }
+    thumbnail(){
+        if (this.props.fullCurrentUser.profilePicUrl){
+            return <img src={this.props.fullCurrentUser.profilePicUrl} className="thumbnail"/>
+        } else {
+            return <i className="fas fa-user-circle"></i>
+        }
+    }
 
     
     render (){
@@ -59,7 +67,7 @@ class PostForm extends React.Component {
             <h1>Create Post</h1>
             <div className="post-header"> 
                 <div className="poster-thumbnail">
-                   <i className="fas fa-user-circle"></i> 
+                    {this.thumbnail()}
                 </div>  
                 <div className="poster-name">
                    <div>{this.props.fullCurrentUser.first_name} {this.props.fullCurrentUser.last_name}</div> 

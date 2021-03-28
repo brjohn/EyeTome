@@ -3,10 +3,18 @@ import React from 'react';
 
 const AccountDropdown = (props) => {
 
+    const thumbnail = () => {
+        if (props.fullUser.profilePicUrl){
+            return <img src={props.fullUser.profilePicUrl} className="account-dropdown-thumbnail"/>
+        } else {
+            return <i className="fas fa-user-circle"></i>
+        }
+    }
+
     return (
         <ul className="account-dropdown">
             <li className="profile-link">
-                <i className="fas fa-user-circle"></i>
+                {thumbnail()}
                 <div>   
                    <h3>{props.fullUser.first_name} {props.fullUser.last_name}</h3> 
                     <p>See your profile</p> 
