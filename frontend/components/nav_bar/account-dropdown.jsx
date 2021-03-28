@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const AccountDropdown = (props) => {
@@ -13,24 +14,25 @@ const AccountDropdown = (props) => {
 
     return (
         <ul className="account-dropdown">
-            <li className="profile-link">
-                {thumbnail()}
-                <div>   
-                   <h3>{props.fullUser.first_name} {props.fullUser.last_name}</h3> 
-                    <p>See your profile</p> 
-                </div>
-                  
-            </li>
-            <li className="feedback">
+            <Link to={`/users/${props.fullUser.id}`}>
+                <li className="profile-link">
+                    {thumbnail()}
+                    <div>   
+                        <h3>{props.fullUser.first_name} {props.fullUser.last_name}</h3> 
+                        <p>See your profile</p> 
+                    </div>     
+                </li>
+            </Link>
+            {/* <li className="feedback">
                 <i className="fas fa-comment-alt"></i>
                 <div>
                     <h3>Give Feedback</h3>
                     <p>Help us improve the new Friendbook</p>
                 </div>
-            </li>
+            </li> */}
             <li>
                 <ul className="account-dd-choices">
-                    <li className="account-dd-item">
+                    {/* <li className="account-dd-item">
                         <i className="fas fa-cog"></i>
                         <div>Settings & Privacy</div>
                         <i className="fas fa-chevron-right"></i>  
@@ -44,7 +46,7 @@ const AccountDropdown = (props) => {
                         <i className="fas fa-moon"></i>
                         <div>Display & Accessibility</div> 
                         <i className="fas fa-chevron-right"></i>    
-                    </li>
+                    </li> */}
                     <li className="account-dd-item" onClick={props.logout}>
                         <i className="fas fa-sign-out-alt"></i>
                         <div>Logout</div> 
