@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentForm from '../comments/comment_form';
 import CommentFormContainer from '../comments/comment_form_container';
+import CommentList from '../comments/comment_list';
 
 const postPic = (post) => {
     if (post.postPicUrl) {
@@ -76,6 +77,7 @@ const PostList = (props) => {
                             </div>
                             <div className="post-pic-div">{postPic(post)}</div>
                             {commentCount(post)}
+                            <CommentList post={post}/>
                 
                             <CommentFormContainer 
                              post={post}   
