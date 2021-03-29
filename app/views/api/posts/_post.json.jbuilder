@@ -5,3 +5,11 @@ json.poster do
     json.extract! user, :id, :first_name, :last_name
     json.profilePicUrl url_for(user.profile_pic) if user.profile_pic.attached?
 end
+json.comments do 
+        post.comments.each do |comment|
+            json.set! comment.id do
+                json.partial! "api/comments/comment", comment: comment
+            end
+        end
+end
+    
