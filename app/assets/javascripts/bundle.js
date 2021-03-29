@@ -2453,16 +2453,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/post_actions */ "./frontend/actions/post_actions.js");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
+/* harmony import */ var _util_post_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/post_api_util */ "./frontend/util/post_api_util.js");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
- // import {fetchPosts} from "./util/post_api_util"
+
 
 
 
@@ -2484,23 +2485,24 @@ document.addEventListener("DOMContentLoaded", function () {
         currentUser: id
       }
     };
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])(preloadedState); // Clean up after ourselves so we don't accidentally use the
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])(preloadedState); // Clean up after ourselves so we don't accidentally use the
     // global currentUser instead of the one in the store
 
     delete window.currentUser;
   } else {
-    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_4__["default"])();
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_5__["default"])();
   }
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.createComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["createComment"];
-  window.fetchComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["fetchComment"];
-  window.fetchComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["fetchComments"];
-  window.deleteComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["deleteComment"];
-  window.updateComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["updateComment"];
+  window.createComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["createComment"];
+  window.fetchComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["fetchComment"];
+  window.fetchComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["fetchComments"];
+  window.deleteComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["deleteComment"];
+  window.updateComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["updateComment"];
+  window.fetchPost = _util_post_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchPost"];
   var root = document.getElementById("root");
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_6__["default"], {
     store: store
   }), root);
 });
