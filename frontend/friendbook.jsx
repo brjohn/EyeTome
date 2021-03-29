@@ -6,6 +6,7 @@ import {createPost, fetchPost, deletePost, updatePost, fetchPosts} from "./actio
 import configureStore from './store/store';
 import Root from './components/root';
 import { updateUser } from "./actions/user_actions";
+import { createComment, deleteComment, fetchComment, fetchComments, updateComment } from "./util/comment_api_util";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,14 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-   window.signup = signup;
-   window.logout = logout;
-   window.login = login;
-   window.createPost = createPost;
-   window.fetchPost = fetchPost;
-   window.fetchPosts = fetchPosts;
-   window.deletePost = deletePost;
-   window.updatePost = updatePost;
+
+   window.createComment = createComment;
+   window.fetchComment = fetchComment;
+   window.fetchComments = fetchComments;
+   window.deleteComment = deleteComment;
+   window.updateComment = updateComment;
     
     
     const root = document.getElementById("root");

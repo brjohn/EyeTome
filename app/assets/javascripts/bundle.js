@@ -2456,12 +2456,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
  // import {fetchPosts} from "./util/post_api_util"
+
 
 
 
@@ -2492,14 +2494,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["signup"];
-  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"];
-  window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"];
-  window.createPost = _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["createPost"];
-  window.fetchPost = _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["fetchPost"];
-  window.fetchPosts = _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["fetchPosts"];
-  window.deletePost = _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["deletePost"];
-  window.updatePost = _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["updatePost"];
+  window.createComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["createComment"];
+  window.fetchComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["fetchComment"];
+  window.fetchComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["fetchComments"];
+  window.deleteComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["deleteComment"];
+  window.updateComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["updateComment"];
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -2826,6 +2825,59 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/comment_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/comment_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchComment, fetchComments, createComment, updateComment, deleteComment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComment", function() { return fetchComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComments", function() { return fetchComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateComment", function() { return updateComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
+var fetchComment = function fetchComment(id) {
+  return $.ajax({
+    url: "api/comments/".concat(id),
+    method: "GET"
+  });
+};
+var fetchComments = function fetchComments() {
+  return $.ajax({
+    url: "api/comments",
+    method: "GET"
+  });
+};
+var createComment = function createComment(comment) {
+  return $.ajax({
+    url: "api/comments",
+    method: "POST",
+    data: {
+      comment: comment
+    }
+  });
+};
+var updateComment = function updateComment(comment) {
+  return $.ajax({
+    url: "api/comments/".concat(comment.id),
+    method: "PATCH",
+    data: {
+      comment: comment
+    }
+  });
+};
+var deleteComment = function deleteComment(id) {
+  return $.ajax({
+    url: "api/comments/".concat(id),
+    method: "DELETE"
+  });
+};
 
 /***/ }),
 
