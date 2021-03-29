@@ -33,6 +33,7 @@ class Profile extends React.Component {
         
         this.props.fetchUser(this.props.profileOwnerId)
         this.props.fetchPosts(parseInt(this.props.profileOwnerId))
+        // this.props.fetchComments()
     }
 
     render(){
@@ -66,6 +67,7 @@ class Profile extends React.Component {
                            posts={this.props.posts} 
                            currentUser={this.props.currentUser}
                            deletePost={this.props.deletePost}
+                           createComment={this.props.createComment}
                            /> 
                         </div>
                         

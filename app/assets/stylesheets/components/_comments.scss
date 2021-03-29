@@ -1,0 +1,23 @@
+.comment-form {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    input[type="text"] {
+        width: 100%;
+        margin-left: 8px;
+        border: none;
+        outline: none;
+        background-color: #f0f2f5; 
+        border-radius: 16px;
+        text-indent: 8px;
+        height: 36px;
+
+    }
+}
+
+.thumbnail-comment {
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+}

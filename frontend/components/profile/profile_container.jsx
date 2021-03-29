@@ -3,6 +3,7 @@ import { fetchUser, updateUser } from '../../actions/user_actions';
 import Profile from './profile';
 import { openModal } from '../../actions/modal_actions';
 import {deletePost, fetchPosts} from '../../actions/post_actions';
+import { fetchComments } from '../../actions/comment_actions';
 
 const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) => ({
     // posts
@@ -20,14 +21,11 @@ const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) 
 });
 
 const mapDispatchToProps = dispatch => ({
-    // edit profile
-    // write a post
-    // upload pics
-    
     fetchUser: id => dispatch(fetchUser(id)),
     updateUser: user => dispatch(updateUser(user)),
     openModal: (modal) => dispatch(openModal(modal)),
     fetchPosts: (wallId) => dispatch(fetchPosts(wallId)),
+    fetchComments: () => dispatch(fetchComments()),
     deletePost: (id) => dispatch(deletePost(id))
 });
 
