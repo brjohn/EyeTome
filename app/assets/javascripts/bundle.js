@@ -615,6 +615,64 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/comments/comment_list.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/comments/comment_list.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var thumbnail = function thumbnail(poster) {
+  if (poster.profilePicUrl) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: poster.profilePicUrl,
+      className: "thumbnail-comment"
+    });
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-user-circle"
+    });
+  }
+};
+
+var CommentList = function CommentList(_ref) {
+  var post = _ref.post;
+
+  if (post.comments) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      className: "post-comment-div"
+    }, Object.values(post.comments).map(function (comment, idx) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "post-comment-li",
+        key: idx
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(comment.commenter_id),
+        className: "poster-thumbnail"
+      }, thumbnail(comment.commenter)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-comment-gray"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "post-comment-name"
+      }, comment.commenter.first_name, " ", comment.commenter.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "post-comment-body"
+      }, comment.body)));
+    }));
+  } else {
+    return null;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CommentList);
+
+/***/ }),
+
 /***/ "./frontend/components/home/home.jsx":
 /*!*******************************************!*\
   !*** ./frontend/components/home/home.jsx ***!
@@ -1278,6 +1336,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _comments_comment_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../comments/comment_form */ "./frontend/components/comments/comment_form.jsx");
 /* harmony import */ var _comments_comment_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../comments/comment_form_container */ "./frontend/components/comments/comment_form_container.jsx");
+/* harmony import */ var _comments_comment_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../comments/comment_list */ "./frontend/components/comments/comment_list.jsx");
+
 
 
 
@@ -1372,7 +1432,9 @@ var PostList = function PostList(props) {
       className: "post-text"
     }, post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "post-pic-div"
-    }, postPic(post)), commentCount(post), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, postPic(post)), commentCount(post), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      post: post
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
       post: post
     }));
   }));
