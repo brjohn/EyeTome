@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CommentForm from '../comments/comment_form';
+import CommentFormContainer from '../comments/comment_form_container';
 
 const postPic = (post) => {
     if (post.postPicUrl) {
@@ -61,6 +63,10 @@ const PostList = (props) => {
                                 {post.body}
                             </div>
                             <div className="post-pic-div">{postPic(post)}</div>
+                            <div className="like-comment-bar"></div>
+                            <CommentFormContainer 
+                             post={post}   
+                            />
                             
                         </li>
 
