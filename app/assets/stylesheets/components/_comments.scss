@@ -21,3 +21,19 @@
     height: 34px;
     border-radius: 100%;
 }
+.like-comment-count {
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-bottom: 8px;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ccced2;
+}
+.number-comments {
+    color: #66686c;
+    font-weight: lighter;
+    font-size: 15px;
+    margin-top: 10px;
+}

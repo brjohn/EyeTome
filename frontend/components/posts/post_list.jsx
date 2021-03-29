@@ -18,6 +18,18 @@ const thumbnail = (poster) => {
         return <i className="fas fa-user-circle"></i>
     }
 }
+const commentCount = (post) => {
+    if (post.comments){
+        let number = Object.values(post.comments).length
+        if (number === 1){
+            return <div className="like-comment-count"><div className="number-comments">1 Comment</div></div>
+        } else {
+            return <div className="like-comment-count"><div className="number-comments">{number} Comments</div></div>
+        }
+    } else {
+        return null;
+    }
+}
 
 
 const PostList = (props) => {
@@ -63,7 +75,8 @@ const PostList = (props) => {
                                 {post.body}
                             </div>
                             <div className="post-pic-div">{postPic(post)}</div>
-                            <div className="like-comment-bar"></div>
+                            {commentCount(post)}
+                
                             <CommentFormContainer 
                              post={post}   
                             />
