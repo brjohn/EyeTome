@@ -665,7 +665,7 @@ var CommentList = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.thumbnail = _this.thumbnail.bind(_assertThisInitialized(_this));
     _this.displayCommentOptionsIcon = _this.displayCommentOptionsIcon.bind(_assertThisInitialized(_this));
-    _this.deleteAndUpdate = _this.deleteAndUpdate.bind(_assertThisInitialized(_this));
+    _this.remove = _this.remove.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -684,14 +684,19 @@ var CommentList = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
-    key: "deleteAndUpdate",
-    value: function deleteAndUpdate(commentId) {
-      this.props.deleteComment(commentId); // this.props.fetchPost(this.props.post.id)
+    key: "remove",
+    value: function remove(commentId) {
+      var _this2 = this;
+
+      console.log(commentId);
+      this.props.deleteComment(commentId).then(function () {
+        _this2.props.fetchPost(_this2.props.post.id);
+      });
     }
   }, {
     key: "displayCommentOptionsIcon",
     value: function displayCommentOptionsIcon(comment) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (comment.commenter.id === this.props.currentUser) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -702,7 +707,7 @@ var CommentList = /*#__PURE__*/function (_React$Component) {
           className: "post-options-dropdown"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           onClick: function onClick() {
-            return _this2.props.deleteComment(comment.id);
+            return _this3.remove(comment.id);
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "far fa-trash-alt"
@@ -714,7 +719,7 @@ var CommentList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       // debugger
       if (this.props.post.comments) {
@@ -728,13 +733,13 @@ var CommentList = /*#__PURE__*/function (_React$Component) {
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             to: "/users/".concat(comment.commenter_id),
             className: "poster-thumbnail"
-          }, _this3.thumbnail(comment.commenter)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, _this4.thumbnail(comment.commenter)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "post-comment-gray"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "post-comment-name"
           }, comment.commenter.first_name, " ", comment.commenter.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "post-comment-body"
-          }, comment.body)), _this3.displayCommentOptionsIcon(comment));
+          }, comment.body)), _this4.displayCommentOptionsIcon(comment));
         }));
       } else {
         return null;
@@ -3109,7 +3114,9 @@ var modalReducer = function modalReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/post_actions */ "./frontend/actions/post_actions.js");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
