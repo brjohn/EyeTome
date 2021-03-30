@@ -64,6 +64,7 @@ class Profile extends React.Component {
                             postForm={parseInt(this.props.profileOwnerId)}
                             />
                            <PostList 
+                           fetchPost={this.props.fetchPost}
                            posts={this.props.posts} 
                            currentUser={this.props.currentUser}
                            deletePost={this.props.deletePost}

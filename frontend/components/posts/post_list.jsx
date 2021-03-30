@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentForm from '../comments/comment_form';
 import CommentFormContainer from '../comments/comment_form_container';
-import CommentList from '../comments/comment_list';
+import CommentListContainer from '../comments/comment_list_container';
 
 const postPic = (post) => {
     if (post.postPicUrl) {
@@ -35,6 +35,7 @@ const commentCount = (post) => {
 
 const PostList = (props) => {
     let allPosts = props.posts
+    
 
     const displayPostOptionsIcon = (post) => {
         if (post.poster.id === props.currentUser ){
@@ -57,6 +58,7 @@ const PostList = (props) => {
         return (
             <ul className="all-nf-posts">
                 {allPosts.reverse().map((post, idx) => {
+                    // props.fetchPost(post.id)
                     return (
                         <li className="post" key={idx}>
                             
@@ -77,7 +79,11 @@ const PostList = (props) => {
                             </div>
                             <div className="post-pic-div">{postPic(post)}</div>
                             {commentCount(post)}
-                            <CommentList post={post}/>
+                            <CommentListContainer 
+                            post={post}
+                            // currentUser={props.currentUser}
+                            // deleteComment={props.deleteComment}
+                            />
                 
                             <CommentFormContainer 
                              post={post}   
