@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SubcommentFormContainer from './subcomment_form_container';
+import CommentListContainer from './comment_list_container';
+import SubcommentListContainer from './subcomment_list_container';
 
 class CommentList extends React.Component {
     constructor(props){
         super(props);
 
+        this.state = {
+            formclass: "hidden"
+        }
+
         this.thumbnail = this.thumbnail.bind(this);
         this.displayCommentOptionsIcon = this.displayCommentOptionsIcon.bind(this);
         this.remove = this.remove.bind(this);
+        this.displaySubformContainer = this.displaySubformContainer.bind(this);
     }
     
     
@@ -43,6 +51,9 @@ class CommentList extends React.Component {
             return null;
         }        
     }
+    displaySubformContainer(){
+        this.setState({['formclass']: "subform-div"})
+    }
 
     render(){
         // debugger
@@ -56,12 +67,23 @@ class CommentList extends React.Component {
                         <Link to={`/users/${comment.commenter_id}`} className="poster-thumbnail">
                             {this.thumbnail(comment.commenter)}
                         </Link>
-                        <div className="post-comment-gray">
-                            <p className="post-comment-name">{comment.commenter.first_name} {comment.commenter.last_name}</p>
-                            <p className="post-comment-body">{comment.body}</p>
+                        <div className="post-comment-column">
+                            <div className="post-comment-row">
+                                <div className="post-comment-gray">
+                                    <p className="post-comment-name">{comment.commenter.first_name} {comment.commenter.last_name}</p>
+                                    <p className="post-comment-body">{comment.body}</p>
+                                </div>
+                                {this.displayCommentOptionsIcon(comment)}
+                            </div>
+                            <div className="like-reply">
+                                <p onClick={this.displaySubformContainer}>Reply</p>
+                            </div>
+                            <div className={this.state.formclass}>
+                               <SubcommentFormContainer comment={comment}/> 
+                            </div>
+                            <SubcommentListContainer comment={comment}/>
+                            
                         </div>
-                        {this.displayCommentOptionsIcon(comment)}
-
                     </li>
                 )
             })}

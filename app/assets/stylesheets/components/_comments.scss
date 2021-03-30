@@ -44,11 +44,28 @@
     margin-right: 16px;
     display: flex;
     flex-direction: column;
+    .edit-post-icon {
+        margin-left: 8px;
+        .fas {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+    }
 }
 .post-comment-li {
     display: flex;
     flex-direction: row;
     margin-bottom: 8px;
+}
+.post-comment-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.post-comment-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 .post-comment-gray {
     margin-left: 8px;
@@ -68,5 +85,23 @@
         margin-top: 4px;
         margin-left: 8px;
         margin-right: 8px;
+    }
+}
+
+.subform-div {
+    margin-top: 8px;
+}
+
+.hidden {
+    display: none;
+}
+.like-reply {
+    margin-top: 4px;
+    margin-left: 20px;
+    color: #66686c;
+    font-size: 12px;
+    cursor: pointer;
+    :hover {
+        text-decoration: underline;
     }
 }

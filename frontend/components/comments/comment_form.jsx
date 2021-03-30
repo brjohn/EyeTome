@@ -24,8 +24,10 @@ class CommentForm extends React.Component {
             comment.commenter_id = this.props.fullCurrentUser.id;
             comment.commentable_type = 'Post';
             comment.commentable_id = this.props.post.id;
-            this.props.createComment(comment)
-            this.props.fetchPost(this.props.post.id)
+            this.props.createComment(comment).then(()=> {
+               this.props.fetchPost(this.props.post.id) 
+            })
+                
             this.setState({['body']: ''})
     }
 
