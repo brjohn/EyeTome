@@ -7,7 +7,7 @@ class CommentList extends React.Component {
 
         this.thumbnail = this.thumbnail.bind(this);
         this.displayCommentOptionsIcon = this.displayCommentOptionsIcon.bind(this);
-        this.deleteAndUpdate = this.deleteAndUpdate.bind(this);
+        this.remove = this.remove.bind(this);
     }
     
     
@@ -19,9 +19,11 @@ class CommentList extends React.Component {
         }
     }
 
-    deleteAndUpdate(commentId){
-        this.props.deleteComment(commentId);
-        // this.props.fetchPost(this.props.post.id)
+    remove(commentId){
+        console.log(commentId)
+        this.props.deleteComment(commentId).then(()=> {
+            this.props.fetchPost(this.props.post.id)
+        })
     }
 
     displayCommentOptionsIcon(comment){
@@ -30,7 +32,7 @@ class CommentList extends React.Component {
                 <div className="edit-post-icon">
                     <i className="fas fa-ellipsis-h" ></i>
                     <ul className="post-options-dropdown">
-                        <li onClick={()=>this.props.deleteComment(comment.id)}>
+                        <li onClick={() => this.remove(comment.id)}>
                             <i className="far fa-trash-alt"></i>
                             <p>Delete this comment</p>
                         </li>
