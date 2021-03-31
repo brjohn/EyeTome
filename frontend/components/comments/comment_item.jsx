@@ -72,6 +72,7 @@ class CommentItem extends React.Component {
                                 <p onClick={this.displaySubformContainer}>Reply</p>
                             </div>
                             <SubcommentListContainer comment={this.props.comment}/>
+                            
                             <div className={this.state.formclass}>
                                <SubcommentFormContainer comment={this.props.comment}/> 
                             </div>
