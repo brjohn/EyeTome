@@ -16,6 +16,9 @@ class SubcommentList extends React.Component {
         this.remove = this.remove.bind(this);
         this.displaySubformContainer = this.displaySubformContainer.bind(this);
     }
+    // componentDidMount(){
+    //     this.props.fetchComment(this.props.comment.id)
+    // }
     
     
     thumbnail(poster){

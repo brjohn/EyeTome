@@ -1,25 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import SubcommentFormContainer from './subcomment_form_container';
-import CommentListContainer from './comment_list_container';
-import SubcommentListContainer from './subcomment_list_container';
 
-class CommentList extends React.Component {
+class CommentItem extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
             formclass: "hidden"
         }
-
         this.thumbnail = this.thumbnail.bind(this);
         this.displayCommentOptionsIcon = this.displayCommentOptionsIcon.bind(this);
         this.remove = this.remove.bind(this);
         this.displaySubformContainer = this.displaySubformContainer.bind(this);
     }
 
-    
-    
     thumbnail(poster){
         if (poster.profilePicUrl){
             return <img src={poster.profilePicUrl} className="thumbnail-comment"/>
@@ -56,14 +49,10 @@ class CommentList extends React.Component {
         this.setState({['formclass']: "subform-div"})
     }
 
+
     render(){
-        // debugger
-        if (this.props.post.comments){
-            // console.log('comments')
+
         return (
-        <ul className="post-comment-div">
-            {Object.values(this.props.post.comments).map((comment, idx) => {
-                return (
                     <li className="post-comment-li" key={idx}>
                         <Link to={`/users/${comment.commenter_id}`} className="poster-thumbnail">
                             {this.thumbnail(comment.commenter)}
@@ -87,16 +76,7 @@ class CommentList extends React.Component {
                         </div>
                     </li>
                 )
-            })}
-            
-        </ul>
-        ) 
-    } else {
-        return null;
-    }
     }
 }
 
-
-
-export default CommentList;
+export default CommentItem;
