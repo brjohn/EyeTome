@@ -20,4 +20,6 @@ class Comment < ApplicationRecord
     class_name: :User 
 
     has_many :comments, as: :commentable, dependent: :destroy 
+
+    has_many :likes, as: :likable, dependent: :destroy
 end
