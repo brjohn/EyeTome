@@ -1065,7 +1065,10 @@ var SubcommentList = /*#__PURE__*/function (_React$Component) {
     _this.remove = _this.remove.bind(_assertThisInitialized(_this));
     _this.displaySubformContainer = _this.displaySubformContainer.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentDidMount(){
+  //     this.props.fetchComment(this.props.comment.id)
+  // }
+
 
   _createClass(SubcommentList, [{
     key: "thumbnail",
@@ -1331,7 +1334,7 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
   _createClass(NewsFeed, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchPosts('all');
+      this.props.fetchPosts('all'); // this.props.fetchComments()
     }
   }, {
     key: "render",
@@ -1370,6 +1373,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
 /* harmony import */ var _news_feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./news_feed */ "./frontend/components/home/news_feed.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+
 
 
 
@@ -1399,7 +1404,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deletePost: function deletePost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["deletePost"])(id));
-    }
+    } // fetchComments: ()=> dispatch(fetchComments())
+
   };
 };
 

@@ -9,6 +9,7 @@ class NewsFeed extends React.Component {
     }
     componentDidMount(){
         this.props.fetchPosts('all')
+        // this.props.fetchComments()
         
     }
 

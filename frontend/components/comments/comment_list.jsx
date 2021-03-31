@@ -17,6 +17,7 @@ class CommentList extends React.Component {
         this.remove = this.remove.bind(this);
         this.displaySubformContainer = this.displaySubformContainer.bind(this);
     }
+
     
     
     thumbnail(poster){
