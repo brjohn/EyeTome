@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SubcommentFormContainer from './subcomment_form_container';
 import SubcommentListContainer from './subcomment_list_container';
 
-class CommentItem extends React.Component {
+class SubcommentItem extends React.Component {
     constructor(props){
         super(props);
 
@@ -24,12 +24,13 @@ class CommentItem extends React.Component {
         }
     }
 
-    remove(commentId){
-        console.log(commentId)
-        this.props.deleteComment(commentId).then(()=> {
-            this.props.fetchPost(this.props.parentItem.id)
+    remove(subcommentId){
+        
+        this.props.deleteComment(subcommentId).then(()=> {
+            this.props.fetchComment(this.props.parentItem.id)
         })
     }
+    
 
     displayCommentOptionsIcon(comment){
         if (comment.commenter.id === this.props.currentUser ){
@@ -84,4 +85,4 @@ class CommentItem extends React.Component {
     }
 }
 
-export default CommentItem;
+export default SubcommentItem;
