@@ -167,6 +167,79 @@ var deleteComment = function deleteComment(id) {
 
 /***/ }),
 
+/***/ "./frontend/actions/like_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/like_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_LIKE, RECEIVE_LIKES, REMOVE_LIKE, receiveLike, receiveLikes, removeLike, createLike, fetchLike, fetchLikes, deleteLike */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LIKE", function() { return RECEIVE_LIKE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LIKES", function() { return RECEIVE_LIKES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_LIKE", function() { return REMOVE_LIKE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveLike", function() { return receiveLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveLikes", function() { return receiveLikes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeLike", function() { return removeLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLike", function() { return fetchLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLikes", function() { return fetchLikes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLike", function() { return deleteLike; });
+/* harmony import */ var _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/like_api_util */ "./frontend/util/like_api_util.js");
+
+var RECEIVE_LIKE = "RECEIVE_LIKE";
+var RECEIVE_LIKES = "RECEIVE_LIKES";
+var REMOVE_LIKE = "REMOVE_LIKE";
+var receiveLike = function receiveLike(like) {
+  return {
+    type: RECEIVE_LIKE,
+    like: like
+  };
+};
+var receiveLikes = function receiveLikes(likes) {
+  return {
+    type: RECEIVE_LIKES,
+    likes: likes
+  };
+};
+var removeLike = function removeLike(like) {
+  return {
+    type: REMOVE_LIKE,
+    like: like
+  };
+};
+var createLike = function createLike(like) {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["createLike"](like).then(function (newLike) {
+      return dispatch(receiveLike(newLike));
+    });
+  };
+};
+var fetchLike = function fetchLike(id) {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchLike"](id).then(function (like) {
+      return dispatch(receiveLike(like));
+    });
+  };
+};
+var fetchLikes = function fetchLikes() {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchLikes"]().then(function (likes) {
+      return dispatch(receiveLikes(likes));
+    });
+  };
+};
+var deleteLike = function deleteLike(id) {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteLike"](id).then(function (like) {
+      return dispatch(removeLike(like));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/modal_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
@@ -3567,7 +3640,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/user_actions */ "./frontend/actions/user_actions.js");
 /* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
+/* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./actions/like_actions */ "./frontend/actions/like_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -3604,10 +3679,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.createComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["createComment"];
-  window.fetchComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["fetchComment"];
-  window.fetchComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["fetchComments"];
-  window.deleteComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["deleteComment"];
+  window.createLike = _actions_like_actions__WEBPACK_IMPORTED_MODULE_9__["createLike"];
+  window.fetchLike = _actions_like_actions__WEBPACK_IMPORTED_MODULE_9__["fetchLike"];
+  window.fetchLikes = _actions_like_actions__WEBPACK_IMPORTED_MODULE_9__["fetchLikes"];
+  window.deleteLike = _actions_like_actions__WEBPACK_IMPORTED_MODULE_9__["deleteLike"];
   window.updateComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_8__["updateComment"];
   window.fetchPost = _util_post_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchPost"];
   var root = document.getElementById("root");
@@ -4034,6 +4109,49 @@ var updateComment = function updateComment(comment) {
 var deleteComment = function deleteComment(id) {
   return $.ajax({
     url: "api/comments/".concat(id),
+    method: "DELETE"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/like_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/like_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchLike, fetchLikes, createLike, deleteLike */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLike", function() { return fetchLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLikes", function() { return fetchLikes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLike", function() { return deleteLike; });
+var fetchLike = function fetchLike(id) {
+  return $.ajax({
+    url: "api/likes/".concat(id),
+    method: "GET"
+  });
+};
+var fetchLikes = function fetchLikes() {
+  return $.ajax({
+    url: "api/likes",
+    method: "GET"
+  });
+};
+var createLike = function createLike(like) {
+  return $.ajax({
+    url: "api/likes",
+    method: "POST",
+    data: {
+      like: like
+    }
+  });
+};
+var deleteLike = function deleteLike(id) {
+  return $.ajax({
+    url: "api/likes/".concat(id),
     method: "DELETE"
   });
 };
