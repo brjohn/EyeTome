@@ -4,6 +4,7 @@ import CommentForm from '../comments/comment_form';
 import CommentFormContainer from '../comments/comment_form_container';
 import CommentListContainer from '../comments/comment_list_container';
 import LikeContainer from '../likes/like_container';
+import PostItem from './post_item';
 
 const postPic = (post) => {
     if (post.postPicUrl) {
@@ -85,40 +86,40 @@ const PostList = (props) => {
         return (
             <ul className="all-nf-posts">
                 {allPosts.reverse().map((post, idx) => {
-                    // props.fetchPost(post.id)
                     return (
-                        <li className="post" key={idx}>
+                        <PostItem post={post} idx={idx} currentUser={props.currentUser} deletePost={props.deletePost}/>
+                        // <li className="post" key={idx}>
                             
-                            <div className="post-header-list">
-                                <div className="post-header-left">
-                                <Link to={`/users/${post.poster.id}`} className="poster-thumbnail">
-                                    {thumbnail(post.poster)}
-                                    {/* <i className="fas fa-user-circle"></i>  */}
-                                </Link>
-                                <Link to={`/users/${post.poster.id}`} className="poster-name">
-                                    <div>{post.poster.first_name} {post.poster.last_name}</div> 
-                                </Link>
-                                </div>
-                                {displayPostOptionsIcon(post)}
-                            </div>
-                            <div className="post-text">
-                                {post.body}
-                            </div>
-                            <div className="post-pic-div">{postPic(post)}</div>
-                            {likeCommentCount(post)}
-                            <div className="post-like-comment-row">
-                               <LikeContainer likableItem={post}/> 
-                               <div className="post-comment-box">
-                                   <p>Comment</p>
-                               </div>
-                            </div>
+                        //     <div className="post-header-list">
+                        //         <div className="post-header-left">
+                        //         <Link to={`/users/${post.poster.id}`} className="poster-thumbnail">
+                        //             {thumbnail(post.poster)}
+                        //             {/* <i className="fas fa-user-circle"></i>  */}
+                        //         </Link>
+                        //         <Link to={`/users/${post.poster.id}`} className="poster-name">
+                        //             <div>{post.poster.first_name} {post.poster.last_name}</div> 
+                        //         </Link>
+                        //         </div>
+                        //         {displayPostOptionsIcon(post)}
+                        //     </div>
+                        //     <div className="post-text">
+                        //         {post.body}
+                        //     </div>
+                        //     <div className="post-pic-div">{postPic(post)}</div>
+                        //     {likeCommentCount(post)}
+                        //     <div className="post-like-comment-row">
+                        //        <LikeContainer likableItem={post}/> 
+                        //        <div className="post-comment-box">
+                        //            <p>Comment</p>
+                        //        </div>
+                        //     </div>
                             
-                            <CommentListContainer post={post}/>
-                            <CommentFormContainer 
-                             post={post}   
-                            />
+                        //     <CommentListContainer post={post}/>
+                        //     <CommentFormContainer 
+                        //      post={post}   
+                        //     />
                             
-                        </li>
+                        // </li>
 
                     )
                 })}

@@ -2322,6 +2322,153 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/posts/post_item.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/posts/post_item.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _comments_comment_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../comments/comment_form_container */ "./frontend/components/comments/comment_form_container.jsx");
+/* harmony import */ var _comments_comment_list_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../comments/comment_list_container */ "./frontend/components/comments/comment_list_container.jsx");
+/* harmony import */ var _likes_like_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../likes/like_container */ "./frontend/components/likes/like_container.jsx");
+
+
+
+
+
+
+var postPic = function postPic(post) {
+  if (post.postPicUrl) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: post.postPicUrl,
+      className: "post-pic"
+    });
+  } else {
+    return null;
+  }
+};
+
+var thumbnail = function thumbnail(poster) {
+  if (poster.profilePicUrl) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: poster.profilePicUrl,
+      className: "thumbnail"
+    });
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fas fa-user-circle"
+    });
+  }
+};
+
+var likeCommentCount = function likeCommentCount(post) {
+  var commentDiv = function commentDiv(count) {
+    if (count === 1) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "number-comments"
+      }, "1 Comment");
+    } else if (count > 1) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "number-comments"
+      }, count, " Comments");
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "number-comments"
+      });
+    }
+  };
+
+  var likeDiv = function likeDiv(count) {
+    if (count > 0) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "number-likes"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      }), count);
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "number-likes"
+      });
+    }
+  };
+
+  if (post.comments || post.likers) {
+    var commentNumber = post.comments ? Object.values(post.comments).length : 0;
+    var likeNumber = post.likes ? Object.values(post.likes).length : 0;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "like-comment-count"
+    }, likeDiv(likeNumber), commentDiv(commentNumber));
+  } else {
+    return null;
+  }
+};
+
+var PostItem = function PostItem(props) {
+  var post = props.post,
+      idx = props.idx,
+      deletePost = props.deletePost,
+      currentUser = props.currentUser;
+
+  var displayPostOptionsIcon = function displayPostOptionsIcon(post) {
+    if (post.poster.id === currentUser) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-post-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-ellipsis-h"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "post-options-dropdown"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        onClick: function onClick() {
+          return deletePost(post.id);
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-trash-alt"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Delete this post"))));
+    } else {
+      return null;
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "post",
+    key: idx
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-header-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-header-left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(post.poster.id),
+    className: "poster-thumbnail"
+  }, thumbnail(post.poster)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(post.poster.id),
+    className: "poster-name"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.poster.first_name, " ", post.poster.last_name))), displayPostOptionsIcon(post)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-text"
+  }, post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-pic-div"
+  }, postPic(post)), likeCommentCount(post), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-like-comment-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_likes_like_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    likableItem: post
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post-comment-box"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Comment"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_list_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    post: post
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    post: post
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PostItem);
+
+/***/ }),
+
 /***/ "./frontend/components/posts/post_list.jsx":
 /*!*************************************************!*\
   !*** ./frontend/components/posts/post_list.jsx ***!
@@ -2338,6 +2485,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _comments_comment_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../comments/comment_form_container */ "./frontend/components/comments/comment_form_container.jsx");
 /* harmony import */ var _comments_comment_list_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../comments/comment_list_container */ "./frontend/components/comments/comment_list_container.jsx");
 /* harmony import */ var _likes_like_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../likes/like_container */ "./frontend/components/likes/like_container.jsx");
+/* harmony import */ var _post_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./post_item */ "./frontend/components/posts/post_item.jsx");
+
 
 
 
@@ -2437,35 +2586,41 @@ var PostList = function PostList(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "all-nf-posts"
   }, allPosts.reverse().map(function (post, idx) {
-    // props.fetchPost(post.id)
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      className: "post",
-      key: idx
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-header-list"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-header-left"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/users/".concat(post.poster.id),
-      className: "poster-thumbnail"
-    }, thumbnail(post.poster)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/users/".concat(post.poster.id),
-      className: "poster-name"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.poster.first_name, " ", post.poster.last_name))), displayPostOptionsIcon(post)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-text"
-    }, post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-pic-div"
-    }, postPic(post)), likeCommentCount(post), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-like-comment-row"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_likes_like_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      likableItem: post
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "post-comment-box"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Comment"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_list_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      post: post
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      post: post
-    }));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      post: post,
+      idx: idx,
+      currentUser: props.currentUser,
+      deletePost: props.deletePost
+    }) // <li className="post" key={idx}>
+    //     <div className="post-header-list">
+    //         <div className="post-header-left">
+    //         <Link to={`/users/${post.poster.id}`} className="poster-thumbnail">
+    //             {thumbnail(post.poster)}
+    //             {/* <i className="fas fa-user-circle"></i>  */}
+    //         </Link>
+    //         <Link to={`/users/${post.poster.id}`} className="poster-name">
+    //             <div>{post.poster.first_name} {post.poster.last_name}</div> 
+    //         </Link>
+    //         </div>
+    //         {displayPostOptionsIcon(post)}
+    //     </div>
+    //     <div className="post-text">
+    //         {post.body}
+    //     </div>
+    //     <div className="post-pic-div">{postPic(post)}</div>
+    //     {likeCommentCount(post)}
+    //     <div className="post-like-comment-row">
+    //        <LikeContainer likableItem={post}/> 
+    //        <div className="post-comment-box">
+    //            <p>Comment</p>
+    //        </div>
+    //     </div>
+    //     <CommentListContainer post={post}/>
+    //     <CommentFormContainer 
+    //      post={post}   
+    //     />
+    // </li>
+    ;
   }));
 };
 
