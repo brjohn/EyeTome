@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {signup, login, logout} from "./actions/session_actions"
-import {createPost, deletePost, updatePost, fetchPosts} from "./actions/post_actions"
-import {fetchPost} from "./util/post_api_util"
+import {createPost, deletePost, updatePost, fetchPosts, fetchPost} from "./actions/post_actions"
+// import {fetchPost} from "./util/post_api_util"
 import configureStore from './store/store';
 import Root from './components/root';
 import { updateUser } from "./actions/user_actions";
 import { createComment, deleteComment, fetchComment, fetchComments, updateComment } from "./util/comment_api_util";
+import { deleteLike, createLike, fetchLike, fetchLikes } from "./actions/like_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
-   window.createComment = createComment;
-   window.fetchComment = fetchComment;
-   window.fetchComments = fetchComments;
-   window.deleteComment = deleteComment;
+   window.createLike = createLike;
+   window.fetchLike = fetchLike;
+   window.fetchLikes = fetchLikes;
+   window.deleteLike = deleteLike;
    window.updateComment = updateComment;
    window.fetchPost = fetchPost;
 

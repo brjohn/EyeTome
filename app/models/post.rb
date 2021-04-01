@@ -16,6 +16,8 @@ class Post < ApplicationRecord
 
     has_many :comments, as: :commentable, dependent: :destroy
 
+    has_many :likes, as: :likable, dependent: :destroy 
+
     belongs_to :poster,
     foreign_key: :poster_id,
     class_name: :User
