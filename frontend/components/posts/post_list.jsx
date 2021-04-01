@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentForm from '../comments/comment_form';
 import CommentFormContainer from '../comments/comment_form_container';
 import CommentListContainer from '../comments/comment_list_container';
+import LikeContainer from '../likes/like_container';
 
 const postPic = (post) => {
     if (post.postPicUrl) {
@@ -79,12 +80,12 @@ const PostList = (props) => {
                             </div>
                             <div className="post-pic-div">{postPic(post)}</div>
                             {commentCount(post)}
-                            <CommentListContainer 
-                            post={post}
-                            // currentUser={props.currentUser}
-                            // deleteComment={props.deleteComment}
-                            />
-                
+                            <div className="post-like-comment-row">
+                               <LikeContainer likableItem={post}/> 
+                               <div>Comment</div>
+                            </div>
+                            
+                            <CommentListContainer post={post}/>
                             <CommentFormContainer 
                              post={post}   
                             />
