@@ -1,5 +1,6 @@
 import {RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST} from '../actions/post_actions';
 import { RECEIVE_COMMENT, RECEIVE_COMMENTS, REMOVE_COMMENT } from "../actions/comment_actions";
+import {RECEIVE_LIKE, RECEIVE_LIKES, REMOVE_LIKE} from "../actions/like_actions";
 
 const postsReducer = (oldState = {}, action) => {
     // debugger
