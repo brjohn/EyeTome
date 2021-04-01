@@ -19,4 +19,17 @@ json.likes do
         end
     end
 end
+json.likers do 
+    post.likes.each do |like| 
+        user = like.liker 
+        json.extract! user, :id, :first_name, :last_name 
+    end
+end
+
+json.likerIds do 
+    post.likes.each do |like| 
+        user = like.liker 
+        json.extract! user, :id
+    end
+end
     
