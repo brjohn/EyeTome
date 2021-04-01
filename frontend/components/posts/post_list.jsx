@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentForm from '../comments/comment_form';
 import CommentFormContainer from '../comments/comment_form_container';
 import CommentListContainer from '../comments/comment_list_container';
+import LikeContainer from '../likes/like_container';
 
 const postPic = (post) => {
     if (post.postPicUrl) {
@@ -19,14 +20,40 @@ const thumbnail = (poster) => {
         return <i className="fas fa-user-circle"></i>
     }
 }
-const commentCount = (post) => {
-    if (post.comments){
-        let number = Object.values(post.comments).length
-        if (number === 1){
-            return <div className="like-comment-count"><div className="number-comments">1 Comment</div></div>
+
+const likeCommentCount = (post) => {
+    const commentDiv = (count) => {
+        if (count === 1){
+            return <div className="number-comments">1 Comment</div>
+        } else if (count > 1){
+            return <div className="number-comments">{count} Comments</div>
         } else {
-            return <div className="like-comment-count"><div className="number-comments">{number} Comments</div></div>
+            return <div className="number-comments"></div>
         }
+    }
+    const likeDiv = (count) => {
+        if (count > 0){
+            return (
+                <div className="number-likes">
+                    <i className="far fa-thumbs-up"></i>
+                    {count}
+                </div>
+            )
+        } else {
+            return <div className="number-likes"></div>
+        }
+    }
+
+    if (post.comments || post.likers){
+        const commentNumber = post.comments ? Object.values(post.comments).length : 0;
+        const likeNumber = post.likers ? Object.values(post.likers).length : 0;
+
+        return (
+            <div className="like-comment-count">
+                {likeDiv(likeNumber)}
+                {commentDiv(commentNumber)}
+            </div>
+        )
     } else {
         return null;
     }
@@ -78,13 +105,15 @@ const PostList = (props) => {
                                 {post.body}
                             </div>
                             <div className="post-pic-div">{postPic(post)}</div>
-                            {commentCount(post)}
-                            <CommentListContainer 
-                            post={post}
-                            // currentUser={props.currentUser}
-                            // deleteComment={props.deleteComment}
-                            />
-                
+                            {likeCommentCount(post)}
+                            <div className="post-like-comment-row">
+                               <LikeContainer likableItem={post}/> 
+                               <div className="post-comment-box">
+                                   <p>Comment</p>
+                               </div>
+                            </div>
+                            
+                            <CommentListContainer post={post}/>
                             <CommentFormContainer 
                              post={post}   
                             />
