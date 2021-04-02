@@ -64,8 +64,8 @@ class User < ApplicationRecord
     foreign_key: :friend_requested_id,
     class_name: :Request
 
-    has_many :requests_made,
-    foreign_key: :requester_id,
+    has_many :requests_sent,
+    foreign_key: :requestor_id,
     class_name: :Request
 
     # Active Storage Association
