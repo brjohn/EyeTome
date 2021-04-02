@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SubcommentFormContainer from './subcomment_form_container';
 import SubcommentListContainer from './subcomment_list_container';
+import CommentLikeContainer from '../likes/comment_like_container';
 
 class CommentItem extends React.Component {
     constructor(props){
@@ -14,6 +15,7 @@ class CommentItem extends React.Component {
         this.displayCommentOptionsIcon = this.displayCommentOptionsIcon.bind(this);
         this.remove = this.remove.bind(this);
         this.displaySubformContainer = this.displaySubformContainer.bind(this);
+        this.likeCount = this.likeCount.bind(this);
     }
 
     thumbnail(poster){
@@ -51,6 +53,18 @@ class CommentItem extends React.Component {
     displaySubformContainer(){
         this.setState({['formclass']: "subform-div"})
     }
+    likeCount(){
+        if (this.props.comment.likes){
+            return (
+                <div className="number-likes">
+                    <i className="far fa-thumbs-up"></i>
+                    {Object.values(this.props.comment.likes).length}
+                </div>
+            )
+        } else {
+            return null;
+        }
+    }
 
 
     render(){
@@ -64,12 +78,21 @@ class CommentItem extends React.Component {
                             <div className="post-comment-row">
                                 <div className="post-comment-gray">
                                     <p className="post-comment-name">{this.props.comment.commenter.first_name} {this.props.comment.commenter.last_name}</p>
-                                    <p className="post-comment-body">{this.props.comment.body}</p>
+                                    <p className="post-comment-body">
+                                        <div>{this.props.comment.body}</div>
+                                        
+                                        {/* <div className="comment-like-count">L</div> */}
+                                    </p>
+                                    
                                 </div>
                                 {this.displayCommentOptionsIcon(this.props.comment)}
                             </div>
                             <div className="like-reply">
+                                <CommentLikeContainer likableItem={this.props.comment}/>
+                                ·
                                 <p onClick={this.displaySubformContainer}>Reply</p>
+                                <p>{this.likeCount()}</p>
+                                
                             </div>
                             <SubcommentListContainer comment={this.props.comment}/>
                             

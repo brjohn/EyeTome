@@ -32,24 +32,6 @@ class Like extends React.Component {
             })
         }
 
-        // if (!this.state.likeStatus){
-        //     let like = {};
-        //     like.likable_id = this.props.likableItem.id 
-        //     like.liker_id = this.props.currentUser 
-        //     like.likable_type = "Post"
-        //     this.props.createLike(like).then(()=> {
-        //         this.props.fetchPost(this.props.likableItem.id)  
-        //     })
-        //     this.setState({["likeStatus"]: true})
-        // } else {
-        //     let like = Object.values(this.props.likableItem.likes).filter(like => like.liker_id === this.props.currentUser)
-        //     this.props.deleteLike(like[0].id).then(()=> {
-        //         this.props.fetchPost(this.props.likableItem.id)
-        //     })
-        //     this.setState({["likeStatus"]: false})
-
-        // }
-
     }
 
     render(){
