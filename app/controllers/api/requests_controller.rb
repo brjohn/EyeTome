@@ -21,6 +21,6 @@ class Api::RequestsController < ApplicationController
 
     private 
     def request_params
-        params.require(:request).permit(:requester_id, :friend_requested_id)
+        params.require(:request).permit(:requestor_id, :friend_requested_id)
     end
 end
