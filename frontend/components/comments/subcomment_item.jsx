@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SubcommentFormContainer from './subcomment_form_container';
 import SubcommentListContainer from './subcomment_list_container';
+import CommentLikeContainer from '../likes/comment_like_container';
 
 class SubcommentItem extends React.Component {
     constructor(props){
@@ -14,6 +15,7 @@ class SubcommentItem extends React.Component {
         this.displayCommentOptionsIcon = this.displayCommentOptionsIcon.bind(this);
         this.remove = this.remove.bind(this);
         this.displaySubformContainer = this.displaySubformContainer.bind(this);
+        this.likeCount = this.likeCount.bind(this);
     }
 
     thumbnail(poster){
@@ -53,6 +55,18 @@ class SubcommentItem extends React.Component {
         this.setState({['formclass']: "subform-div"})
     }
 
+    likeCount(){
+        if (this.props.comment.likes){
+            return (
+                <div className="number-likes">
+                    <i className="far fa-thumbs-up"></i>
+                    {Object.values(this.props.comment.likes).length}
+                </div>
+            )
+        } else {
+            return null;
+        }
+    }
 
     render(){
 
@@ -70,7 +84,10 @@ class SubcommentItem extends React.Component {
                                 {this.displayCommentOptionsIcon(this.props.comment)}
                             </div>
                             <div className="like-reply">
+                                <CommentLikeContainer likableItem={this.props.comment}/>
+                                ·
                                 <p onClick={this.displaySubformContainer}>Reply</p>
+                                <p>{this.likeCount()}</p>
                             </div>
                             <SubcommentListContainer comment={this.props.comment}/>
                             
