@@ -5,6 +5,7 @@ import NavBarContainer from '../nav_bar/nav_bar_container';
 import Modal from '../session_form/modal';
 import PostList from '../posts/post_list';
 import CreatePostBox from '../posts/create_post_box';
+import RequestButtonContainer from '../requests/request_button_container';
 
 
 class Profile extends React.Component {
@@ -25,7 +26,8 @@ class Profile extends React.Component {
                 </button>
             )
         } else {
-            return <div className="edit-button-height"></div>;
+            // return <div className="edit-button-height"></div>;
+            return <RequestButtonContainer />
         }
     }
 
