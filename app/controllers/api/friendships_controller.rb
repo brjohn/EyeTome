@@ -2,7 +2,7 @@ class Api::FriendshipsController < ApplicationController
 
     def create 
         @friendship = Friendship.new(friendship_params)
-        request = Request.find_by(requester_id: params[:friendship][:friend_id], friend_requested_id: params[:friendship][:user_id])
+        request = Request.find_by(requestor_id: params[:friendship][:friend_id], friend_requested_id: params[:friendship][:user_id])
         reverse_friendship = Friendship.new(user_id: params[:friendship][:friend_id], friend_id: params[:friendship][:user_id])
         if @friendship.save
             reverse_friendship.save 
@@ -14,9 +14,24 @@ class Api::FriendshipsController < ApplicationController
 
     end
 
+    def index 
+        @friendships = Friendship.all 
+        render :index 
+    end
+
+    def show 
+       @friendship = Friendship.find_by(id: params[:id])
+        if @friendship 
+            render "api/friendships/show"
+        else
+            render json: ["Friendship not found"], status: 404
+        end
+    end
+
+
     def destroy 
         @friendship = Friendship.find_by(id: params[:id])
-        reverse_friendship = Friendship.new(user_id: @friendship.friend_id, friend_id: @friendship.user_id)
+        reverse_friendship = Friendship.find_by(user_id: @friendship.friend_id, friend_id: @friendship.user_id)
         if @friendship 
             @friendship.destroy 
             reverse_friendship.destroy 
