@@ -10,3 +10,24 @@ json.friendships do
     end
 end 
 
+json.requests_sent do 
+    @user.requests_sent.each do |request_sent|
+        json.set! request_sent.id do 
+            user = request_sent.friend_requested 
+            json.extract! user, :id, :first_name, :last_name
+            json.profilePicUrl url_for(user.profile_pic) if user.profile_pic.attached?
+        end
+    end
+end 
+
+json.requests_received do 
+    @user.requests_received.each do |request_received|
+        json.set! request_received.id do 
+            user = request_received.requestor 
+            json.extract! user, :id, :first_name, :last_name
+            json.profilePicUrl url_for(user.profile_pic) if user.profile_pic.attached?
+        end
+    end
+end 
+
+
