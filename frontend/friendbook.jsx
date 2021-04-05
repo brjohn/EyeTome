@@ -9,6 +9,7 @@ import { fetchUser, updateUser } from "./actions/user_actions";
 import { createComment, deleteComment, fetchComment, fetchComments, updateComment } from "./util/comment_api_util";
 import { deleteLike, createLike, fetchLike, fetchLikes } from "./actions/like_actions";
 import { createRequest, deleteRequest, fetchRequest } from "./actions/request_actions";
+import { createFriendship, deleteFriendship, fetchFriendship } from "./actions/friendship_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
    window.fetchRequest = fetchRequest;
    window.deleteRequest = deleteRequest;
    window.fetchUser = fetchUser;
+   window.fetchFriendship = fetchFriendship;
+   window.createFriendship = createFriendship;
+   window.deleteFriendship = deleteFriendship;
 
     
     

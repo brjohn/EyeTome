@@ -167,6 +167,62 @@ var deleteComment = function deleteComment(id) {
 
 /***/ }),
 
+/***/ "./frontend/actions/friendship_actions.js":
+/*!************************************************!*\
+  !*** ./frontend/actions/friendship_actions.js ***!
+  \************************************************/
+/*! exports provided: RECEIVE_FRIENDSHIP, REMOVE_FRIENDSHIP, receiveFriendship, removeFriendship, createFriendship, fetchFriendship, deleteFriendship */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_FRIENDSHIP", function() { return RECEIVE_FRIENDSHIP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_FRIENDSHIP", function() { return REMOVE_FRIENDSHIP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveFriendship", function() { return receiveFriendship; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFriendship", function() { return removeFriendship; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFriendship", function() { return createFriendship; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFriendship", function() { return fetchFriendship; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFriendship", function() { return deleteFriendship; });
+/* harmony import */ var _util_friendship_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/friendship_api_util */ "./frontend/util/friendship_api_util.js");
+
+var RECEIVE_FRIENDSHIP = "RECEIVE_FRIENDSHIP";
+var REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
+var receiveFriendship = function receiveFriendship(friendship) {
+  return {
+    type: RECEIVE_FRIENDSHIP,
+    friendship: friendship
+  };
+};
+var removeFriendship = function removeFriendship(friendship) {
+  return {
+    type: REMOVE_FRIENDSHIP,
+    friendship: friendship
+  };
+};
+var createFriendship = function createFriendship(friendship) {
+  return function (dispatch) {
+    return _util_friendship_api_util__WEBPACK_IMPORTED_MODULE_0__["createFriendship"](friendship).then(function (friendship) {
+      return dispatch(receiveFriendship(friendship));
+    });
+  };
+};
+var fetchFriendship = function fetchFriendship(id) {
+  return function (dispatch) {
+    return _util_friendship_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchFriendship"](id).then(function (friendship) {
+      return dispatch(receiveFriendship(friendship));
+    });
+  };
+};
+var deleteFriendship = function deleteFriendship(id) {
+  return function (dispatch) {
+    return _util_friendship_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteFriendship"](id).then(function (friendship) {
+      return dispatch(removeFriendship(friendship));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/like_actions.js":
 /*!******************************************!*\
   !*** ./frontend/actions/like_actions.js ***!
@@ -4128,12 +4184,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
 /* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./actions/like_actions */ "./frontend/actions/like_actions.js");
 /* harmony import */ var _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./actions/request_actions */ "./frontend/actions/request_actions.js");
+/* harmony import */ var _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./actions/friendship_actions */ "./frontend/actions/friendship_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
  // import {fetchPost} from "./util/post_api_util"
+
 
 
 
@@ -4172,6 +4230,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.fetchRequest = _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__["fetchRequest"];
   window.deleteRequest = _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__["deleteRequest"];
   window.fetchUser = _actions_user_actions__WEBPACK_IMPORTED_MODULE_6__["fetchUser"];
+  window.fetchFriendship = _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__["fetchFriendship"];
+  window.createFriendship = _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__["createFriendship"];
+  window.deleteFriendship = _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__["deleteFriendship"];
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -4644,6 +4705,42 @@ var updateComment = function updateComment(comment) {
 var deleteComment = function deleteComment(id) {
   return $.ajax({
     url: "api/comments/".concat(id),
+    method: "DELETE"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/friendship_api_util.js":
+/*!**********************************************!*\
+  !*** ./frontend/util/friendship_api_util.js ***!
+  \**********************************************/
+/*! exports provided: fetchFriendship, createFriendship, deleteFriendship */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFriendship", function() { return fetchFriendship; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFriendship", function() { return createFriendship; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFriendship", function() { return deleteFriendship; });
+var fetchFriendship = function fetchFriendship(id) {
+  return $.ajax({
+    url: "api/friendships/".concat(id),
+    method: "GET"
+  });
+};
+var createFriendship = function createFriendship(friendship) {
+  return $.ajax({
+    url: "api/friendships",
+    method: "POST",
+    data: {
+      friendship: friendship
+    }
+  });
+};
+var deleteFriendship = function deleteFriendship(id) {
+  return $.ajax({
+    url: "api/friendships/".concat(id),
     method: "DELETE"
   });
 };
