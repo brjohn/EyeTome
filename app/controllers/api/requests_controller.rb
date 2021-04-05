@@ -1,9 +1,9 @@
 class Api::RequestsController < ApplicationController
 
-    # def index 
-    #     @requests = Request.all 
-    #     render :index
-    # end
+    def index 
+        @requests = Request.all 
+        render :index
+    end
 
     def create 
         @request = Request.new(request_params)
@@ -13,6 +13,15 @@ class Api::RequestsController < ApplicationController
             render json: @request.errors.full_messages, status: 422
         end
     end
+
+    def show 
+        @request = Request.find_by(id: params[:id])
+        if @request 
+            render :show 
+        else
+            render json: ["Request not found"], status: 404
+        end
+    end 
 
     def destroy 
         @request = Request.find_by(id: params[:id])

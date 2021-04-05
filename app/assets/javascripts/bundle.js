@@ -350,6 +350,62 @@ var deletePost = function deletePost(id) {
 
 /***/ }),
 
+/***/ "./frontend/actions/request_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/request_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_REQUEST, REMOVE_REQUEST, receiveRequest, removeRequest, createRequest, fetchRequest, deleteRequest */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REQUEST", function() { return RECEIVE_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_REQUEST", function() { return REMOVE_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveRequest", function() { return receiveRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeRequest", function() { return removeRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRequest", function() { return createRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRequest", function() { return fetchRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteRequest", function() { return deleteRequest; });
+/* harmony import */ var _util_request_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/request_api_util */ "./frontend/util/request_api_util.js");
+
+var RECEIVE_REQUEST = "RECEIVE_REQUEST";
+var REMOVE_REQUEST = "REMOVE_REQUEST";
+var receiveRequest = function receiveRequest(request) {
+  return {
+    type: RECEIVE_REQUEST,
+    request: request
+  };
+};
+var removeRequest = function removeRequest(request) {
+  return {
+    type: REMOVE_REQUEST,
+    request: request
+  };
+};
+var createRequest = function createRequest(request) {
+  return function (dispatch) {
+    return _util_request_api_util__WEBPACK_IMPORTED_MODULE_0__["createRequest"](request).then(function (request) {
+      return dispatch(receiveRequest(request));
+    });
+  };
+};
+var fetchRequest = function fetchRequest(id) {
+  return function (dispatch) {
+    return _util_request_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchRequest"](id).then(function (request) {
+      return dispatch(receiveRequest(request));
+    });
+  };
+};
+var deleteRequest = function deleteRequest(id) {
+  return function (dispatch) {
+    return _util_request_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteRequest"](id).then(function (request) {
+      return dispatch(removeRequest(request));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -4071,12 +4127,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/user_actions */ "./frontend/actions/user_actions.js");
 /* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
 /* harmony import */ var _actions_like_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./actions/like_actions */ "./frontend/actions/like_actions.js");
+/* harmony import */ var _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./actions/request_actions */ "./frontend/actions/request_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
  // import {fetchPost} from "./util/post_api_util"
+
 
 
 
@@ -4109,12 +4167,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.createLike = _actions_like_actions__WEBPACK_IMPORTED_MODULE_8__["createLike"];
-  window.fetchLike = _actions_like_actions__WEBPACK_IMPORTED_MODULE_8__["fetchLike"];
-  window.fetchLikes = _actions_like_actions__WEBPACK_IMPORTED_MODULE_8__["fetchLikes"];
-  window.deleteLike = _actions_like_actions__WEBPACK_IMPORTED_MODULE_8__["deleteLike"];
-  window.updateComment = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_7__["updateComment"];
   window.fetchPost = _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["fetchPost"];
+  window.createRequest = _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__["createRequest"];
+  window.fetchRequest = _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__["fetchRequest"];
+  window.deleteRequest = _actions_request_actions__WEBPACK_IMPORTED_MODULE_9__["deleteRequest"];
+  window.fetchUser = _actions_user_actions__WEBPACK_IMPORTED_MODULE_6__["fetchUser"];
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -4689,6 +4746,42 @@ var updatePost = function updatePost(post) {
 var deletePost = function deletePost(id) {
   return $.ajax({
     url: "api/posts/".concat(id),
+    method: "DELETE"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/request_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/request_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchRequest, createRequest, deleteRequest */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRequest", function() { return fetchRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRequest", function() { return createRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteRequest", function() { return deleteRequest; });
+var fetchRequest = function fetchRequest(id) {
+  return $.ajax({
+    url: "api/requests/".concat(id),
+    method: "GET"
+  });
+};
+var createRequest = function createRequest(request) {
+  return $.ajax({
+    url: "api/requests",
+    method: "POST",
+    data: {
+      request: request
+    }
+  });
+};
+var deleteRequest = function deleteRequest(id) {
+  return $.ajax({
+    url: "api/requests/".concat(id),
     method: "DELETE"
   });
 };
