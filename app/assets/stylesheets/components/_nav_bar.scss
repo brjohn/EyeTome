@@ -12,8 +12,6 @@
 .right-nav > ul {
 	display: flex;
 	align-items: center;
-	// justify-content: space-between;
-
 }
 .left-nav {
 	margin-top: 6px;
@@ -23,9 +21,6 @@
 		color: #1c8ef1;
 		font-size: 28px;
 		cursor: pointer;
-		// border-bottom: 2px solid #1c8ef1;
-		// height: max-content;
-		// width: 112px;
 	}
 	#fb-icon-button {
 		color: #1c8ef1;
@@ -105,15 +100,113 @@
 	background-color: #f0f2f5;
 }
 
-.bell {
+.notifications {
+	
 	display: flex;
 	flex-direction: row;
+	height: 54px;
 	cursor: pointer;
 	color: #ccd0d5;
 	margin-left: 8px;
-	padding: 8px;
-	border-radius: 100%;
+	#bell {
+		padding: 8px;
+		border-radius: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#bell:hover {
+		background-color:#f0f2f5;
+	}
+	
 }
-.bell:hover {
-	background-color:#f0f2f5;	 
+
+.request-count {
+	font-size: 10px;
+	background-color: #f02949;
+	color: white;
+	width: 12px;
+	height: 12px;
+	padding-top: 2px;
+	padding-left: 1px;
+	padding-right: 1px;
+	border-radius: 100%;
+	text-align: center;
+	margin-left: -10px;
+	margin-top: 8px;
+}
+
+.notifications:hover .requests-ul {
+	display: block;
+}
+
+.requests-ul {
+	position: absolute;
+	display: none;
+	top: 54px;
+	right: 10px;
+	background-color: #fff;
+	border: 1px solid #ccd0d5;
+	border-radius: 3px;
+	padding: 16px;
+    height: max-content;
+	z-index: 1;
+	color: #050505;;
+	// font-family: arial;
+	text-align: left;
+    box-shadow: 3px 3px 10px 1px #ccd0d5; 
+}
+.friend-requests {
+	margin-left: 4px;
+	margin-bottom: 8px;
+}
+
+.request-li {
+	display: flex;
+	flex-direction: row;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-top:1px solid #ccced2;
+	padding-top: 12px; 
+}
+.requestor {
+	display: flex;
+	flex-direction: row;
+	i {
+		font-size: 32px;
+		cursor: pointer;
+		color: #ccd0d5; 
+	}
+	.requestor-thumbnail {
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
+	}
+}
+.requestor-name {
+	cursor: pointer;
+	margin-left: 8px;
+	margin-top: 8px;
+}
+.requestor-name:hover {
+	text-decoration: underline;
+}
+
+.req-response {
+	margin-left: 8px;
+	justify-self: flex-end;
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.accept-req,
+.delete-req {
+	cursor: pointer;
+}
+
+.accept-req:hover,
+.delete-req:hover {
+	text-decoration: underline;
 }
