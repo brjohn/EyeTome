@@ -27,13 +27,16 @@ class Profile extends React.Component {
             )
         } else {
             // return <div className="edit-button-height"></div>;
-            return <RequestButtonContainer />
+            return <RequestButtonContainer 
+            profileOwner={this.props.profileOwner}
+            fullCurrentUser={this.props.fullCurrentUser}/>
         }
     }
 
     componentDidMount(){
         
         this.props.fetchUser(this.props.profileOwnerId)
+        // this.props.fetchUser(this.props.currentUser)
         this.props.fetchPosts(parseInt(this.props.profileOwnerId))
         // this.props.fetchComments()
     }

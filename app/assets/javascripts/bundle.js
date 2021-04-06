@@ -2950,13 +2950,17 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit Profile"));
       } else {
         // return <div className="edit-button-height"></div>;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_requests_request_button_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_requests_request_button_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          profileOwner: this.props.profileOwner,
+          fullCurrentUser: this.props.fullCurrentUser
+        });
       }
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchUser(this.props.profileOwnerId);
+      this.props.fetchUser(this.props.profileOwnerId); // this.props.fetchUser(this.props.currentUser)
+
       this.props.fetchPosts(parseInt(this.props.profileOwnerId)); // this.props.fetchComments()
     }
   }, {
@@ -3462,6 +3466,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3490,15 +3496,59 @@ var RequestButton = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(RequestButton);
 
   function RequestButton(props) {
+    var _this;
+
     _classCallCheck(this, RequestButton);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      friendStatus: 'Add Friend'
+    };
+    _this.friendAction = _this.friendAction.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(RequestButton, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this$props = this.props,
+          profileOwner = _this$props.profileOwner,
+          fullCurrentUser = _this$props.fullCurrentUser;
+
+      if (profileOwner.friendships && Object.values(profileOwner.friendships).some(function (friend) {
+        return friend.id === fullCurrentUser.id;
+      })) {
+        this.setState(_defineProperty({}, 'friendStatus', 'Unfriend'));
+      }
+    }
+  }, {
+    key: "friendAction",
+    value: function friendAction() {
+      var _this$props2 = this.props,
+          profileOwner = _this$props2.profileOwner,
+          fullCurrentUser = _this$props2.fullCurrentUser;
+
+      if (this.state.friendStatus === 'Add Friend') {
+        var request = {};
+        request.requestor_id = fullCurrentUser.id;
+        request.friend_requested_id = profileOwner.id;
+        this.props.createRequest(request);
+        this.props.fetchUser(fullCurrentUser.id);
+        this.setState(_defineProperty({}, 'friendStatus', 'Request Sent'));
+      } else if (this.state.friendStatus === 'Unfriend') {
+        var str = Object.keys(profileOwner.friendships).find(function (key) {
+          return profileOwner.friendships[key].id === fullCurrentUser.id;
+        });
+        this.props.deleteFriendship(parseInt(str));
+        this.setState(_defineProperty({}, 'friendStatus', 'Add Friend'));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Request Button");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.friendAction
+      }, this.state.friendStatus);
     }
   }]);
 
@@ -3522,6 +3572,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_request_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/request_actions */ "./frontend/actions/request_actions.js");
 /* harmony import */ var _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/friendship_actions */ "./frontend/actions/friendship_actions.js");
 /* harmony import */ var _request_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./request_button */ "./frontend/components/requests/request_button.jsx");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
@@ -3534,6 +3586,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteFriendship: function deleteFriendship(id) {
       return dispatch(Object(_actions_friendship_actions__WEBPACK_IMPORTED_MODULE_2__["deleteFriendship"])(id));
+    },
+    fetchUser: function fetchUser(id) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchUser"])(id));
     }
   };
 };
