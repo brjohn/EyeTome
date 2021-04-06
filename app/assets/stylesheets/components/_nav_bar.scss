@@ -104,3 +104,16 @@
 .user-profile-button:hover {
 	background-color: #f0f2f5;
 }
+
+.bell {
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+	color: #ccd0d5;
+	margin-left: 8px;
+	padding: 8px;
+	border-radius: 100%;
+}
+.bell:hover {
+	background-color:#f0f2f5;	 
+}
