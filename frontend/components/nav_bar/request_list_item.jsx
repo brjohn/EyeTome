@@ -33,20 +33,16 @@ const RequestListItem = ({request, createFriendship, deleteRequest, fetchUser, c
     return (
         
         <li className="request-li" key={idx}>
-            {/* <div className="request-li-div"> */}
-            <Link to={`/users/${requestor.id}`}>
-                <div className="requestor">
-                    {thumbnail()}
-                    <div>   
-                        <div className="requestor-name">{requestor.first_name} {requestor.last_name}</div>
-                    </div>     
+            
+            <Link to={`/users/${requestor.id}`}>{thumbnail()}</Link>
+            <div className="request-li-col">
+                <div className="requestor"> 
+                    <Link to={`/users/${requestor.id}`} className="bold-name">{requestor.first_name} {requestor.last_name}</Link> sent you a friend request   
                 </div>
-            </Link>
-            <div className="req-response">
-                <div className="accept-req" onClick={() => accept()}>Accept</div>
-                <div className="delete-req" onClick={() => decline()}>Decline</div>
-
-            {/* </div> */}
+                <div className="req-response">
+                    <div className="accept-req" onClick={() => accept()}>Confirm</div>
+                    <div className="delete-req" onClick={() => decline()}>Decline</div>
+                </div>
             </div>
         </li>
     )

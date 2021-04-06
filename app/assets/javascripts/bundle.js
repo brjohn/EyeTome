@@ -2471,23 +2471,26 @@ var RequestListItem = function RequestListItem(_ref) {
     key: idx
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(requestor.id)
+  }, thumbnail()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "request-li-col"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "requestor"
-  }, thumbnail(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "requestor-name"
-  }, requestor.first_name, " ", requestor.last_name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(requestor.id),
+    className: "bold-name"
+  }, requestor.first_name, " ", requestor.last_name), " sent you a friend request"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "req-response"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "accept-req",
     onClick: function onClick() {
       return accept();
     }
-  }, "Accept"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Confirm"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "delete-req",
     onClick: function onClick() {
       return decline();
     }
-  }, "Decline")));
+  }, "Decline"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RequestListItem);
@@ -2557,7 +2560,7 @@ var RequestsDropdown = /*#__PURE__*/function (_React$Component) {
           className: "requests-ul"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "friend-requests"
-        }, "Friend Requests"), Object.entries(this.props.fullUser.requests_received).map(function (request, idx) {
+        }, "Notifications"), Object.entries(this.props.fullUser.requests_received).map(function (request, idx) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_request_list_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             idx: idx,
             request: request,

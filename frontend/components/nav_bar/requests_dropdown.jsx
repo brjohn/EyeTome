@@ -15,7 +15,7 @@ class RequestsDropdown extends React.Component {
            return (
             
                 <ul className="requests-ul">
-                    <p className="friend-requests">Friend Requests</p>
+                    <p className="friend-requests">Notifications</p>
                     {Object.entries(this.props.fullUser.requests_received).map((request, idx) => {
                         return (
                             <RequestListItem 

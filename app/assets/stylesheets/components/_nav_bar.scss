@@ -149,6 +149,7 @@
 	border-radius: 3px;
 	padding: 16px;
     height: max-content;
+	width: 300px;
 	z-index: 1;
 	color: #050505;;
 	// font-family: arial;
@@ -158,55 +159,72 @@
 .friend-requests {
 	margin-left: 4px;
 	margin-bottom: 8px;
+	font-size: 24px;
+	font-weight: bold;
 }
 
 .request-li {
 	display: flex;
 	flex-direction: row;
-	margin-top: 4px;
-	margin-left: 4px;
-	margin-right: 4px;
-	border-top:1px solid #ccced2;
+	margin: 4px;
 	padding-top: 12px; 
-}
-.requestor {
-	display: flex;
-	flex-direction: row;
 	i {
-		font-size: 32px;
+		font-size: 56px;
 		cursor: pointer;
 		color: #ccd0d5; 
 	}
 	.requestor-thumbnail {
 		cursor: pointer;
-		width: 30px;
-		height: 30px;
+		width: 56px;
+		height: 56px;
 		border-radius: 100%;
 	}
 }
-.requestor-name {
-	cursor: pointer;
-	margin-left: 8px;
-	margin-top: 8px;
+.request-li-col {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 12px;
 }
-.requestor-name:hover {
+.requestor {
+	// display: flex;
+	// flex-direction: row;
+	font-size: 15px;
+}
+.bold-name {
+	font-weight: bold;
+	cursor: pointer;
+}
+.bold-name:hover {
 	text-decoration: underline;
 }
 
 .req-response {
-	margin-left: 8px;
-	justify-self: flex-end;
+	margin-top: 8px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 	
 }
 
 .accept-req,
 .delete-req {
 	cursor: pointer;
+	width: 80px;
+	padding: 12px;
+	font-size: 15px;
+	border-radius: 6px;
+	text-align: center;
 }
-
 .accept-req:hover,
 .delete-req:hover {
-	text-decoration: underline;
+	box-shadow: 1px 1px 1px 1px #ccd0d5;
+}
+.accept-req {
+	background-color: #1878f2;
+	color: white;
+}
+.delete-req {
+	background-color: #e4e6eb;
+	color: #050505;
 }
