@@ -3176,7 +3176,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _posts_post_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../posts/post_list */ "./frontend/components/posts/post_list.jsx");
 /* harmony import */ var _posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../posts/create_post_box */ "./frontend/components/posts/create_post_box.jsx");
 /* harmony import */ var _requests_request_button_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../requests/request_button_container */ "./frontend/components/requests/request_button_container.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3207,6 +3210,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
 
@@ -3218,9 +3222,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Profile);
 
     _this = _super.call(this, props);
-    _this.state = {// 
+    _this.state = {
+      friends: []
     };
     _this.displayEditProfile = _this.displayEditProfile.bind(_assertThisInitialized(_this));
+    _this.displayFriends = _this.displayFriends.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3248,9 +3254,38 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchUser(this.props.profileOwnerId); // this.props.fetchUser(this.props.currentUser)
+      var _this3 = this;
 
+      this.props.fetchUser(this.props.profileOwnerId).then(function () {
+        if (_this3.props.profileOwner.friendships) {
+          _this3.setState(_defineProperty({}, 'friends', Object.values(_this3.props.profileOwner.friendships)));
+        }
+      });
       this.props.fetchPosts(parseInt(this.props.profileOwnerId)); // this.props.fetchComments()
+    }
+  }, {
+    key: "displayFriends",
+    value: function displayFriends() {
+      if (this.state.friends.length > 0) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "friends-ul"
+        }, this.state.friends.map(function (friend, idx) {
+          var pic = friend.profilePicUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: friend.profilePicUrl
+          }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-user"
+          }));
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            className: "friend-li",
+            key: idx
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+            to: "/users/".concat(friend.id),
+            className: "friend-link"
+          }, pic, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, friend.first_name, " ", friend.last_name)));
+        }));
+      } else {
+        return null;
+      }
     }
   }, {
     key: "render",
@@ -3273,7 +3308,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           className: "smaller-profile-below"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "left-profile-stuff"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "friends"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "friends-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.friends.length, " friends")), this.displayFriends())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "right-profile"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
           openModal: this.props.openModal,
