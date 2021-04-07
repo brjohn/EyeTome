@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchUsers } from '../../util/user_api_util';
 
 
 class Search extends React.Component {
@@ -12,6 +11,7 @@ class Search extends React.Component {
         }
         this.isFriend = this.isFriend.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.closeResults = this.closeResults.bind(this);
     }
     isFriend(userId){
         if (this.props.friends.some(friend => friend.id === userId)){
@@ -19,6 +19,12 @@ class Search extends React.Component {
         } else {
             return <p className="is-friend"></p>
         }
+    }
+    closeResults(e){
+        
+        this.setState({['displayResults']: false})
+        e.stopPropagation();
+        
     }
 
     searchResults(){
@@ -31,11 +37,15 @@ class Search extends React.Component {
             return (
                 resultsArray.sort().map(user => {
                     return (
-                        <div className="search-item">
+                        <div className="search-item" key={user.id}>
                             <Link to={`/users/${user.id}`}>
                                 {user.profilePicUrl ? <img src={user.profilePicUrl} /> : <i className="fas fa-user-circle"></i>}
-                                <p>{user.first_name} {user.last_name}</p>
-                                {this.isFriend(user.id)}
+                            </Link>
+                            <Link to={`/users/${user.id}`} >
+                                <div className="search-item-name">
+                                    <p>{user.first_name} {user.last_name}</p>
+                                    {this.isFriend(user.id)}
+                                </div>
                             </Link>
                         </div>
                     )
@@ -49,6 +59,9 @@ class Search extends React.Component {
 
     handleChange(e){
         this.setState({['searchQuery']: e.currentTarget.value})
+        if (e.currentTarget.value.length > 0){
+            this.setState({['displayResults']: true})
+        }
     }
 
 
@@ -56,19 +69,26 @@ class Search extends React.Component {
 
 
         return (
-            <div >
-                <input 
-                type="search"
-                className="search-input"
-                value={this.state.searchQuery}
-                placeholder="Search Friendbook"
-                onChange={this.handleChange}
-                onFocus={() => this.setState({['displayResults']: true})}
-                />
-                <div className="search-results">
-                    {this.state.displayResults ? this.searchResults() : null}
-                </div>
-            </div>
+            <div className="search-exterior" onClick={this.closeResults}>
+               <div className="search-interior">
+                   <div className="search-bar">
+                       <i className="fas fa-search"></i>
+                       <input 
+                        type="search"
+                        className="search-input"
+                        value={this.state.searchQuery}
+                        placeholder="Search Friendbook"
+                        onChange={this.handleChange}
+                        // onFocus={() => this.setState({['displayResults']: true})}
+                        />
+                   </div>
+                    
+                    <div className="search-results">
+                        {this.state.displayResults ? this.searchResults() : null}
+                    </div>
+                </div> 
+            </div> 
+            
         )
     }
 }

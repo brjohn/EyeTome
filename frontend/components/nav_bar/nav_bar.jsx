@@ -2,6 +2,7 @@ import React from 'react';
 import AccountDropdown from './account-dropdown';
 import { Link } from 'react-router-dom';
 import RequestsDropdownContainer from './requests_dropdown_container';
+import SearchContainer from '../search/search_container';
 
 class NavBar extends React.Component {
     constructor(props){
@@ -40,10 +41,11 @@ class NavBar extends React.Component {
                         <i className="fab fa-facebook"></i>
                         
                     </li>
-                    <li id="search-bar">
+                    {/* <li id="search-bar">
                         <i className="fas fa-search"></i>
                         <input type="text" placeholder="Search Friendbook"/>
-                    </li>
+                    </li> */}
+                    <SearchContainer/>
                     <li >
                         <Link to="/" id="home-button"><i className="fas fa-home"></i></Link>    
                     </li>
@@ -52,18 +54,18 @@ class NavBar extends React.Component {
             </nav>
             <nav className="right-nav">
                 <ul>
-                    <li >
+                    <li key="a">
                         <Link to={`/users/${this.props.fullUser.id}`} className="user-profile-button">
                             {this.thumbnail()}
                             <div>{this.props.fullUser.first_name}</div> 
                         </Link>
                     </li>
-                    <li className="notifications">
+                    <li className="notifications" key="b">
                         <i id="bell" className="fas fa-bell"></i>
                         {this.requestCount()}
                         <RequestsDropdownContainer />
                     </li>
-                    <li id="account-dropdown-btn">
+                    <li id="account-dropdown-btn" key="c">
                         <i id="dd-icon" className="fas fa-chevron-circle-down"></i>
                         <AccountDropdown fullUser={this.props.fullUser} logout={this.props.logout}/>
 
