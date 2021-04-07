@@ -5,7 +5,7 @@ import {createPost, deletePost, updatePost, fetchPosts, fetchPost} from "./actio
 // import {fetchPost} from "./util/post_api_util"
 import configureStore from './store/store';
 import Root from './components/root';
-import { fetchUser, updateUser } from "./actions/user_actions";
+import { fetchUser, updateUser, fetchUsers } from "./actions/user_actions";
 import { createComment, deleteComment, fetchComment, fetchComments, updateComment } from "./util/comment_api_util";
 import { deleteLike, createLike, fetchLike, fetchLikes } from "./actions/like_actions";
 import { createRequest, deleteRequest, fetchRequest } from "./actions/request_actions";
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
    window.fetchFriendship = fetchFriendship;
    window.createFriendship = createFriendship;
    window.deleteFriendship = deleteFriendship;
+   window.fetchUsers = fetchUsers;
 
     
     

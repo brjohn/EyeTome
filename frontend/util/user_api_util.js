@@ -9,6 +9,15 @@ export const fetchUser = id => {
     )
 } 
 
+export const fetchUsers = () => {
+    return (
+        $.ajax({
+            url: 'api/users',
+            method: "GET"
+        })
+    )
+}
+
 export const updateUser = formData => {
     
     return (

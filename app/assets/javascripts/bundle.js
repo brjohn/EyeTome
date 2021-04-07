@@ -542,24 +542,34 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/user_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_USER, fetchUser, updateUser */
+/*! exports provided: RECEIVE_USER, RECEIVE_USERS, fetchUser, updateUser, fetchUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER", function() { return RECEIVE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USERS", function() { return RECEIVE_USERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUser", function() { return updateUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
 /* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 
 
 var RECEIVE_USER = "RECEIVE_USER";
+var RECEIVE_USERS = "RECEIVE_USERS";
 
 var receiveUser = function receiveUser(user) {
   return {
     type: RECEIVE_USER,
     user: user
+  };
+};
+
+var receiveUsers = function receiveUsers(users) {
+  return {
+    type: RECEIVE_USERS,
+    users: users
   };
 };
 
@@ -574,6 +584,13 @@ var updateUser = function updateUser(formData) {
   return function (dispatch) {
     return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["updateUser"](formData).then(function (newUser) {
       return dispatch(receiveUser(newUser));
+    });
+  };
+};
+var fetchUsers = function fetchUsers() {
+  return function (dispatch) {
+    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUsers"]().then(function (users) {
+      return dispatch(receiveUsers(users));
     });
   };
 };
@@ -2290,6 +2307,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
   _createClass(NavBar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchUsers();
       this.props.fetchUser(this.props.fullUser.id);
     }
   }, {
@@ -2405,6 +2423,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchUser: function fetchUser(id) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUsers"])());
     }
   };
 };
@@ -4710,6 +4731,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.fetchFriendship = _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__["fetchFriendship"];
   window.createFriendship = _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__["createFriendship"];
   window.deleteFriendship = _actions_friendship_actions__WEBPACK_IMPORTED_MODULE_10__["deleteFriendship"];
+  window.fetchUsers = _actions_user_actions__WEBPACK_IMPORTED_MODULE_6__["fetchUsers"];
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -5089,6 +5111,9 @@ var usersReducer = function usersReducer() {
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
       return Object.assign({}, oldState, _defineProperty({}, action.user.id, action.user));
 
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USERS"]:
+      return action.users;
+
     default:
       return oldState;
   }
@@ -5467,16 +5492,23 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchUser, updateUser */
+/*! exports provided: fetchUser, fetchUsers, updateUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUser", function() { return updateUser; });
 var fetchUser = function fetchUser(id) {
   return $.ajax({
     url: "api/users/".concat(id),
+    method: "GET"
+  });
+};
+var fetchUsers = function fetchUsers() {
+  return $.ajax({
+    url: 'api/users',
     method: "GET"
   });
 };

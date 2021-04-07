@@ -1,5 +1,6 @@
 @users.each do |user|
     json.set! user.id do 
-        json.partial! "api/users/user", user: user    
+        json.extract! user, :id, :first_name, :last_name
+        json.profilePicUrl url_for(user.profile_pic) if user.profile_pic.attached?      
     end
 end
