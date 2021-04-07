@@ -25,7 +25,9 @@
 
 .friends-ul {
     margin: 16px;
-    display: flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     
 }
 .friend-li {
@@ -53,7 +55,11 @@
     }
     p {
         text-align: center;
-        margin-top: 4px;
-        margin-bottom: 8px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        font-size: 13px;
+    }
+    p:hover {
+        text-decoration: underline;
     }
 }

@@ -94,7 +94,7 @@ class Profile extends React.Component {
                             <div className="friends">
                                 <div className="friends-header">
                                     <h3>Friends</h3>
-                                    <p>{this.state.friends.length} friends</p>
+                                    <p>{this.state.friends.length} {this.state.friends.length === 1 ? 'friend' : 'friends'}</p>
                                 </div>
                                 {this.displayFriends()}
                             </div>
