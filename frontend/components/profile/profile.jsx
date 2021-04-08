@@ -18,6 +18,7 @@ class Profile extends React.Component {
         this.displayFriends = this.displayFriends.bind(this);
         this.displayIntro = this.displayIntro.bind(this);
         this.displayEditIntro = this.displayEditIntro.bind(this);
+        this.displayPostBox = this.displayPostBox.bind(this);
     }
     displayEditProfile(){
         
@@ -71,6 +72,19 @@ class Profile extends React.Component {
                 {/* <li>Birthday <p>{profileOwner.birthday}</p></li> */}
             </ul>
         )
+    }
+    displayPostBox(){
+        if(this.props.profileOwnerId === this.props.currentUser || this.state.friends.some(friend => friend.id === this.props.profileOwnerId)){
+            return (
+                <CreatePostBox 
+                openModal={this.props.openModal} 
+                poster={this.props.fullCurrentUser} 
+                postForm={parseInt(this.props.profileOwnerId)}
+                />
+            )
+        } else {
+            return null;
+        }
     }
     
     displayFriends(){
@@ -133,6 +147,7 @@ class Profile extends React.Component {
                             </div>
                         </div>
                         <div className="right-profile">
+                            {/* {this.displayPostBox()} */}
                             <CreatePostBox 
                             openModal={this.props.openModal} 
                             poster={this.props.fullCurrentUser} 

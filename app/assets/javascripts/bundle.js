@@ -1781,15 +1781,24 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(NewsFeed);
 
   function NewsFeed(props) {
+    var _this;
+
     _classCallCheck(this, NewsFeed);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      friendsPosts: []
+    };
+    return _this;
   }
 
   _createClass(NewsFeed, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchPosts('all');
+      this.props.fetchPosts('all'); // const filteredPosts = this.props.posts.filter(post => {
+      //     this.props.friends.some(friend => friend.id === post.poster_id)
+      // })
+      // this.setState({['friendsPosts']: filteredPosts})
     }
   }, {
     key: "render",
@@ -1800,7 +1809,8 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
         openModal: this.props.openModal,
         poster: this.props.poster,
         postForm: this.props.postForm
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"] // posts={this.props.posts} 
+      , {
         posts: this.props.posts,
         currentUser: this.props.currentUser,
         deletePost: this.props.deletePost
@@ -1829,6 +1839,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _news_feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./news_feed */ "./frontend/components/home/news_feed.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
@@ -1837,17 +1849,29 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var session = _ref.session,
-      entities = _ref.entities;
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      posts = _ref$entities.posts;
+  var myfriends = [];
+
+  if (users[session.currentUser].friendships) {
+    myfriends = Object.values(users[session.currentUser].friendships);
+  }
+
   return {
-    poster: entities.users[session.currentUser],
-    posts: Object.values(entities.posts),
+    poster: users[session.currentUser],
+    posts: Object.values(posts),
     postForm: 'createpost',
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    friends: myfriends
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    fetchUser: function fetchUser(id) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_5__["fetchUser"])(id));
+    },
     fetchPosts: function fetchPosts(wallId) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["fetchPosts"])(wallId));
     },
@@ -3249,6 +3273,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     _this.displayFriends = _this.displayFriends.bind(_assertThisInitialized(_this));
     _this.displayIntro = _this.displayIntro.bind(_assertThisInitialized(_this));
     _this.displayEditIntro = _this.displayEditIntro.bind(_assertThisInitialized(_this));
+    _this.displayPostBox = _this.displayPostBox.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3315,6 +3340,23 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }), "Lives in ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.current_city)) : null, profileOwner.hometown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-map-marker-alt"
       }), "From ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.hometown)) : null);
+    }
+  }, {
+    key: "displayPostBox",
+    value: function displayPostBox() {
+      var _this5 = this;
+
+      if (this.props.profileOwnerId === this.props.currentUser || this.state.friends.some(function (friend) {
+        return friend.id === _this5.props.profileOwnerId;
+      })) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          openModal: this.props.openModal,
+          poster: this.props.fullCurrentUser,
+          postForm: parseInt(this.props.profileOwnerId)
+        });
+      } else {
+        return null;
+      }
     }
   }, {
     key: "displayFriends",
