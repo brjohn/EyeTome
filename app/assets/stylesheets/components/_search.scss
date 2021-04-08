@@ -7,6 +7,7 @@
     background-color: white;
     border-radius: 6px;
     width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
 
 .search-item {
@@ -23,7 +24,7 @@
     }
     i {
         font-size: 24px;
-        color: #65676b;
+        color: #ccd0d5;
     }
 }
 .search-item:hover {
@@ -56,6 +57,7 @@
     i {
         font-size: 16px;
         color: #65676b;
+        margin-left: 4px;
     }
     input {
         width: 100%;

@@ -142,3 +142,35 @@
         text-align: center;
         
     }
+
+.intro-div {
+    margin-top: 16px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 2px #e5e5e5;
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+}
+.intro-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    div {
+        display: flex;
+        flex-direction: column;
+        text-indent: 4px;
+        // text-align: center;
+    }
+    input[type="text"] {
+        border: none;
+        outline: none;
+        margin-top: 4px;
+    }
+    input[placeholder="Add a high school or college"] {
+        width: 200px;
+    }
+}

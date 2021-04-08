@@ -111,28 +111,31 @@ class UpdateProfileForm extends React.Component {
                             <input type="text" className="bio-input" placeholder="Describe yourself..." value={this.state.bio} onChange={this.update('bio')}/>  
                         </div>
                     </div>
-                    {/* <div className="into-div">Customize your Intro
+                    <div className="intro-div">
+                        <h3>Customize your Intro</h3>
+                        <div className="intro-inputs">
                         <div>Work
-                            <label>Add a workplace
-                                <input type="text" value={this.state.work} onChange={this.update('work')}/>
+                            <label>
+                                <input placeholder="Add a workplace" type="text" value={this.state.work} onChange={this.update('work')}/>
                             </label>
                         </div>
                         <div>Education
-                            <label>Add a high school or college
-                                <input type="text" value={this.state.education} onChange={this.update('education')} />
+                            <label>
+                                <input placeholder="Add a high school or college" type="text" value={this.state.education} onChange={this.update('education')} />
                             </label>
                         </div>
                         <div>Current City
-                            <label>Lives in 
-                                <input type="text" value={this.state.currentCity} onChange={this.update('currentCity')} />
+                            <label>
+                                <input placeholder="Where do you live?" type="text" value={this.state.currentCity} onChange={this.update('currentCity')} />
                             </label>
                         </div>
                         <div>Hometown
-                            <label>From
-                                <input type="text" value={this.state.hometown} onChange={this.update('hometown')} />
+                            <label>
+                                <input placeholder="Where are you from?" type="text" value={this.state.hometown} onChange={this.update('hometown')} />
                             </label>
                         </div>
-                    </div> */}
+                        </div>
+                    </div>
                     <input type="submit" className="update-button" value="Save Changes" />
                 </form>
                 </div>
