@@ -3247,6 +3247,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     };
     _this.displayEditProfile = _this.displayEditProfile.bind(_assertThisInitialized(_this));
     _this.displayFriends = _this.displayFriends.bind(_assertThisInitialized(_this));
+    _this.displayIntro = _this.displayIntro.bind(_assertThisInitialized(_this));
+    _this.displayEditIntro = _this.displayEditIntro.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3272,16 +3274,47 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "displayEditIntro",
+    value: function displayEditIntro() {
       var _this3 = this;
 
+      if (parseInt(this.props.profileOwnerId) === this.props.currentUser) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this3.props.openModal('editprofile');
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit Intro"));
+      } else {
+        return null;
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this4 = this;
+
       this.props.fetchUser(this.props.profileOwnerId).then(function () {
-        if (_this3.props.profileOwner.friendships) {
-          _this3.setState(_defineProperty({}, 'friends', Object.values(_this3.props.profileOwner.friendships)));
+        if (_this4.props.profileOwner.friendships) {
+          _this4.setState(_defineProperty({}, 'friends', Object.values(_this4.props.profileOwner.friendships)));
         }
       });
       this.props.fetchPosts(parseInt(this.props.profileOwnerId)); // this.props.fetchComments()
+    }
+  }, {
+    key: "displayIntro",
+    value: function displayIntro() {
+      var profileOwner = this.props.profileOwner;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "intro-ul"
+      }, profileOwner.education ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-graduation-cap"
+      }), "Studied at ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.education)) : null, profileOwner.work ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-briefcase"
+      }), "Works at ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.work)) : null, profileOwner.current_city ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-map-marker-alt"
+      }), "Lives in ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.current_city)) : null, profileOwner.hometown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-map-marker-alt"
+      }), "From ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.hometown)) : null);
     }
   }, {
     key: "displayFriends",
@@ -3329,9 +3362,15 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "left-profile-stuff"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "friends"
+          className: "intro-friends"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "friends-header"
+          className: "intro-friends-header"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Intro")), this.displayIntro(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "edit-intro"
+        }, this.displayEditIntro())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "intro-friends"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "intro-friends-header"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.friends.length, " ", this.state.friends.length === 1 ? 'friend' : 'friends')), this.displayFriends())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "right-profile"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -3581,16 +3620,16 @@ var UpdateProfileForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       bio: "",
-      work: "",
-      education: "",
-      currentCity: "",
-      hometown: "",
-      relationship: "",
-      namePronunciation: "",
-      profilePicFile: null,
-      profilePicUrl: null,
-      coverPhotoFile: null,
-      coverPhotoUrl: null
+      work: _this.props.fullUser.work || "",
+      education: _this.props.fullUser.education || "",
+      currentCity: _this.props.fullUser.current_city || "",
+      hometown: _this.props.fullUser.hometown || "",
+      relationship: _this.props.fullUser.relationship || "",
+      namePronunciation: _this.props.fullUser.name_pronunciation || "",
+      profilePicFile: _this.props.fullUser.profilePicFile || null,
+      profilePicUrl: _this.props.fullUser.profilePicUrl || null,
+      coverPhotoFile: _this.props.fullUser.coverPhotoFile || null,
+      coverPhotoUrl: _this.props.fullUser.coverPhotoUrl || null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handlePPFile = _this.handlePPFile.bind(_assertThisInitialized(_this));

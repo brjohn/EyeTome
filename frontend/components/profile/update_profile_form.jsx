@@ -5,16 +5,16 @@ class UpdateProfileForm extends React.Component {
         super(props);
         this.state = {
             bio: "",
-            work: "",
-            education: "",
-            currentCity: "",
-            hometown: "",
-            relationship: "",
-            namePronunciation: "",
-            profilePicFile: null,
-            profilePicUrl: null,
-            coverPhotoFile: null,
-            coverPhotoUrl: null
+            work: this.props.fullUser.work || "",
+            education: this.props.fullUser.education || "",
+            currentCity: this.props.fullUser.current_city || "",
+            hometown: this.props.fullUser.hometown || "",
+            relationship: this.props.fullUser.relationship || "",
+            namePronunciation: this.props.fullUser.name_pronunciation || "",
+            profilePicFile: this.props.fullUser.profilePicFile || null,
+            profilePicUrl: this.props.fullUser.profilePicUrl || null,
+            coverPhotoFile: this.props.fullUser.coverPhotoFile || null,
+            coverPhotoUrl: this.props.fullUser.coverPhotoUrl || null
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handlePPFile = this.handlePPFile.bind(this);

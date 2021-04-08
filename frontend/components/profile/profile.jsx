@@ -16,6 +16,8 @@ class Profile extends React.Component {
         }
         this.displayEditProfile = this.displayEditProfile.bind(this);
         this.displayFriends = this.displayFriends.bind(this);
+        this.displayIntro = this.displayIntro.bind(this);
+        this.displayEditIntro = this.displayEditIntro.bind(this);
     }
     displayEditProfile(){
         
@@ -34,6 +36,19 @@ class Profile extends React.Component {
         }
     }
 
+    displayEditIntro(){
+        
+        if(parseInt(this.props.profileOwnerId) === this.props.currentUser){
+            return (
+                <button onClick={() => this.props.openModal('editprofile')} >
+                    <p>Edit Intro</p>
+                </button>
+            )
+        } else {
+            return null;
+        }
+    }
+
     componentDidMount(){
         
         this.props.fetchUser(this.props.profileOwnerId).then(() => {
@@ -44,9 +59,21 @@ class Profile extends React.Component {
         this.props.fetchPosts(parseInt(this.props.profileOwnerId))
         // this.props.fetchComments()
     }
+
+    displayIntro(){
+        const {profileOwner} = this.props
+        return (
+            <ul className="intro-ul">
+                {profileOwner.education ? <li><i className="fas fa-graduation-cap"></i>Studied at <p> {profileOwner.education}</p></li> : null}
+                {profileOwner.work ? <li><i className="fas fa-briefcase"></i>Works at <p> {profileOwner.work}</p></li> : null}
+                {profileOwner.current_city ? <li><i className="fas fa-map-marker-alt"></i>Lives in <p> {profileOwner.current_city}</p></li> : null}
+                {profileOwner.hometown ? <li><i className="fas fa-map-marker-alt"></i>From <p> {profileOwner.hometown}</p></li> : null}
+                {/* <li>Birthday <p>{profileOwner.birthday}</p></li> */}
+            </ul>
+        )
+    }
     
     displayFriends(){
-
         if (this.state.friends.length > 0){
             return (
                 <ul className="friends-ul">
@@ -63,7 +90,6 @@ class Profile extends React.Component {
                     })}
                 </ul>
             )
-
         } else {
             return null;
         }
@@ -91,8 +117,15 @@ class Profile extends React.Component {
                 <div className="profile-below">
                     <div className="smaller-profile-below">
                         <div className="left-profile-stuff">
-                            <div className="friends">
-                                <div className="friends-header">
+                            <div className="intro-friends">
+                                <div className="intro-friends-header">
+                                    <h3>Intro</h3>
+                                </div>
+                                {this.displayIntro()}
+                                <div className="edit-intro">{this.displayEditIntro()}</div> 
+                            </div>
+                            <div className="intro-friends">
+                                <div className="intro-friends-header">
                                     <h3>Friends</h3>
                                     <p>{this.state.friends.length} {this.state.friends.length === 1 ? 'friend' : 'friends'}</p>
                                 </div>
