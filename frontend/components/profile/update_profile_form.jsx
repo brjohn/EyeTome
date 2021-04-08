@@ -91,8 +91,16 @@ class UpdateProfileForm extends React.Component {
                     <div className="profile-picture-div">
                         <div className="pic-header">
                            <div>Profile Picture</div>
-                            <input type="file" className="upload-photo-button"
-                            onChange={this.handlePPFile}/> 
+                            <input 
+                            type="file" 
+                            // className="upload-photo-button"
+                            id="profile-pic-input"
+                            onChange={this.handlePPFile}
+                            hidden
+                            /> 
+                            <label htmlFor="profile-pic-input">
+                                <p>Edit</p>    
+                            </label>
                         </div>
                         <div className="pp-area">{previewPP}</div>      
                     </div>
@@ -100,8 +108,16 @@ class UpdateProfileForm extends React.Component {
                     <div className="cover-photo-div">
                         <div className="pic-header">
                             <div>Cover Photo</div>
-                            <input type="file" className="upload-photo-button" 
-                                onChange={this.handleCPFile}/>
+                            <input 
+                            type="file" 
+                            id="cover-photo-input"
+                            // className="upload-photo-button" 
+                            onChange={this.handleCPFile}
+                            hidden
+                            />
+                            <label htmlFor="cover-photo-input">
+                                <p>Edit</p>    
+                            </label>
                         </div>
                         <div className="cp-area">{previewCP}</div> 
                     </div>
@@ -114,26 +130,34 @@ class UpdateProfileForm extends React.Component {
                     <div className="intro-div">
                         <h3>Customize your Intro</h3>
                         <div className="intro-inputs">
-                        <div>Work
+                        {/* <div>Work */}
                             <label>
+                                <i className="fas fa-briefcase"></i>
+                                <p>Works at</p>
                                 <input placeholder="Add a workplace" type="text" value={this.state.work} onChange={this.update('work')}/>
                             </label>
-                        </div>
-                        <div>Education
+                        {/* </div> */}
+                        {/* <div>Education */}
                             <label>
+                                <i className="fas fa-graduation-cap"></i>
+                                <p>Studied at</p> 
                                 <input placeholder="Add a high school or college" type="text" value={this.state.education} onChange={this.update('education')} />
                             </label>
-                        </div>
-                        <div>Current City
+                        {/* </div> */}
+                        {/* <div>Current City */}
                             <label>
+                                <i className="fas fa-map-marker-alt"></i>
+                                <p>Lives in</p> 
                                 <input placeholder="Where do you live?" type="text" value={this.state.currentCity} onChange={this.update('currentCity')} />
                             </label>
-                        </div>
-                        <div>Hometown
+                        {/* </div> */}
+                        {/* <div>Hometown */}
                             <label>
+                                <i className="fas fa-map-marker-alt"></i>
+                                <p>From</p> 
                                 <input placeholder="Where are you from?" type="text" value={this.state.hometown} onChange={this.update('hometown')} />
                             </label>
-                        </div>
+                        {/* </div> */}
                         </div>
                     </div>
                     <input type="submit" className="update-button" value="Save Changes" />

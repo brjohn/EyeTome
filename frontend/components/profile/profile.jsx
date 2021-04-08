@@ -64,8 +64,8 @@ class Profile extends React.Component {
         const {profileOwner} = this.props
         return (
             <ul className="intro-ul">
-                {profileOwner.education ? <li><i className="fas fa-graduation-cap"></i>Studied at <p> {profileOwner.education}</p></li> : null}
                 {profileOwner.work ? <li><i className="fas fa-briefcase"></i>Works at <p> {profileOwner.work}</p></li> : null}
+                {profileOwner.education ? <li><i className="fas fa-graduation-cap"></i>Studied at <p> {profileOwner.education}</p></li> : null}
                 {profileOwner.current_city ? <li><i className="fas fa-map-marker-alt"></i>Lives in <p> {profileOwner.current_city}</p></li> : null}
                 {profileOwner.hometown ? <li><i className="fas fa-map-marker-alt"></i>From <p> {profileOwner.hometown}</p></li> : null}
                 {/* <li>Birthday <p>{profileOwner.birthday}</p></li> */}

@@ -72,12 +72,18 @@
         font-weight: bold;
         
     }
-    input {
-        margin-top: 4px;
-        border: none;
-        background: none;
-        outline: none;
-        cursor: pointer;
+    label {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        p {
+            margin-top: 8px;
+            margin-right: 20px;
+            cursor: pointer;
+            color: #1c8ef1;
+            font-size: 16px;
+
+        }
     }
 }
 .pp-preview {
@@ -103,7 +109,6 @@
 .edit-bio-div {
     height: 94 px;
     margin-bottom: 8px;
-    border-bottom: solid 2px #e5e5e5;
     .bio-header {
         font-size: 20px;
         margin-top: 4px;
@@ -122,7 +127,7 @@
             outline: none;
         }
         input[placeholder="Describe yourself..."] {
-            color:  #ccd0d5;
+            color:  #8c939d;
             font-size: 16px;
         }
     }
@@ -157,18 +162,30 @@
 }
 .intro-inputs {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    div {
+    flex-direction: column;
+    label {
         display: flex;
-        flex-direction: column;
-        text-indent: 4px;
+        flex-direction: row;
+        padding: 8px;
         // text-align: center;
+        i {
+            font-size: 20px;
+            text-align: center;
+            margin-right: 8px;
+            color: #8c939d;
+            width: 24px;
+        }
+        p {
+            font-size: 16px;
+            margin-top: 2px;
+        }
     }
     input[type="text"] {
+        margin-left: 6px;
         border: none;
         outline: none;
-        margin-top: 4px;
+        font-size: 16px;
+        color:  #8c939d;
     }
     input[placeholder="Add a high school or college"] {
         width: 200px;
