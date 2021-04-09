@@ -1751,6 +1751,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _posts_create_post_box__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../posts/create_post_box */ "./frontend/components/posts/create_post_box.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1788,30 +1790,56 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       friendsPosts: []
-    };
+    }; // this.posts = this.posts.bind(this);
+
     return _this;
   }
 
   _createClass(NewsFeed, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchPosts('all'); // const filteredPosts = this.props.posts.filter(post => {
-      //     this.props.friends.some(friend => friend.id === post.poster_id)
-      // })
-      // this.setState({['friendsPosts']: filteredPosts})
-    }
+      var _this2 = this;
+
+      this.props.fetchUser(this.props.currentUser).then(function () {
+        var posts = [];
+        Object.values(_this2.props.poster.friendships).forEach(function (friend) {
+          if (friend.authored_posts) {
+            Object.values(friend.authored_posts).forEach(function (post) {
+              return posts.push(post);
+            });
+          }
+        });
+        debugger;
+
+        _this2.setState(_defineProperty({}, 'friendsPosts', posts));
+
+        console.log(_this2.state.friendsPosts);
+      }); // this.props.fetchPosts('all').then(() => console.log(this.props.posts))    
+    } // posts(){
+    //     let posts = []
+    //         Object.values(this.props.poster.friendships).forEach(friend => {
+    //             if (friend.authored_posts){
+    //                 Object.values(friend.authored_posts).forEach(post => posts.push(post))
+    //             }
+    //         })
+    //         console.log(posts)
+    //     this.setState({['friendsPosts']: posts})
+    // }
+
   }, {
     key: "render",
     value: function render() {
+      // const friendsPosts = this.posts();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-feed"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_2__["default"], {
         openModal: this.props.openModal,
         poster: this.props.poster,
         postForm: this.props.postForm
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"] // posts={this.props.posts} 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"] // posts={friendsPosts}
+      // posts={this.props.posts} 
       , {
-        posts: this.props.posts,
+        posts: this.state.friendsPosts,
         currentUser: this.props.currentUser,
         deletePost: this.props.deletePost
       }));
@@ -1852,18 +1880,16 @@ var mapStateToProps = function mapStateToProps(_ref) {
       _ref$entities = _ref.entities,
       users = _ref$entities.users,
       posts = _ref$entities.posts;
-  var myfriends = [];
-
-  if (users[session.currentUser].friendships) {
-    myfriends = Object.values(users[session.currentUser].friendships);
-  }
-
+  // let myfriends = [];
+  // if (users[session.currentUser].friendships){
+  //     myfriends = Object.values(users[session.currentUser].friendships)
+  // }
   return {
     poster: users[session.currentUser],
     posts: Object.values(posts),
     postForm: 'createpost',
-    currentUser: session.currentUser,
-    friends: myfriends
+    currentUser: session.currentUser // friends: myfriends
+
   };
 };
 
@@ -3139,7 +3165,7 @@ var PostList = function PostList(props) {
   var allPosts = props.posts;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "all-nf-posts"
-  }, allPosts.reverse().map(function (post, idx) {
+  }, allPosts.map(function (post, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
       post: post,
       idx: idx,
@@ -3321,6 +3347,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       this.props.fetchUser(this.props.profileOwnerId).then(function () {
         if (_this4.props.profileOwner.friendships) {
           _this4.setState(_defineProperty({}, 'friends', Object.values(_this4.props.profileOwner.friendships)));
+
+          console.log(_this4.state.friends);
         }
       });
       this.props.fetchPosts(parseInt(this.props.profileOwnerId)); // this.props.fetchComments()
@@ -3346,7 +3374,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     value: function displayPostBox() {
       var _this5 = this;
 
-      if (this.props.profileOwnerId === this.props.currentUser || this.state.friends.some(function (friend) {
+      if (parseInt(this.props.profileOwnerId) === this.props.currentUser || this.state.friends.some(function (friend) {
         return friend.id === _this5.props.profileOwnerId;
       })) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {

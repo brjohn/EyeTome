@@ -55,6 +55,7 @@ class Profile extends React.Component {
         this.props.fetchUser(this.props.profileOwnerId).then(() => {
             if (this.props.profileOwner.friendships){
                 this.setState({['friends']: Object.values(this.props.profileOwner.friendships)}) 
+                console.log(this.state.friends)
             }
         })
         this.props.fetchPosts(parseInt(this.props.profileOwnerId))
@@ -74,14 +75,14 @@ class Profile extends React.Component {
         )
     }
     displayPostBox(){
-        if(this.props.profileOwnerId === this.props.currentUser || this.state.friends.some(friend => friend.id === this.props.profileOwnerId)){
+        if (parseInt(this.props.profileOwnerId) === this.props.currentUser || this.state.friends.some(friend => friend.id === this.props.profileOwnerId)){
             return (
                 <CreatePostBox 
                 openModal={this.props.openModal} 
                 poster={this.props.fullCurrentUser} 
                 postForm={parseInt(this.props.profileOwnerId)}
                 />
-            )
+            ) 
         } else {
             return null;
         }
@@ -110,7 +111,6 @@ class Profile extends React.Component {
     }
 
     render(){
-        
         if (!this.props.profileOwner){
             return null;
         } else {

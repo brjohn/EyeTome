@@ -4,3 +4,4 @@
         json.profilePicUrl url_for(user.profile_pic) if user.profile_pic.attached?      
     end
 end
+

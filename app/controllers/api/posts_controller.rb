@@ -3,9 +3,17 @@ class Api::PostsController < ApplicationController
 
     def index
         if params[:wallId] == 'all'
-            @posts = Post.all
+            #@posts = []
+            #current_user.friends.each do |friend|
+                #friend.posts.each do |post|
+                    #@posts.push(post)
+                #end
+            #end
+            
+            @posts = Post.all.includes(:comments, :likes)
+            
         else
-            @posts = Post.all.where(wall_owner_id: params[:wallId])
+            @posts = Post.includes(:comments, :likes).all.where(wall_owner_id: params[:wallId])
         end
         render :index
     end

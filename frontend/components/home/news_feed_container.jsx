@@ -6,16 +6,16 @@ import { fetchComments } from '../../actions/comment_actions';
 import {fetchUser} from '../../actions/user_actions'
 
 const mapStateToProps = ({session, entities: {users, posts}}) => {
-    let myfriends = [];
-    if (users[session.currentUser].friendships){
-        myfriends = Object.values(users[session.currentUser].friendships)
-    }
+    // let myfriends = [];
+    // if (users[session.currentUser].friendships){
+    //     myfriends = Object.values(users[session.currentUser].friendships)
+    // }
     return {
     poster: users[session.currentUser],
     posts: Object.values(posts),
     postForm: 'createpost',
     currentUser: session.currentUser,
-    friends: myfriends
+    // friends: myfriends
     }
 };
 
