@@ -21,12 +21,12 @@ class Api::UsersController < ApplicationController
         end
 
         def show 
-            @user = User.find(params[:id])
+            @user = User.includes(:friends).find(params[:id])
             render "api/users/show"
         end
 
         def index 
-            @users = User.all 
+            @users = User.includes(:friends).all 
             render "api/users/index"
         end
 

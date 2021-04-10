@@ -20,28 +20,13 @@ class NewsFeed extends React.Component {
                     Object.values(friend.authored_posts).forEach(post => posts.push(post))
                 }
             })
-            debugger
-            this.setState({['friendsPosts']: posts})
+            this.setState({['friendsPosts']: posts.reverse()})
                 console.log(this.state.friendsPosts)
                 
-            })
-        // this.props.fetchPosts('all').then(() => console.log(this.props.posts))    
-        
-        
+            })  
     }
-    // posts(){
-    //     let posts = []
-    //         Object.values(this.props.poster.friendships).forEach(friend => {
-    //             if (friend.authored_posts){
-    //                 Object.values(friend.authored_posts).forEach(post => posts.push(post))
-    //             }
-    //         })
-    //         console.log(posts)
-    //     this.setState({['friendsPosts']: posts})
-    // }
 
     render (){
-        // const friendsPosts = this.posts();
         
         return (
             <div className="news-feed">
@@ -50,8 +35,6 @@ class NewsFeed extends React.Component {
                 poster={this.props.poster} 
                 postForm={this.props.postForm}/>
                 <PostList 
-                // posts={friendsPosts}
-                // posts={this.props.posts} 
                 posts={this.state.friendsPosts}
                 currentUser={this.props.currentUser}
                 deletePost={this.props.deletePost}

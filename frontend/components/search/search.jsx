@@ -29,6 +29,7 @@ class Search extends React.Component {
 
     searchResults(){
         const resultsArray = this.props.usersArray.filter(user => {
+            debugger
                 let fullName = user.first_name + ' ' + user.last_name 
                 return fullName.toLocaleLowerCase().includes(this.state.searchQuery.toLocaleLowerCase())
             })
@@ -64,9 +65,7 @@ class Search extends React.Component {
         }
     }
 
-
     render(){
-
 
         return (
             <div className="search-exterior" onClick={this.closeResults}>
@@ -79,7 +78,6 @@ class Search extends React.Component {
                         value={this.state.searchQuery}
                         placeholder="Search Friendbook"
                         onChange={this.handleChange}
-                        // onFocus={() => this.setState({['displayResults']: true})}
                         />
                    </div>
                     

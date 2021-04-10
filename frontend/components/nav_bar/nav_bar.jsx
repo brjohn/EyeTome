@@ -24,7 +24,6 @@ class NavBar extends React.Component {
         }
     }
     requestCount(){
-        // fetchUser(this.props.fullUser.id)
         if (this.props.fullUser.requests_received){
             let count = Object.keys(this.props.fullUser.requests_received).length 
             return <div className="request-count">{count}</div>
@@ -38,18 +37,12 @@ class NavBar extends React.Component {
             <nav className="left-nav">
                 <ul>
                     <li id="fb-icon-button">
-                        <i className="fab fa-facebook"></i>
-                        
+                        <i className="fab fa-facebook"></i>   
                     </li>
-                    {/* <li id="search-bar">
-                        <i className="fas fa-search"></i>
-                        <input type="text" placeholder="Search Friendbook"/>
-                    </li> */}
-                    <SearchContainer/>
+                    <SearchContainer />
                     <li >
                         <Link to="/" id="home-button"><i className="fas fa-home"></i></Link>    
                     </li>
-
                 </ul>
             </nav>
             <nav className="right-nav">

@@ -12,7 +12,8 @@ class Profile extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            friends: [] 
+            friends: [],
+            myPosts: [] 
         }
         this.displayEditProfile = this.displayEditProfile.bind(this);
         this.displayFriends = this.displayFriends.bind(this);
@@ -36,6 +37,7 @@ class Profile extends React.Component {
             fullCurrentUser={this.props.fullCurrentUser}/>
         }
     }
+    
 
     displayEditIntro(){
         
@@ -53,12 +55,16 @@ class Profile extends React.Component {
     componentDidMount(){
         
         this.props.fetchUser(this.props.profileOwnerId).then(() => {
+            
             if (this.props.profileOwner.friendships){
-                this.setState({['friends']: Object.values(this.props.profileOwner.friendships)}) 
+                this.setState({['friends']: Object.values(this.props.profileOwner.friends)}) 
                 console.log(this.state.friends)
             }
         })
-        this.props.fetchPosts(parseInt(this.props.profileOwnerId))
+        this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(()=> {
+            let posts = this.props.posts;
+            this.setState({['myPosts']: posts.reverse()})
+        })
         // this.props.fetchComments()
     }
 
@@ -155,7 +161,7 @@ class Profile extends React.Component {
                             />
                            <PostList 
                            fetchPost={this.props.fetchPost}
-                           posts={this.props.posts} 
+                           posts={this.state.myPosts} 
                            currentUser={this.props.currentUser}
                            deletePost={this.props.deletePost}
                            createComment={this.props.createComment}

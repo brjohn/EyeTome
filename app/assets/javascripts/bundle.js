@@ -1809,36 +1809,22 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
             });
           }
         });
-        debugger;
 
-        _this2.setState(_defineProperty({}, 'friendsPosts', posts));
+        _this2.setState(_defineProperty({}, 'friendsPosts', posts.reverse()));
 
         console.log(_this2.state.friendsPosts);
-      }); // this.props.fetchPosts('all').then(() => console.log(this.props.posts))    
-    } // posts(){
-    //     let posts = []
-    //         Object.values(this.props.poster.friendships).forEach(friend => {
-    //             if (friend.authored_posts){
-    //                 Object.values(friend.authored_posts).forEach(post => posts.push(post))
-    //             }
-    //         })
-    //         console.log(posts)
-    //     this.setState({['friendsPosts']: posts})
-    // }
-
+      });
+    }
   }, {
     key: "render",
     value: function render() {
-      // const friendsPosts = this.posts();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "news-feed"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_2__["default"], {
         openModal: this.props.openModal,
         poster: this.props.poster,
         postForm: this.props.postForm
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"] // posts={friendsPosts}
-      // posts={this.props.posts} 
-      , {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
         posts: this.state.friendsPosts,
         currentUser: this.props.currentUser,
         deletePost: this.props.deletePost
@@ -2379,7 +2365,6 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "requestCount",
     value: function requestCount() {
-      // fetchUser(this.props.fullUser.id)
       if (this.props.fullUser.requests_received) {
         var count = Object.keys(this.props.fullUser.requests_received).length;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3293,7 +3278,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      friends: []
+      friends: [],
+      myPosts: []
     };
     _this.displayEditProfile = _this.displayEditProfile.bind(_assertThisInitialized(_this));
     _this.displayFriends = _this.displayFriends.bind(_assertThisInitialized(_this));
@@ -3346,12 +3332,16 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
       this.props.fetchUser(this.props.profileOwnerId).then(function () {
         if (_this4.props.profileOwner.friendships) {
-          _this4.setState(_defineProperty({}, 'friends', Object.values(_this4.props.profileOwner.friendships)));
+          _this4.setState(_defineProperty({}, 'friends', Object.values(_this4.props.profileOwner.friends)));
 
           console.log(_this4.state.friends);
         }
       });
-      this.props.fetchPosts(parseInt(this.props.profileOwnerId)); // this.props.fetchComments()
+      this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(function () {
+        var posts = _this4.props.posts;
+
+        _this4.setState(_defineProperty({}, 'myPosts', posts.reverse()));
+      }); // this.props.fetchComments()
     }
   }, {
     key: "displayIntro",
@@ -3449,7 +3439,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           postForm: parseInt(this.props.profileOwnerId)
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
           fetchPost: this.props.fetchPost,
-          posts: this.props.posts,
+          posts: this.state.myPosts,
           currentUser: this.props.currentUser,
           deletePost: this.props.deletePost,
           createComment: this.props.createComment
@@ -4211,6 +4201,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var resultsArray = this.props.usersArray.filter(function (user) {
+        debugger;
         var fullName = user.first_name + ' ' + user.last_name;
         return fullName.toLocaleLowerCase().includes(_this2.state.searchQuery.toLocaleLowerCase());
       });
@@ -4264,8 +4255,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
         className: "search-input",
         value: this.state.searchQuery,
         placeholder: "Search Friendbook",
-        onChange: this.handleChange // onFocus={() => this.setState({['displayResults']: true})}
-
+        onChange: this.handleChange
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-results"
       }, this.state.displayResults ? this.searchResults() : null)));
