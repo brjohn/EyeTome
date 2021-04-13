@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import { createComment, deleteComment, fetchComment } from '../../actions/comment_actions';
 import SubcommentList from './subcomment_list';
 
-const mapStateToProps = ({session}) => {
+const mapStateToProps = ({session, entities}, ownProps) => {
+    let comments = Object.values(entities.comments).filter(comment => comment.commentable_id === ownProps.comment.id && comment.commentable_type === 'Comment')
     return {
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    comments: comments
     }
 }
 

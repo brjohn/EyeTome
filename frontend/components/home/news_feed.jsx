@@ -20,10 +20,16 @@ class NewsFeed extends React.Component {
                     Object.values(friend.authored_posts).forEach(post => posts.push(post))
                 }
             })
+            this.props.posts.forEach(post => {
+                if (post.poster_id === this.props.currentUser){
+                   posts.push(post) 
+                }  
+            })
             this.setState({['friendsPosts']: posts.reverse()})
                 console.log(this.state.friendsPosts)
                 
             })  
+        this.props.fetchComments();
     }
 
     render (){

@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
     createPost: (post) => dispatch(createPost(post)),
     openModal: (modal) => dispatch(openModal(modal)),
     deletePost: (id) => dispatch(deletePost(id)),
-    // fetchComments: ()=> dispatch(fetchComments())
+    fetchComments: ()=> dispatch(fetchComments())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);

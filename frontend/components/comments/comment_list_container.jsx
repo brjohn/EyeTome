@@ -3,9 +3,13 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 import { fetchPost } from '../../actions/post_actions';
 import CommentList from './comment_list';
 
-const mapStateToProps = ({session}) => {
+const mapStateToProps = ({session, entities}, ownProps) => {
+    let comments = Object.values(entities.comments).filter(comment => comment.commentable_id === ownProps.post.id && comment.commentable_type === 'Post')
+    // debugger
     return {
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    comments: comments
+
     }
 }
 

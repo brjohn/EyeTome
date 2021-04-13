@@ -78,11 +78,11 @@ class CommentItem extends React.Component {
                             <div className="post-comment-row">
                                 <div className="post-comment-gray">
                                     <p className="post-comment-name">{this.props.comment.commenter.first_name} {this.props.comment.commenter.last_name}</p>
-                                    <p className="post-comment-body">
+                                    <div className="post-comment-body">
                                         <div>{this.props.comment.body}</div>
                                         
                                         {/* <div className="comment-like-count">L</div> */}
-                                    </p>
+                                    </div>
                                     
                                 </div>
                                 {this.displayCommentOptionsIcon(this.props.comment)}
@@ -90,8 +90,8 @@ class CommentItem extends React.Component {
                             <div className="like-reply">
                                 <CommentLikeContainer likableItem={this.props.comment}/>
                                 ·
-                                <p onClick={this.displaySubformContainer}>Reply</p>
-                                <p>{this.likeCount()}</p>
+                                <div onClick={this.displaySubformContainer}>Reply</div>
+                                <div>{this.likeCount()}</div>
                                 
                             </div>
                             <SubcommentListContainer comment={this.props.comment}/>

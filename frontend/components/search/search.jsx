@@ -29,7 +29,7 @@ class Search extends React.Component {
 
     searchResults(){
         const resultsArray = this.props.usersArray.filter(user => {
-            debugger
+            
                 let fullName = user.first_name + ' ' + user.last_name 
                 return fullName.toLocaleLowerCase().includes(this.state.searchQuery.toLocaleLowerCase())
             })

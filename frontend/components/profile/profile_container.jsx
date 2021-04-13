@@ -5,9 +5,10 @@ import { openModal } from '../../actions/modal_actions';
 import {deletePost, fetchPost, fetchPosts} from '../../actions/post_actions';
 import { fetchComments } from '../../actions/comment_actions';
 
-const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) => ({
-    // posts
-    // friends
+const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) => {
+    // debugger
+    return {
+    
     profileOwner: users[ownProps.match.params.userId],
     currentUser: session.currentUser,
     fullCurrentUser: users[session.currentUser],
@@ -18,7 +19,7 @@ const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) 
     // postForm: users[ownProps.match.params.userId] 
 
 
-});
+}};
 
 const mapDispatchToProps = dispatch => ({
     fetchUser: id => dispatch(fetchUser(id)),

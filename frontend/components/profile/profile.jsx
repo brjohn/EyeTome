@@ -21,6 +21,21 @@ class Profile extends React.Component {
         this.displayEditIntro = this.displayEditIntro.bind(this);
         this.displayPostBox = this.displayPostBox.bind(this);
     }
+    componentDidUpdate(prevProps){
+        if ( prevProps.profileOwnerId != this.props.profileOwnerId ){
+            
+            this.props.fetchUser(this.props.profileOwnerId).then(()=> {
+                if (this.props.profileOwner.friendships){
+                this.setState({['friends']: Object.values(this.props.profileOwner.friends)}) 
+                console.log(this.state.friends)
+            }
+            this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(()=> {
+            let posts = this.props.posts;
+            this.setState({['myPosts']: posts.reverse()})
+        })
+            })
+        }
+    }
     displayEditProfile(){
         
         if(parseInt(this.props.profileOwnerId) === this.props.currentUser){
@@ -65,7 +80,7 @@ class Profile extends React.Component {
             let posts = this.props.posts;
             this.setState({['myPosts']: posts.reverse()})
         })
-        // this.props.fetchComments()
+        this.props.fetchComments()
     }
 
     displayIntro(){

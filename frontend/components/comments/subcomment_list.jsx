@@ -4,16 +4,26 @@ import SubcommentItemContainer from './subcomment_item_container';
 class SubcommentList extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            comments: this.props.comments
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        // debugger
+        if(prevProps.comments && prevProps.comments.length != this.props.comments.length){
+            this.setState({comments: this.props.comments})
+        }
     }
    
 
     render(){
         // debugger
-        if (this.props.comment.comments){
+        if (this.state.comments){
             // console.log('comments')
         return (
         <ul className="post-comment-div">
-            {Object.values(this.props.comment.comments).map((subcomment, idx) => {
+            {Object.values(this.state.comments).map((subcomment, idx) => {
                 return (
                     <SubcommentItemContainer comment={subcomment} key={idx} parentItem={this.props.comment}/>
                 )

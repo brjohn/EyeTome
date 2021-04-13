@@ -8,17 +8,25 @@ import CommentItemContainer from './comment_item_container';
 class CommentList extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            comments: this.props.comments
+        }
     }
 
-    
+    componentDidUpdate(prevProps){
+        // debugger
+        if(prevProps.comments && prevProps.comments.length != this.props.comments.length){
+            this.setState({comments: this.props.comments})
+        }
+    }
 
     render(){
         // debugger
-        if (this.props.post.comments){
+        if (this.state.comments){
             // console.log('comments')
             return (
                 <ul className="post-comment-div">
-                {Object.values(this.props.post.comments).map((comment, idx) => {
+                {this.state.comments.map((comment, idx) => {
                     return (
                         <CommentItemContainer comment={comment} key={idx} parentItem={this.props.post}/>
                     )

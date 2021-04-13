@@ -3,9 +3,16 @@ import LoginFormContainer from '../session_form/login_form_container';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import NewsFeedContainer from './news_feed_container';
 
-const Home = ({currentUser, closeModal}) => {
+class Home extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    this.props.fetchUser(this.props.currentUser)
+    this.props.fetchPosts('all')
+  }
 
-    
+    render(){
         return (
             <div>
               <NavBarContainer/>
@@ -16,7 +23,7 @@ const Home = ({currentUser, closeModal}) => {
             </div>
         
         )
-    
+    }
 
 }
 

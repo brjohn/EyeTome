@@ -86,8 +86,8 @@ class SubcommentItem extends React.Component {
                             <div className="like-reply">
                                 <CommentLikeContainer likableItem={this.props.comment}/>
                                 ·
-                                <p onClick={this.displaySubformContainer}>Reply</p>
-                                <p>{this.likeCount()}</p>
+                                <div onClick={this.displaySubformContainer}>Reply</div>
+                                <div>{this.likeCount()}</div>
                             </div>
                             <SubcommentListContainer comment={this.props.comment}/>
                             
