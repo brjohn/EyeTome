@@ -9,6 +9,18 @@ See Friendbook in action! [Check out Friendbook here.](https://friendbook-2021.h
 
 ___
 
+## Technology
+Backend:
+* Ruby on Rails
+* React
+* Redux
+* AWS
+* PostgreSQL
+Frontend:
+* Javascript
+* HTML
+* CSS
+
 ## Friendbook Features
 
 ### Profiles
@@ -28,10 +40,6 @@ About the Process:
 
 As a home for other components, the primary challenge with the NewsFeed, as with the Profile feature, was ensuring that changes to one component triggered a rerender when necessary, so that changes in friends, replies, etc are always displayed immediately. This was accomplished by a careful sharing of props and the ComponentDidUpdate lifecycle method.  
 
-### Posts 
-As I continue working on this project, it will grow to include the following features:
-* Friendships and Friend Requests: to build a community, users must be able to request and accept other users as friends. These friendships then curate the user's Friendbook experience by populating his/her wall and NewsFeed with friend contributions.
-* Posts: texts contributed on a users' own wall or that of a friend, which are visible to all friends
-* Comments: texts attached to posts or comments by friends
-* Likes: emoji like responses to posts or comments by friends
+### Friends 
+I accomplished the essential friending feature of Friendbook by creating models for requests and friendships. I set up the controller actions so that a request could be created, and if it is rejected, then this instance is destroyed, or if it is accepted, two new friendships are created, reciprocal friendships for both users, and the request is subsequently destroyed. When a friend is deleted, both reciprocal friendships are destroyed.  
 
