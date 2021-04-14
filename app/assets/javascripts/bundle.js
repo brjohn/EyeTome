@@ -2968,6 +2968,7 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
     key: "preview",
     value: function preview() {
       if (this.state.postPicUrl) {
+        debugger;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: this.state.postPicUrl,
           className: "post-pic"

@@ -2,6 +2,7 @@
     json.set! user.id do 
         json.extract! user, :id, :first_name, :last_name
         json.profilePicUrl url_for(user.profile_pic) if user.profile_pic.attached?      
+    end
     json.friends do 
         user.user_friendships do |user_friendship|
             json.set! user_friendship.friend_id
