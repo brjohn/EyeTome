@@ -7,6 +7,7 @@ const mapStateToProps = ({session, entities: {users}}) => {
     if (users[session.currentUser].friendships){
         myfriends = Object.values(users[session.currentUser].friendships)
     }
+    // debugger
     return {
         usersArray: Object.values(users),
         friends: myfriends 

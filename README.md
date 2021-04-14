@@ -41,5 +41,20 @@ About the Process:
 As a home for other components, the primary challenge with the NewsFeed, as with the Profile feature, was ensuring that changes to one component triggered a rerender when necessary, so that changes in friends, replies, etc are always displayed immediately. This was accomplished by a careful sharing of props and the ComponentDidUpdate lifecycle method.  
 
 ### Friends 
-I accomplished the essential friending feature of Friendbook by creating models for requests and friendships. I set up the controller actions so that a request could be created, and if it is rejected, then this instance is destroyed, or if it is accepted, two new friendships are created, reciprocal friendships for both users, and the request is subsequently destroyed. When a friend is deleted, both reciprocal friendships are destroyed.  
+* Users can make, accept, or reject a friend request, and can delete a friend. 
+* Friends posts are displayed on the user's NewsFeed, and friends can post on a user's wall. 
+* A user can search for other Friendbook users outside & inside their friend network via the search feature
+
+About the Process: 
+
+I accomplished the essential friending feature of Friendbook by creating models for requests and friendships. I set up the controller actions so that a request could be created, and if it is rejected, then this instance is destroyed, or if it is accepted, two new friendships are created - reciprocal friendships for both users - and the request is subsequently destroyed. When a friend is deleted, both reciprocal friendships are destroyed. 
+
+### Likes
+* Users can like a post or comment
+* Likes are displayed and counted by the liked item
+
+About the Process:
+
+The Likes feature was developed using a Rails polymorphic association between likes, posts, and comments.
+
 

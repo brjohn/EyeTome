@@ -27,7 +27,7 @@ class Profile extends React.Component {
             this.props.fetchUser(this.props.profileOwnerId).then(()=> {
                 if (this.props.profileOwner.friendships){
                 this.setState({['friends']: Object.values(this.props.profileOwner.friends)}) 
-                console.log(this.state.friends)
+                // console.log(this.state.friends)
             }
             this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(()=> {
             let posts = this.props.posts;
@@ -80,7 +80,8 @@ class Profile extends React.Component {
             let posts = this.props.posts;
             this.setState({['myPosts']: posts.reverse()})
         })
-        this.props.fetchComments()
+        this.props.fetchComments();
+        // this.props.fetchUsers();
     }
 
     displayIntro(){

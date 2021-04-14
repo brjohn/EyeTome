@@ -7,7 +7,8 @@ class Search extends React.Component {
         super(props);
         this.state = {
             searchQuery: '',
-            displayResults: false
+            displayResults: false,
+            // usersArray: this.props.users
         }
         this.isFriend = this.isFriend.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -20,6 +21,11 @@ class Search extends React.Component {
             return <p className="is-friend"></p>
         }
     }
+    // componentDidMount(){
+    //     this.props.fetchUsers().then(()=> {
+    //         this.setState({['usersArray']: Object.values(this.props.users)})
+    //     })
+    // }
     closeResults(e){
         
         this.setState({['displayResults']: false})

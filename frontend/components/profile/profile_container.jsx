@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUser, updateUser } from '../../actions/user_actions';
+import { fetchUser, fetchUsers, updateUser } from '../../actions/user_actions';
 import Profile from './profile';
 import { openModal } from '../../actions/modal_actions';
 import {deletePost, fetchPost, fetchPosts} from '../../actions/post_actions';
@@ -28,7 +28,8 @@ const mapDispatchToProps = dispatch => ({
     fetchPosts: (wallId) => dispatch(fetchPosts(wallId)),
     fetchComments: () => dispatch(fetchComments()),
     deletePost: (id) => dispatch(deletePost(id)),
-    fetchPost: (id) => dispatch(fetchPost(id))
+    fetchPost: (id) => dispatch(fetchPost(id)),
+    fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

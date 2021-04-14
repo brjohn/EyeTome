@@ -8,8 +8,9 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount(){
-    this.props.fetchUser(this.props.currentUser)
-    this.props.fetchPosts('all')
+    // this.props.fetchUsers()
+    this.props.fetchUser(this.props.currentUser);
+    this.props.fetchPosts('all');
   }
 
     render(){

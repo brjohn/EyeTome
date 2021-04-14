@@ -1763,6 +1763,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
   _createClass(Home, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // this.props.fetchUsers()
       this.props.fetchUser(this.props.currentUser);
       this.props.fetchPosts('all');
     }
@@ -1805,9 +1806,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var session = _ref.session;
+  var session = _ref.session,
+      entities = _ref.entities;
   return {
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    users: entities.users
   };
 };
 
@@ -1818,6 +1821,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchPosts: function fetchPosts(wallId) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_5__["fetchPosts"])(wallId));
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchUsers"])());
     }
   };
 };
@@ -1906,9 +1912,8 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
           }
         });
 
-        _this2.setState(_defineProperty({}, 'friendsPosts', posts.reverse()));
+        _this2.setState(_defineProperty({}, 'friendsPosts', posts.reverse())); // console.log(this.state.friendsPosts)
 
-        console.log(_this2.state.friendsPosts);
       });
       this.props.fetchComments();
     }
@@ -2399,6 +2404,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2436,6 +2443,9 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, NavBar);
 
     _this = _super.call(this, props);
+    _this.state = {
+      usersArray: Object.values(_this.props.users)
+    };
     _this.thumbnail = _this.thumbnail.bind(_assertThisInitialized(_this));
     _this.requestCount = _this.requestCount.bind(_assertThisInitialized(_this));
     return _this;
@@ -2444,7 +2454,16 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
   _createClass(NavBar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchUsers();
+      var _this2 = this;
+
+      // debugger
+      this.props.fetchUsers().then(function () {
+        // debugger
+        _this2.setState(_defineProperty({}, 'usersArray', Object.values(_this2.props.users))); // debugger
+
+
+        console.log('success');
+      });
       this.props.fetchUser(this.props.fullUser.id);
     }
   }, {
@@ -2545,7 +2564,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
       users = _ref.entities.users;
   return {
     // currentUser: session.currentUser,
-    fullUser: users[session.currentUser]
+    fullUser: users[session.currentUser],
+    users: users
   };
 };
 
@@ -3396,9 +3416,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       if (prevProps.profileOwnerId != this.props.profileOwnerId) {
         this.props.fetchUser(this.props.profileOwnerId).then(function () {
           if (_this2.props.profileOwner.friendships) {
-            _this2.setState(_defineProperty({}, 'friends', Object.values(_this2.props.profileOwner.friends)));
+            _this2.setState(_defineProperty({}, 'friends', Object.values(_this2.props.profileOwner.friends))); // console.log(this.state.friends)
 
-            console.log(_this2.state.friends);
           }
 
           _this2.props.fetchPosts(parseInt(_this2.props.profileOwnerId)).then(function () {
@@ -3462,7 +3481,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
         _this5.setState(_defineProperty({}, 'myPosts', posts.reverse()));
       });
-      this.props.fetchComments();
+      this.props.fetchComments(); // this.props.fetchUsers();
     }
   }, {
     key: "displayIntro",
@@ -3639,6 +3658,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchPost: function fetchPost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_4__["fetchPost"])(id));
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUsers"])());
     }
   };
 };
@@ -4286,7 +4308,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       searchQuery: '',
-      displayResults: false
+      displayResults: false // usersArray: this.props.users
+
     };
     _this.isFriend = _this.isFriend.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
@@ -4308,7 +4331,12 @@ var Search = /*#__PURE__*/function (_React$Component) {
           className: "is-friend"
         });
       }
-    }
+    } // componentDidMount(){
+    //     this.props.fetchUsers().then(()=> {
+    //         this.setState({['usersArray']: Object.values(this.props.users)})
+    //     })
+    // }
+
   }, {
     key: "closeResults",
     value: function closeResults(e) {
@@ -4411,7 +4439,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
   if (users[session.currentUser].friendships) {
     myfriends = Object.values(users[session.currentUser].friendships);
-  }
+  } // debugger
+
 
   return {
     usersArray: Object.values(users),

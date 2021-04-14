@@ -7,12 +7,23 @@ import SearchContainer from '../search/search_container';
 class NavBar extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            usersArray: Object.values(this.props.users)
+        }
+        
         this.thumbnail = this.thumbnail.bind(this);
         this.requestCount = this.requestCount.bind(this);
+        
     }
     
     componentDidMount(){
-        this.props.fetchUsers()
+        // debugger
+        this.props.fetchUsers().then(()=> {
+            // debugger
+            this.setState({['usersArray']: Object.values(this.props.users)})
+            // debugger
+            console.log('success')
+        })
         this.props.fetchUser(this.props.fullUser.id)
     }
 

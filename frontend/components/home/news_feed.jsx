@@ -26,7 +26,7 @@ class NewsFeed extends React.Component {
                 }  
             })
             this.setState({['friendsPosts']: posts.reverse()})
-                console.log(this.state.friendsPosts)
+                // console.log(this.state.friendsPosts)
                 
             })  
         this.props.fetchComments();
