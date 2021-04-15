@@ -43,7 +43,7 @@ class PostForm extends React.Component {
     }
     preview(){
         if (this.state.postPicUrl){
-            debugger
+            // debugger
             return <img src={this.state.postPicUrl} className="post-pic"/>
         } else {
             return null;

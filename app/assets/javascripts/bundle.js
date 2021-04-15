@@ -1892,13 +1892,40 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(NewsFeed, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _this2 = this;
+
+      if (prevProps.posts.length != this.props.posts.length) {
+        this.props.fetchUser(this.props.currentUser).then(function () {
+          var posts = [];
+          Object.values(_this2.props.poster.friendships).forEach(function (friend) {
+            if (friend.authored_posts) {
+              Object.values(friend.authored_posts).forEach(function (post) {
+                return posts.push(post);
+              });
+            }
+          });
+
+          _this2.props.posts.forEach(function (post) {
+            if (post.poster_id === _this2.props.currentUser) {
+              posts.push(post);
+            }
+          });
+
+          _this2.setState(_defineProperty({}, 'friendsPosts', posts.reverse())); // console.log(this.state.friendsPosts)
+
+        });
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.props.fetchUser(this.props.currentUser).then(function () {
         var posts = [];
-        Object.values(_this2.props.poster.friendships).forEach(function (friend) {
+        Object.values(_this3.props.poster.friendships).forEach(function (friend) {
           if (friend.authored_posts) {
             Object.values(friend.authored_posts).forEach(function (post) {
               return posts.push(post);
@@ -1906,13 +1933,13 @@ var NewsFeed = /*#__PURE__*/function (_React$Component) {
           }
         });
 
-        _this2.props.posts.forEach(function (post) {
-          if (post.poster_id === _this2.props.currentUser) {
+        _this3.props.posts.forEach(function (post) {
+          if (post.poster_id === _this3.props.currentUser) {
             posts.push(post);
           }
         });
 
-        _this2.setState(_defineProperty({}, 'friendsPosts', posts.reverse())); // console.log(this.state.friendsPosts)
+        _this3.setState(_defineProperty({}, 'friendsPosts', posts.reverse())); // console.log(this.state.friendsPosts)
 
       });
       this.props.fetchComments();
@@ -2833,6 +2860,7 @@ var CreatePostBox = function CreatePostBox(props) {
     }
   };
 
+  console.log(props.postForm);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2968,7 +2996,7 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
     key: "preview",
     value: function preview() {
       if (this.state.postPicUrl) {
-        debugger;
+        // debugger
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: this.state.postPicUrl,
           className: "post-pic"
@@ -3198,7 +3226,8 @@ var PostItem = function PostItem(props) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         onClick: function onClick() {
           return deletePost(post.id);
-        }
+        },
+        key: post.id
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-trash-alt"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Delete this post"))));
@@ -3297,6 +3326,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
 /* harmony import */ var _post_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post_form */ "./frontend/components/posts/post_form.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -3308,8 +3339,9 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
       _ref$entities = _ref.entities,
       users = _ref$entities.users,
       posts = _ref$entities.posts;
+  // debugger
   return {
-    profileOwnerId: ui.modal,
+    profileOwnerId: ownProps.match.params.userId,
     fullCurrentUser: users[session.currentUser],
     posts: Object.values(posts) // profileOwnerId: ownProps.match.params.userId
 
@@ -3330,7 +3362,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
@@ -3428,6 +3460,14 @@ var Profile = /*#__PURE__*/function (_React$Component) {
           });
         });
       }
+
+      if (prevProps.posts.length != this.props.posts.length) {
+        this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(function () {
+          var posts = _this2.props.posts;
+
+          _this2.setState(_defineProperty({}, 'myPosts', posts.reverse()));
+        });
+      }
     }
   }, {
     key: "displayEditProfile",
@@ -3472,9 +3512,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
       this.props.fetchUser(this.props.profileOwnerId).then(function () {
         if (_this5.props.profileOwner.friendships) {
-          _this5.setState(_defineProperty({}, 'friends', Object.values(_this5.props.profileOwner.friends)));
+          _this5.setState(_defineProperty({}, 'friends', Object.values(_this5.props.profileOwner.friends))); // console.log(this.state.friends)
 
-          console.log(_this5.state.friends);
         }
       });
       this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(function () {
@@ -3511,7 +3550,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
           openModal: this.props.openModal,
           poster: this.props.fullCurrentUser,
-          postForm: parseInt(this.props.profileOwnerId)
+          postForm: "createprofilepost"
         });
       } else {
         return null;
@@ -3577,7 +3616,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
           openModal: this.props.openModal,
           poster: this.props.fullCurrentUser,
-          postForm: parseInt(this.props.profileOwnerId)
+          postForm: "createprofilepost"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
           fetchPost: this.props.fetchPost,
           posts: this.state.myPosts,
@@ -4725,11 +4764,12 @@ function Modal(_ref) {
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_form_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
       break;
 
-    default:
+    case 'createprofilepost':
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_profile_post_form_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
       break;
-    // default:
-    //     return null;
+
+    default:
+      return null;
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4744,6 +4784,7 @@ function Modal(_ref) {
 }
 
 var mapStateToProps = function mapStateToProps(state) {
+  // debugger
   return {
     modal: state.ui.modal
   };

@@ -11,6 +11,29 @@ class NewsFeed extends React.Component {
         // this.posts = this.posts.bind(this);
 
     }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.posts.length != this.props.posts.length){
+            this.props.fetchUser(this.props.currentUser)
+        .then(()=>{
+            let posts = []
+            Object.values(this.props.poster.friendships).forEach(friend => {
+                if (friend.authored_posts){
+                    Object.values(friend.authored_posts).forEach(post => posts.push(post))
+                }
+            })
+            this.props.posts.forEach(post => {
+                if (post.poster_id === this.props.currentUser){
+                   posts.push(post) 
+                }  
+            })
+            this.setState({['friendsPosts']: posts.reverse()})
+                // console.log(this.state.friendsPosts)
+                
+            })  
+        }
+    }
+
     componentDidMount(){
         this.props.fetchUser(this.props.currentUser)
         .then(()=>{

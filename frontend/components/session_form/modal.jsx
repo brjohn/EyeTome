@@ -21,11 +21,11 @@ function Modal({ modal, closeModal }) {
         case 'createpost':
             component = <PostFormContainer/>;
             break;
-        default:
+        case 'createprofilepost':
             component = <ProfilePostFormContainer/>;
             break;
-        // default:
-        //     return null;
+        default:
+            return null;
     }
 
     return (
@@ -37,7 +37,8 @@ function Modal({ modal, closeModal }) {
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+    // debugger
     return {
         modal: state.ui.modal
     };

@@ -35,6 +35,11 @@ class Profile extends React.Component {
         })
             })
         }
+        if (prevProps.posts.length != this.props.posts.length){
+            this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(()=> {
+            let posts = this.props.posts;
+            this.setState({['myPosts']: posts.reverse()})
+        })}
     }
     displayEditProfile(){
         
@@ -73,7 +78,7 @@ class Profile extends React.Component {
             
             if (this.props.profileOwner.friendships){
                 this.setState({['friends']: Object.values(this.props.profileOwner.friends)}) 
-                console.log(this.state.friends)
+                // console.log(this.state.friends)
             }
         })
         this.props.fetchPosts(parseInt(this.props.profileOwnerId)).then(()=> {
@@ -102,7 +107,7 @@ class Profile extends React.Component {
                 <CreatePostBox 
                 openModal={this.props.openModal} 
                 poster={this.props.fullCurrentUser} 
-                postForm={parseInt(this.props.profileOwnerId)}
+                postForm='createprofilepost'
                 />
             ) 
         } else {
@@ -169,11 +174,10 @@ class Profile extends React.Component {
                             </div>
                         </div>
                         <div className="right-profile">
-                            {/* {this.displayPostBox()} */}
                             <CreatePostBox 
                             openModal={this.props.openModal} 
                             poster={this.props.fullCurrentUser} 
-                            postForm={parseInt(this.props.profileOwnerId)}
+                            postForm='createprofilepost'
                             />
                            <PostList 
                            fetchPost={this.props.fetchPost}

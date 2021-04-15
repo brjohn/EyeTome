@@ -67,7 +67,7 @@ const PostItem = (props) => {
                 <div className="edit-post-icon">
                     <i className="fas fa-ellipsis-h" ></i>
                     <ul className="post-options-dropdown">
-                        <li onClick={()=>deletePost(post.id)}>
+                        <li onClick={()=>deletePost(post.id)} key={post.id}>
                             <i className="far fa-trash-alt"></i>
                             <p>Delete this post</p>
                         </li>
