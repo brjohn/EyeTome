@@ -47,11 +47,11 @@ class NavBar extends React.Component {
         <header className="main-nav">
             <nav className="left-nav">
                 <ul>
-                    <li id="fb-icon-button">
+                    <li id="fb-icon-button" key={"aa"}>
                         <i className="fab fa-facebook"></i>   
                     </li>
                     <SearchContainer />
-                    <li >
+                    <li key={"bb"}>
                         <Link to="/" id="home-button"><i className="fas fa-home"></i></Link>    
                     </li>
                 </ul>

@@ -60,14 +60,14 @@ const likeCommentCount = (post) => {
 
 const PostItem = (props) => {
     const {post, idx, deletePost, currentUser} = props 
-
+    
     const displayPostOptionsIcon = (post) => {
         if (post.poster.id === currentUser ){
             return (
                 <div className="edit-post-icon">
                     <i className="fas fa-ellipsis-h" ></i>
                     <ul className="post-options-dropdown">
-                        <li onClick={()=>deletePost(post.id)} key={post.id}>
+                        <li onClick={()=>deletePost(post.id)} >
                             <i className="far fa-trash-alt"></i>
                             <p>Delete this post</p>
                         </li>
