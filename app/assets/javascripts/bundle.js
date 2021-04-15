@@ -2871,14 +2871,14 @@ var CreatePostBox = function CreatePostBox(props) {
   }, thumbnail()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "whats-on-your-mind",
     onClick: function onClick() {
-      return props.openModal(props.postForm);
+      return props.openModal('createpost');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " What's on your mind, ", props.poster.first_name, "? "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "make-post-bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-file-image",
     onClick: function onClick() {
-      return props.openModal(props.postForm);
+      return props.openModal('createpost');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Photo"))));
 };
@@ -3089,18 +3089,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
 /* harmony import */ var _post_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post_form */ "./frontend/components/posts/post_form.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
+
+var mapStateToProps = function mapStateToProps(_ref, ownProps) {
   var session = _ref.session,
       entities = _ref.entities;
+  var profileOwnerId = session.currentUser;
+
+  if (ownProps.match.params.userId) {
+    profileOwnerId = ownProps.match.params.userId;
+  }
+
   return {
     fullCurrentUser: entities.users[session.currentUser],
     posts: Object.values(entities.posts),
-    profileOwnerId: session.currentUser
+    profileOwnerId: profileOwnerId
   };
 };
 
@@ -3118,7 +3126,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_post_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
@@ -3436,8 +3444,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     _this.displayEditProfile = _this.displayEditProfile.bind(_assertThisInitialized(_this));
     _this.displayFriends = _this.displayFriends.bind(_assertThisInitialized(_this));
     _this.displayIntro = _this.displayIntro.bind(_assertThisInitialized(_this));
-    _this.displayEditIntro = _this.displayEditIntro.bind(_assertThisInitialized(_this));
-    _this.displayPostBox = _this.displayPostBox.bind(_assertThisInitialized(_this));
+    _this.displayEditIntro = _this.displayEditIntro.bind(_assertThisInitialized(_this)); // this.displayPostBox = this.displayPostBox.bind(this);
+
     return _this;
   }
 
@@ -3540,23 +3548,6 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }), "From ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", profileOwner.hometown)) : null);
     }
   }, {
-    key: "displayPostBox",
-    value: function displayPostBox() {
-      var _this6 = this;
-
-      if (parseInt(this.props.profileOwnerId) === this.props.currentUser || this.state.friends.some(function (friend) {
-        return friend.id === _this6.props.profileOwnerId;
-      })) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          openModal: this.props.openModal,
-          poster: this.props.fullCurrentUser,
-          postForm: "createprofilepost"
-        });
-      } else {
-        return null;
-      }
-    }
-  }, {
     key: "displayFriends",
     value: function displayFriends() {
       if (this.state.friends.length > 0) {
@@ -3586,7 +3577,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       if (!this.props.profileOwner) {
         return null;
       } else {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
           profileOwner: this.props.profileOwner,
           currentUser: this.props.currentUser,
           profileOwnerId: this.props.profileOwnerId,
@@ -3616,7 +3607,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_create_post_box__WEBPACK_IMPORTED_MODULE_5__["default"], {
           openModal: this.props.openModal,
           poster: this.props.fullCurrentUser,
-          postForm: "createprofilepost"
+          postForm: "createpost"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_list__WEBPACK_IMPORTED_MODULE_4__["default"], {
           fetchPost: this.props.fetchPost,
           posts: this.state.myPosts,
@@ -3670,9 +3661,7 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
     fullCurrentUser: users[session.currentUser],
     profileOwnerId: ownProps.match.params.userId,
     modal: ui.modal,
-    posts: Object.values(posts),
-    postForm: 'createwallpost' // postForm: users[ownProps.match.params.userId] 
-
+    posts: Object.values(posts)
   };
 };
 
@@ -4762,10 +4751,6 @@ function Modal(_ref) {
 
     case 'createpost':
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_form_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
-      break;
-
-    case 'createprofilepost':
-      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_profile_post_form_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
       break;
 
     default:

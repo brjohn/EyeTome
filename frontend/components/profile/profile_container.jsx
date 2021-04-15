@@ -14,9 +14,7 @@ const mapStateToProps = ({ ui, session, entities: { users, posts } }, ownProps) 
     fullCurrentUser: users[session.currentUser],
     profileOwnerId: ownProps.match.params.userId,
     modal: ui.modal,
-    posts: Object.values(posts),
-    postForm: 'createwallpost'
-    // postForm: users[ownProps.match.params.userId] 
+    posts: Object.values(posts)
 
 
 }};

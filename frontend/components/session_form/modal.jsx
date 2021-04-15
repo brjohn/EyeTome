@@ -21,9 +21,6 @@ function Modal({ modal, closeModal }) {
         case 'createpost':
             component = <PostFormContainer/>;
             break;
-        case 'createprofilepost':
-            component = <ProfilePostFormContainer/>;
-            break;
         default:
             return null;
     }
