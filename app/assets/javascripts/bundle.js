@@ -3222,7 +3222,6 @@ var likeCommentCount = function likeCommentCount(post) {
 
 var PostItem = function PostItem(props) {
   var post = props.post,
-      idx = props.idx,
       deletePost = props.deletePost,
       currentUser = props.currentUser;
 
@@ -3247,8 +3246,7 @@ var PostItem = function PostItem(props) {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "post",
-    key: idx
+    className: "post"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post-header-list"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3312,7 +3310,7 @@ var PostList = function PostList(props) {
   }, allPosts.map(function (post, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_post_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
       post: post,
-      idx: idx,
+      key: idx,
       currentUser: props.currentUser,
       deletePost: props.deletePost
     });

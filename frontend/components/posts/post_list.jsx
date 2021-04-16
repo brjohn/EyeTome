@@ -14,7 +14,7 @@ const PostList = (props) => {
             <ul className="all-nf-posts">
                 {allPosts.map((post, idx) => {
                     return (
-                        <PostItem post={post} idx={idx} currentUser={props.currentUser} deletePost={props.deletePost}/>
+                        <PostItem post={post} key={idx} currentUser={props.currentUser} deletePost={props.deletePost}/>
                     )
                 })}
                 

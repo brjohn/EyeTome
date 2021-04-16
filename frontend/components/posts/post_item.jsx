@@ -59,7 +59,7 @@ const likeCommentCount = (post) => {
 }
 
 const PostItem = (props) => {
-    const {post, idx, deletePost, currentUser} = props 
+    const {post, deletePost, currentUser} = props 
     
     const displayPostOptionsIcon = (post) => {
         if (post.poster.id === currentUser ){
@@ -80,7 +80,7 @@ const PostItem = (props) => {
     }
 
     return (
-        <li className="post" key={idx}>
+        <li className="post" >
                             
             <div className="post-header-list">
                 <div className="post-header-left">
