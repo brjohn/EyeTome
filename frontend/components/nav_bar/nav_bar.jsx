@@ -22,7 +22,7 @@ class NavBar extends React.Component {
             // debugger
             this.setState({['usersArray']: Object.values(this.props.users)})
             // debugger
-            console.log('success')
+            // console.log('success')
         })
         this.props.fetchUser(this.props.fullUser.id)
     }

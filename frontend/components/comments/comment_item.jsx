@@ -27,7 +27,7 @@ class CommentItem extends React.Component {
     }
 
     remove(commentId){
-        console.log(commentId)
+        // console.log(commentId)
         this.props.deleteComment(commentId).then(()=> {
             this.props.fetchPost(this.props.parentItem.id)
         })

@@ -10,7 +10,7 @@ const CreatePostBox = (props) => {
             return <i className="fas fa-user-circle"></i>
         }
     }
-    console.log(props.postForm)
+    // console.log(props.postForm)
     return (
         <div className="post">
             <div className="make-post-top">

@@ -906,7 +906,7 @@ var CommentItem = /*#__PURE__*/function (_React$Component) {
     value: function remove(commentId) {
       var _this2 = this;
 
-      console.log(commentId);
+      // console.log(commentId)
       this.props.deleteComment(commentId).then(function () {
         _this2.props.fetchPost(_this2.props.parentItem.id);
       });
@@ -2487,9 +2487,8 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       this.props.fetchUsers().then(function () {
         // debugger
         _this2.setState(_defineProperty({}, 'usersArray', Object.values(_this2.props.users))); // debugger
+        // console.log('success')
 
-
-        console.log('success');
       });
       this.props.fetchUser(this.props.fullUser.id);
     }
@@ -2861,9 +2860,9 @@ var CreatePostBox = function CreatePostBox(props) {
         className: "fas fa-user-circle"
       });
     }
-  };
+  }; // console.log(props.postForm)
 
-  console.log(props.postForm);
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
